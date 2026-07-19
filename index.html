@@ -1,35 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEW AIR — Premium Electromechanical for Luxury</title>
+    <title>naelee | Premium Engineering</title>
     
-    <!-- Google Fonts: Space Grotesk (for headers) and Inter (for body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for minimal icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    
-    <!-- Tailwind CSS for utility-first layout -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        graphite: '#0a0a0c',
-                        surface: '#111114',
-                        gold: '#c4a676', /* Muted, elegant European gold */
-                        steel: '#8a8d91',
-                        offwhite: '#f5f5f7'
-                    },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif']
+                    },
+                    colors: {
+                        graphite: '#111111',
+                        'graphite-light': '#1a1a1a',
+                        'muted-gold': '#C5A059',
+                        'steel-gray': '#8a8d91',
+                    },
+                    letterSpacing: {
+                        'widest-xl': '0.3em',
+                        'widest-2xl': '0.5em',
                     }
                 }
             }
@@ -38,273 +35,369 @@
 
     <style>
         :root {
-            --bg-color: #0a0a0c;
+            --grid-color: rgba(255, 255, 255, 0.03);
+            --gold-glow: rgba(197, 160, 89, 0.3);
         }
-        
+
         body {
-            background-color: var(--bg-color);
-            color: #f5f5f7;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            margin: 0;
             overflow-x: hidden;
-        }
-
-        /* Abstract Architectural Grid Background */
-        .grid-bg {
-            position: absolute;
-            inset: 0;
-            background-size: 60px 60px;
+            /* Architectural Grid */
             background-image: 
-                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-            mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
-            -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 70%);
-            z-index: 0;
-            pointer-events: none;
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-attachment: fixed;
         }
 
-        /* Subtle Engineering Lines */
-        .tech-line {
-            position: absolute;
-            background: linear-gradient(to bottom, transparent, rgba(196, 166, 118, 0.15), transparent);
-            width: 1px;
+        /* Subtle Technical Scanlines */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
             height: 100vh;
-            z-index: 0;
+            pointer-events: none;
+            z-index: 50;
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.01) 50%,
+                rgba(255,255,255,0) 100%
+            );
+            background-size: 100% 8px;
+            opacity: 0.6;
         }
 
-        .tech-line-1 { left: 15%; animation: scanline 12s linear infinite; }
-        .tech-line-2 { right: 15%; animation: scanline 15s linear infinite reverse; top: -50%; }
-
-        @keyframes scanline {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100%); }
+        /* Cinematic Intro Overlay */
+        #intro-overlay {
+            position: fixed;
+            inset: 0;
+            background-color: #0a0a0a;
+            background-image: 
+                linear-gradient(var(--grid-color) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
-        /* Precision Crosshairs */
-        .crosshair {
+        .intro-text-wrapper {
             position: absolute;
-            width: 16px;
-            height: 16px;
-            opacity: 0.3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
         }
-        .crosshair::before, .crosshair::after {
-            content: '';
-            position: absolute;
-            background: #f5f5f7;
-        }
-        .crosshair::before { width: 100%; height: 1px; top: 50%; left: 0; transform: translateY(-50%); }
-        .crosshair::after { width: 1px; height: 100%; top: 0; left: 50%; transform: translateX(-50%); }
 
-        /* Elegant Fade-In Animations */
-        .anim-fade-up {
+        /* Initial states for JS controlled animations */
+        #coming-soon-text {
+            opacity: 0;
+            font-weight: 300;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        #intro-logo {
+            opacity: 0;
+            font-weight: 800;
+            color: #C5A059;
+            text-transform: uppercase;
+            display: none; /* Revealed by JS */
+        }
+
+        /* Keyframes for smooth cinematic motion */
+        @keyframes cinematicFadeIn {
+            0% {
+                opacity: 0;
+                filter: blur(12px);
+                transform: scale(0.92);
+                letter-spacing: 0.1em;
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scale(1);
+                letter-spacing: 0.4em;
+            }
+        }
+
+        @keyframes cinematicFadeOut {
+            0% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scale(1) translateY(0);
+                letter-spacing: 0.4em;
+            }
+            100% {
+                opacity: 0;
+                filter: blur(10px);
+                transform: scale(1.05) translateY(-15px);
+                letter-spacing: 0.45em;
+            }
+        }
+
+        @keyframes logoReveal {
+            0% {
+                opacity: 0;
+                filter: blur(16px);
+                transform: scale(0.85);
+                text-shadow: 0 0 0px transparent;
+            }
+            100% {
+                opacity: 1;
+                filter: blur(0px);
+                transform: scale(1);
+                text-shadow: 0 0 25px var(--gold-glow);
+                letter-spacing: 0.25em;
+            }
+        }
+
+        @keyframes overlayVanish {
+            0% { opacity: 1; }
+            100% { opacity: 0; visibility: hidden; }
+        }
+
+        /* Main Content Entry Animation */
+        #main-content {
             opacity: 0;
             transform: translateY(20px);
-            animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        
-        @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
+            transition: opacity 1.5s cubic-bezier(0.25, 1, 0.5, 1), transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-        .delay-5 { animation-delay: 1.0s; }
+        .content-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
 
-        /* Typography split effect styling */
-        .split-text {
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(245, 245, 247, 0.4);
-            transition: all 0.5s ease;
+        /* Engineering Aesthetic UI elements */
+        .precision-border {
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
         }
         
-        .hero-title:hover .split-text {
-            color: rgba(245, 245, 247, 0.9);
-            -webkit-text-stroke: 1px transparent;
+        .precision-border::before, .precision-border::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border: 1px solid rgba(197, 160, 89, 0.5);
+        }
+        .precision-border::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .precision-border::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        .input-focus-gold:focus {
+            border-color: #C5A059;
+            outline: none;
+            box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
         }
     </style>
 </head>
-<body class="min-h-[100dvh] w-full relative flex flex-col overflow-x-hidden bg-graphite">
+<body class="antialiased selection:bg-muted-gold selection:text-black">
 
-    <!-- Architectural Background -->
-    <div class="fixed inset-0 bg-gradient-to-b from-graphite via-[#0d0d10] to-graphite z-[-2]"></div>
-    <div class="grid-bg"></div>
-    <div class="tech-line tech-line-1"></div>
-    <div class="tech-line tech-line-2"></div>
+    <div class="scanlines"></div>
 
-    <!-- Inner Frame (Precision aesthetic) -->
-    <div class="fixed inset-4 md:inset-8 border border-white/5 pointer-events-none z-0">
-        <div class="crosshair top-[-8px] left-[-8px]"></div>
-        <div class="crosshair top-[-8px] right-[-8px]"></div>
-        <div class="crosshair bottom-[-8px] left-[-8px]"></div>
-        <div class="crosshair bottom-[-8px] right-[-8px]"></div>
+    <div id="intro-overlay">
+        <div class="intro-text-wrapper">
+            <h1 id="coming-soon-text" class="text-3xl md:text-5xl lg:text-6xl tracking-widest-xl">
+                Coming Soon
+            </h1>
+        </div>
+        <div class="intro-text-wrapper">
+            <h1 id="intro-logo" class="text-4xl md:text-6xl lg:text-7xl tracking-widest flex items-center justify-center">
+                <svg width="60" height="60" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-muted-gold mr-4 md:mr-6 drop-shadow-lg">
+                    <path d="M10 30V10L20 20V30L10 30Z" fill="currentColor"/>
+                    <path d="M30 10V30L20 20V10L30 10Z" fill="currentColor" fill-opacity="0.4"/>
+                </svg>
+                naelee
+            </h1>
+        </div>
     </div>
 
-    <!-- Header -->
-    <header class="w-full px-8 py-8 md:px-16 md:py-10 flex justify-center md:justify-between items-center relative z-10 anim-fade-up">
-        <!-- Logo Area -->
-        <div class="flex items-center gap-4">
-            <!-- Brand Logo -->
-            <img src="https://i.postimg.cc/8cnYpbTM/image.png" alt="NEW AIR Logo" class="h-12 md:h-14 w-auto object-contain drop-shadow-md">
-            <div class="flex flex-col">
-                <span class="font-display font-semibold tracking-[0.3em] text-offwhite text-sm">NEW AIR</span>
-            </div>
-        </div>
-
-        <!-- Optional top right element for desktop -->
-        <div class="hidden md:flex items-center gap-2 text-xs font-display tracking-[0.2em] text-steel">
-            <span class="w-2 h-2 rounded-full bg-gold/80 animate-pulse"></span>
-            SYSTEM STATUS: INITIALIZING
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-1 flex flex-col items-center justify-center text-center px-6 relative z-10 w-full py-8 md:py-10">
+    <main id="main-content" class="min-h-screen flex flex-col relative z-10">
         
-        <p class="text-gold uppercase tracking-[0.4em] text-[0.65rem] md:text-xs font-semibold mb-4 md:mb-6 anim-fade-up delay-1">
-            Premium Electromechanical for Luxury
-        </p>
-        
-        <h1 class="hero-title font-display font-light leading-[0.85] tracking-tighter mb-8 cursor-default select-none anim-fade-up delay-2 w-full" style="font-size: clamp(4rem, 16vw, 13rem);">
-            <span class="text-offwhite block">COMING</span>
-            <span class="split-text block">SOON</span>
-        </h1>
-        
-        <p class="text-steel text-sm md:text-base font-light tracking-[0.05em] max-w-md mx-auto mb-12 md:mb-16 anim-fade-up delay-3">
-            Engineering a new standard of excellence. The future of premium air technology is arriving.
-        </p>
+        <!-- Header -->
+        <header class="w-full px-8 py-10 flex justify-between items-center border-b border-white/5">
+            <div class="text-muted-gold font-bold text-2xl tracking-widest uppercase flex items-center">
+                <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-4">
+                    <path d="M10 30V10L20 20V30L10 30Z" fill="currentColor"/>
+                    <path d="M30 10V30L20 20V10L30 10Z" fill="currentColor" fill-opacity="0.4"/>
+                </svg>
+                naelee
+            </div>
+            <div class="text-steel-gray text-sm tracking-widest uppercase hidden md:block">
+                Precision Engineering
+            </div>
+        </header>
 
-        <!-- Countdown -->
-        <div class="flex gap-4 md:gap-8 mb-16 anim-fade-up delay-4" id="countdown-container">
-            <!-- Days -->
-            <div class="flex flex-col items-center justify-center min-w-[70px] md:min-w-[90px]">
-                <span class="text-4xl md:text-5xl font-display font-light text-offwhite tabular-nums" id="days">00</span>
-                <span class="text-[0.55rem] md:text-[0.65rem] uppercase tracking-[0.2em] text-steel mt-3">Days</span>
-            </div>
-            <div class="w-[1px] h-12 bg-white/10 self-center"></div>
-            <!-- Hours -->
-            <div class="flex flex-col items-center justify-center min-w-[70px] md:min-w-[90px]">
-                <span class="text-4xl md:text-5xl font-display font-light text-offwhite tabular-nums" id="hours">00</span>
-                <span class="text-[0.55rem] md:text-[0.65rem] uppercase tracking-[0.2em] text-steel mt-3">Hours</span>
-            </div>
-            <div class="w-[1px] h-12 bg-white/10 self-center"></div>
-            <!-- Minutes -->
-            <div class="flex flex-col items-center justify-center min-w-[70px] md:min-w-[90px]">
-                <span class="text-4xl md:text-5xl font-display font-light text-offwhite tabular-nums" id="minutes">00</span>
-                <span class="text-[0.55rem] md:text-[0.65rem] uppercase tracking-[0.2em] text-steel mt-3">Minutes</span>
-            </div>
-            <div class="w-[1px] h-12 bg-white/10 self-center"></div>
-            <!-- Seconds -->
-            <div class="flex flex-col items-center justify-center min-w-[70px] md:min-w-[90px]">
-                <span class="text-4xl md:text-5xl font-display font-light text-offwhite tabular-nums" id="seconds">00</span>
-                <span class="text-[0.55rem] md:text-[0.65rem] uppercase tracking-[0.2em] text-gold mt-3">Seconds</span>
-            </div>
-        </div>
+        <!-- Hero & Countdown Section -->
+        <section class="flex-grow flex flex-col justify-center items-center px-6 py-20">
+            <div class="max-w-4xl w-full mx-auto text-center">
+                
+                <p class="text-muted-gold text-sm md:text-base tracking-widest-xl uppercase mb-6 font-light">
+                    Project Initiation
+                </p>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-8 tracking-wide leading-tight">
+                    A NEW STANDARD IN <br class="hidden md:block">
+                    <span class="font-semibold text-white">LUXURY ENGINEERING.</span>
+                </h1>
+                <p class="text-steel-gray max-w-2xl mx-auto mb-16 text-lg font-light leading-relaxed">
+                    European precision meets atmospheric perfection. The next generation of elite climate architecture is currently in final development.
+                </p>
 
-        <!-- Email Notification Form -->
-        <div class="w-full max-w-md anim-fade-up delay-5 mb-4">
-            <form id="notify-form" class="flex flex-col md:flex-row w-full border-b border-white/20 pb-3 transition-colors duration-500 focus-within:border-gold relative">
-                <input type="email" id="email-input" required placeholder="Be the first to know when we launch." 
-                    class="bg-transparent flex-1 text-sm text-offwhite outline-none placeholder:text-steel/50 mb-4 md:mb-0 px-2" />
-                <button type="submit" id="submit-btn" class="text-[0.65rem] uppercase tracking-[0.2em] text-gold hover:text-offwhite transition-colors duration-300 font-semibold px-2 whitespace-nowrap">
-                    Notify Me
-                </button>
-            </form>
-            <div id="form-message" class="h-6 mt-3 text-xs tracking-wide text-gold opacity-0 transition-opacity duration-300"></div>
-        </div>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-20">
+                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
+                        <span id="days" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
+                        <span class="text-steel-gray text-xs tracking-widest uppercase">Days</span>
+                    </div>
+                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
+                        <span id="hours" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
+                        <span class="text-steel-gray text-xs tracking-widest uppercase">Hours</span>
+                    </div>
+                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
+                        <span id="minutes" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
+                        <span class="text-steel-gray text-xs tracking-widest uppercase">Minutes</span>
+                    </div>
+                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
+                        <span id="seconds" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
+                        <span class="text-steel-gray text-xs tracking-widest uppercase">Seconds</span>
+                    </div>
+                </div>
+
+                <div class="max-w-md mx-auto relative z-20">
+                    <form id="notify-form" class="flex flex-col sm:flex-row gap-4" onsubmit="handleFormSubmit(event)">
+                        <input 
+                            type="email" 
+                            required
+                            placeholder="ENTER YOUR EMAIL" 
+                            class="flex-grow bg-graphite-light border border-white/10 text-white px-6 py-4 text-sm tracking-wide input-focus-gold transition-all duration-300 placeholder-steel-gray"
+                        >
+                        <button 
+                            type="submit" 
+                            class="bg-muted-gold hover:bg-yellow-600 text-black font-semibold px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300"
+                        >
+                            Notify
+                        </button>
+                    </form>
+                    <div id="form-message" class="hidden mt-4 text-sm tracking-wide text-muted-gold">
+                        Registry updated. You will be notified.
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="w-full px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-steel-gray text-xs tracking-widest uppercase">
+                &copy; <span id="year"></span> NEW AIR CORP. ALL RIGHTS RESERVED.
+            </div>
+            <div class="flex gap-6 text-steel-gray text-xs tracking-widest uppercase">
+                <a href="#" class="hover:text-muted-gold transition-colors">Contact</a>
+                <a href="#" class="hover:text-muted-gold transition-colors">Press</a>
+                <a href="#" class="hover:text-muted-gold transition-colors">Privacy</a>
+            </div>
+        </footer>
     </main>
 
-    <!-- Footer / Contact Area -->
-    <footer class="w-full px-8 py-6 md:px-16 md:py-8 flex flex-col md:flex-row justify-between items-center gap-6 relative z-10 anim-fade-up delay-5 border-t border-white/5 bg-surface/30 backdrop-blur-sm mt-auto">
-        
-        <!-- Contact Information -->
-        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-center text-[0.7rem] text-steel tracking-widest font-display">
-            <a href="tel:01223218448" class="hover:text-gold transition-colors duration-300 flex items-center gap-3">
-                <i class="fa-solid fa-phone text-[0.6rem] opacity-70"></i> 
-                +20 122 321 8448
-            </a>
-            <span class="hidden md:block w-4 h-[1px] bg-white/10"></span>
-            <a href="mailto:EssamA.A.A@newaireg.com.ur" class="hover:text-gold transition-colors duration-300 flex items-center gap-3">
-                <i class="fa-solid fa-envelope text-[0.6rem] opacity-70"></i> 
-                EssamA.A.A@newaireg.com.ur
-            </a>
-        </div>
-
-        <!-- Copyright -->
-        <div class="text-[0.65rem] text-steel/60 tracking-[0.1em] font-light text-center md:text-right">
-            &copy; 2026 NEW AIR &mdash; @nelaee &mdash; ALL RIGHTS RESERVED
-        </div>
-    </footer>
-
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Intro Animation Orchestrator
+        window.addEventListener('DOMContentLoaded', () => {
             
-            /* --- COUNTDOWN LOGIC --- */
-            // Set launch date to 3 months from now
-            const launchDate = new Date();
-            launchDate.setMonth(launchDate.getMonth() + 3);
-            launchDate.setHours(0, 0, 0, 0);
+            const comingSoonText = document.getElementById('coming-soon-text');
+            const introLogo = document.getElementById('intro-logo');
+            const overlay = document.getElementById('intro-overlay');
+            const mainContent = document.getElementById('main-content');
 
-            const daysEl = document.getElementById('days');
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
+            // 1. Entrance of "COMING SOON" (1.5 seconds)
+            comingSoonText.style.animation = 'cinematicFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards';
 
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = launchDate.getTime() - now;
+            // 2. Hold for exactly 2 seconds total, then Fade out "COMING SOON"
+            setTimeout(() => {
+                comingSoonText.style.animation = 'cinematicFadeOut 0.8s cubic-bezier(0.5, 0, 0.2, 1) forwards';
+            }, 2000);
 
-                if (distance <= 0) {
-                    daysEl.textContent = '00';
-                    hoursEl.textContent = '00';
-                    minutesEl.textContent = '00';
-                    secondsEl.textContent = '00';
-                    return;
-                }
+            // 3. Reveal "NEW AIR" Logo seamlessly after text disappears
+            setTimeout(() => {
+                introLogo.style.display = 'flex';
+                introLogo.style.animation = 'logoReveal 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+            }, 2800);
 
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // 4. Fade out the overlay and transition to main page
+            setTimeout(() => {
+                overlay.style.animation = 'overlayVanish 1.5s ease forwards';
+                mainContent.classList.add('content-visible');
+            }, 5500);
 
-                daysEl.textContent = String(days).padStart(2, '0');
-                hoursEl.textContent = String(hours).padStart(2, '0');
-                minutesEl.textContent = String(minutes).padStart(2, '0');
-                secondsEl.textContent = String(seconds).padStart(2, '0');
+            // 5. Hard remove overlay from DOM flow
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 7000);
+        });
+
+        // Countdown Timer Logic
+        // Fixed release date (e.g., November 15, 2026)
+        const targetDate = new Date('2026-11-15T12:00:00Z');
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+
+            if (distance < 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+                return;
             }
 
-            // Initialize and set interval
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+            // Pad with leading zeros
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+        }
 
-            /* --- FORM LOGIC --- */
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // Email Form Logic (Prevent default and show elegant message without alerts)
+        function handleFormSubmit(event) {
+            event.preventDefault();
             const form = document.getElementById('notify-form');
-            const emailInput = document.getElementById('email-input');
-            const submitBtn = document.getElementById('submit-btn');
-            const messageEl = document.getElementById('form-message');
+            const message = document.getElementById('form-message');
+            
+            // Simulate processing
+            const btn = form.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = 'PROCESSING...';
+            btn.disabled = true;
 
-            form.addEventListener('submit', (e) => {
-                e.preventDefault(); // Prevent page refresh
+            setTimeout(() => {
+                form.style.display = 'none';
+                message.style.display = 'block';
+                message.style.opacity = '0';
                 
-                const email = emailInput.value.trim();
-                if (!email) return;
-
-                // Simulate processing
-                emailInput.disabled = true;
-                submitBtn.textContent = 'PROCESSING...';
-                submitBtn.disabled = true;
-
-                // Simulate API call delay
+                // Fade in message
                 setTimeout(() => {
-                    // Success state
-                    form.style.display = 'none';
-                    messageEl.textContent = 'Registration successful. We will notify you.';
-                    messageEl.style.opacity = '1';
-                }, 1500);
-            });
-        });
+                    message.style.transition = 'opacity 0.5s ease';
+                    message.style.opacity = '1';
+                }, 50);
+            }, 800);
+        }
     </script>
 </body>
 </html>
