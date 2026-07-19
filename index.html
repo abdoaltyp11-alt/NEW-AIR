@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>naelee | Premium Engineering</title>
+    <title>NEW AIR | Premium Engineering</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +39,7 @@
         }
 
         body {
-            background-color: #0a0a0a;
+            background-color: transparent;
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
@@ -50,6 +49,23 @@
                 linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
             background-size: 40px 40px;
             background-attachment: fixed;
+        }
+
+        /* Background Image with Dark Cinematic Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background-image: 
+                linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.90)),
+                url('https://i.postimg.cc/t4gPLsqS/image.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
         /* Subtle Technical Scanlines */
@@ -214,7 +230,7 @@
                     <path d="M10 30V10L20 20V30L10 30Z" fill="currentColor"/>
                     <path d="M30 10V30L20 20V10L30 10Z" fill="currentColor" fill-opacity="0.4"/>
                 </svg>
-                naelee
+                NEW AIR
             </h1>
         </div>
     </div>
@@ -228,7 +244,7 @@
                     <path d="M10 30V10L20 20V30L10 30Z" fill="currentColor"/>
                     <path d="M30 10V30L20 20V10L30 10Z" fill="currentColor" fill-opacity="0.4"/>
                 </svg>
-                naelee
+                NEW AIR
             </div>
             <div class="text-steel-gray text-sm tracking-widest uppercase hidden md:block">
                 Precision Engineering
