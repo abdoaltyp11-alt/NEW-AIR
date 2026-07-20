@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>naelee | Premium Engineering</title>
+    <title>naelee | Premium Engineering Telemetry</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,7 +43,6 @@
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
-            /* Architectural Grid */
             background-image: 
                 linear-gradient(var(--grid-color) 1px, transparent 1px),
                 linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
@@ -51,7 +50,6 @@
             background-attachment: fixed;
         }
 
-        /* Background Image with Dark Cinematic Overlay */
         body::before {
             content: '';
             position: fixed;
@@ -68,7 +66,6 @@
             background-repeat: no-repeat;
         }
 
-        /* Subtle Technical Scanlines */
         .scanlines {
             position: fixed;
             top: 0;
@@ -87,7 +84,6 @@
             opacity: 0.6;
         }
 
-        /* Cinematic Intro Overlay */
         #intro-overlay {
             position: fixed;
             inset: 0;
@@ -111,7 +107,6 @@
             width: 100%;
         }
 
-        /* Initial states for JS controlled animations */
         #coming-soon-text {
             opacity: 0;
             font-weight: 300;
@@ -124,54 +119,22 @@
             font-weight: 800;
             color: #C5A059;
             text-transform: uppercase;
-            display: none; /* Revealed by JS */
+            display: none; 
         }
 
-        /* Keyframes for smooth cinematic motion */
         @keyframes cinematicFadeIn {
-            0% {
-                opacity: 0;
-                filter: blur(12px);
-                transform: scale(0.92);
-                letter-spacing: 0.1em;
-            }
-            100% {
-                opacity: 1;
-                filter: blur(0px);
-                transform: scale(1);
-                letter-spacing: 0.4em;
-            }
+            0% { opacity: 0; filter: blur(12px); transform: scale(0.92); letter-spacing: 0.1em; }
+            100% { opacity: 1; filter: blur(0px); transform: scale(1); letter-spacing: 0.4em; }
         }
 
         @keyframes cinematicFadeOut {
-            0% {
-                opacity: 1;
-                filter: blur(0px);
-                transform: scale(1) translateY(0);
-                letter-spacing: 0.4em;
-            }
-            100% {
-                opacity: 0;
-                filter: blur(10px);
-                transform: scale(1.05) translateY(-15px);
-                letter-spacing: 0.45em;
-            }
+            0% { opacity: 1; filter: blur(0px); transform: scale(1) translateY(0); letter-spacing: 0.4em; }
+            100% { opacity: 0; filter: blur(10px); transform: scale(1.05) translateY(-15px); letter-spacing: 0.45em; }
         }
 
         @keyframes logoReveal {
-            0% {
-                opacity: 0;
-                filter: blur(16px);
-                transform: scale(0.85);
-                text-shadow: 0 0 0px transparent;
-            }
-            100% {
-                opacity: 1;
-                filter: blur(0px);
-                transform: scale(1);
-                text-shadow: 0 0 25px var(--gold-glow);
-                letter-spacing: 0.25em;
-            }
+            0% { opacity: 0; filter: blur(16px); transform: scale(0.85); text-shadow: 0 0 0px transparent; }
+            100% { opacity: 1; filter: blur(0px); transform: scale(1); text-shadow: 0 0 25px var(--gold-glow); letter-spacing: 0.25em; }
         }
 
         @keyframes overlayVanish {
@@ -179,7 +142,6 @@
             100% { opacity: 0; visibility: hidden; }
         }
 
-        /* Main Content Entry Animation */
         #main-content {
             opacity: 0;
             transform: translateY(20px);
@@ -191,7 +153,6 @@
             transform: translateY(0) !important;
         }
 
-        /* Engineering Aesthetic UI elements */
         .precision-border {
             border: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
@@ -220,15 +181,19 @@
 
     <div id="intro-overlay">
         <div class="intro-text-wrapper">
-            <h1 id="coming-soon-text" class="text-3xl md:text-5xl lg:text-6xl tracking-widest-xl">
-                Coming Soon
+            <h1 id="coming-soon-text" class="text-3xl md:text-5xl lg:text-6xl tracking-widest-xl text-center px-4">
+                Systems Online
             </h1>
         </div>
         <div class="intro-text-wrapper">
             <h1 id="intro-logo" class="text-4xl md:text-6xl lg:text-7xl tracking-widest flex items-center justify-center">
-                <svg width="60" height="60" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-muted-gold mr-4 md:mr-6 drop-shadow-lg">
-                    <path d="M10 30V10L20 20V30L10 30Z" fill="currentColor"/>
-                    <path d="M30 10V30L20 20V10L30 10Z" fill="currentColor" fill-opacity="0.4"/>
+                <!-- Custom SVG Logo reflecting the NA monogram, crescent and waves -->
+                <svg width="70" height="70" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-muted-gold mr-4 md:mr-6 drop-shadow-[0_0_15px_rgba(197,160,89,0.3)]">
+                    <path d="M60 8C31.3 8 8 31.3 8 60C8 88.7 31.3 112 60 112C75.8 112 90 105.1 99.4 93.8C88 105.7 72.1 113.1 54.5 113.1C23.3 113.1 -2 87.8 -2 56.5C-2 25.2 23.3 -0.1 54.5 -0.1C72.1 -0.1 88 7.3 99.4 19.2C90 7.9 75.8 1 60 1" fill="currentColor"/>
+                    <text x="30" y="75" font-family="'Times New Roman', Georgia, serif" font-size="52" fill="currentColor" letter-spacing="-3">NA</text>
+                    <path d="M 22 82 Q 40 68 60 82 T 98 82" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 28 91 Q 46 77 66 91 T 104 91" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 34 100 Q 52 86 72 100 T 110 100" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
                 </svg>
                 naelee
             </h1>
@@ -237,12 +202,15 @@
 
     <main id="main-content" class="min-h-screen flex flex-col relative z-10">
         
-        <!-- Header -->
         <header class="w-full px-8 py-10 flex justify-between items-center border-b border-white/5">
             <div class="text-muted-gold font-bold text-2xl tracking-widest uppercase flex items-center">
-                <svg width="30" height="30" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-4">
-                    <path d="M10 30V10L20 20V30L10 30Z" fill="currentColor"/>
-                    <path d="M30 10V30L20 20V10L30 10Z" fill="currentColor" fill-opacity="0.4"/>
+                <!-- Header Logo -->
+                <svg width="40" height="40" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-4 drop-shadow-md">
+                    <path d="M60 8C31.3 8 8 31.3 8 60C8 88.7 31.3 112 60 112C75.8 112 90 105.1 99.4 93.8C88 105.7 72.1 113.1 54.5 113.1C23.3 113.1 -2 87.8 -2 56.5C-2 25.2 23.3 -0.1 54.5 -0.1C72.1 -0.1 88 7.3 99.4 19.2C90 7.9 75.8 1 60 1" fill="currentColor"/>
+                    <text x="30" y="75" font-family="'Times New Roman', Georgia, serif" font-size="52" fill="currentColor" letter-spacing="-3">NA</text>
+                    <path d="M 22 82 Q 40 68 60 82 T 98 82" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 28 91 Q 46 77 66 91 T 104 91" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                    <path d="M 34 100 Q 52 86 72 100 T 110 100" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
                 </svg>
                 naelee
             </div>
@@ -251,37 +219,63 @@
             </div>
         </header>
 
-        <!-- Hero & Countdown Section -->
-        <section class="flex-grow flex flex-col justify-center items-center px-6 py-20">
-            <div class="max-w-4xl w-full mx-auto text-center">
+        <!-- Main Content Area -->
+        <section class="flex-grow flex flex-col justify-center items-center px-4 py-16">
+            <div class="max-w-5xl w-full mx-auto text-center">
                 
                 <p class="text-muted-gold text-sm md:text-base tracking-widest-xl uppercase mb-6 font-light">
-                    Project Initiation
+                    Environmental Telemetry
                 </p>
                 <h1 class="text-4xl md:text-6xl lg:text-7xl font-light mb-8 tracking-wide leading-tight">
                     A NEW STANDARD IN <br class="hidden md:block">
                     <span class="font-semibold text-white">LUXURY ENGINEERING.</span>
                 </h1>
                 <p class="text-steel-gray max-w-2xl mx-auto mb-16 text-lg font-light leading-relaxed">
-                    European precision meets atmospheric perfection. The next generation of elite climate architecture is currently in final development.
+                    European precision meets atmospheric perfection. Monitoring live environmental variables to ensure the ultimate climate architecture standards.
                 </p>
 
-                <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-20">
-                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
-                        <span id="days" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
-                        <span class="text-steel-gray text-xs tracking-widest uppercase">Days</span>
+                <div class="precision-border bg-graphite-light/60 backdrop-blur-md p-6 md:p-10 w-full max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 mb-20 relative overflow-hidden shadow-2xl">
+                    <!-- Subtle Glow -->
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-muted-gold/10 rounded-full blur-[80px] -z-10"></div>
+                    
+                    <div class="flex flex-col text-left w-full md:w-auto">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-2 h-2 bg-muted-gold rounded-full animate-pulse"></div>
+                            <span class="text-muted-gold text-xs tracking-widest-xl uppercase font-semibold">Live Data Stream</span>
+                        </div>
+                        <h2 class="text-3xl md:text-4xl text-white tracking-widest font-light mb-6">CAIRO <span class="text-steel-gray font-bold">EGYPT</span></h2>
+                        
+                        <div class="bg-black/50 border border-white/5 p-5 relative">
+                            <!-- Technical corners inside the box -->
+                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20"></div>
+                            <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20"></div>
+
+                            <div class="text-steel-gray text-xs tracking-widest font-mono flex flex-col gap-3">
+                                <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12">
+                                    <span class="text-muted-gold/70">LATITUDE</span>
+                                    <span class="text-white">30°03'58.7"N</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12">
+                                    <span class="text-muted-gold/70">LONGITUDE</span>
+                                    <span class="text-white">31°16'43.3"E</span>
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12 border-t border-white/10 pt-3 mt-1">
+                                    <span class="text-muted-gold/70">DECIMAL</span>
+                                    <span class="text-white text-opacity-80">30.066300, 31.278684</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
-                        <span id="hours" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
-                        <span class="text-steel-gray text-xs tracking-widest uppercase">Hours</span>
-                    </div>
-                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
-                        <span id="minutes" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
-                        <span class="text-steel-gray text-xs tracking-widest uppercase">Minutes</span>
-                    </div>
-                    <div class="precision-border bg-graphite-light/50 backdrop-blur-sm p-6 w-32 flex flex-col items-center">
-                        <span id="seconds" class="text-4xl md:text-5xl text-muted-gold font-light mb-2">00</span>
-                        <span class="text-steel-gray text-xs tracking-widest uppercase">Seconds</span>
+
+                    <div class="flex flex-col items-center md:items-end justify-center gap-2 md:border-l md:border-white/10 md:pl-10 w-full md:w-auto text-center md:text-right">
+                        <div class="text-7xl md:text-8xl text-muted-gold font-light tabular-nums leading-none tracking-tighter drop-shadow-lg" id="temperature">
+                            --°
+                        </div>
+                        <div class="flex flex-col text-steel-gray text-xs md:text-sm tracking-widest uppercase mt-4 gap-1">
+                            <span id="weather-desc" class="text-white font-semibold tracking-widest-xl">Acquiring...</span>
+                            <span class="text-white/60" id="wind-speed">Wind: -- km/h</span>
+                            <span class="text-white/60" id="humidity">Humidity: --%</span>
+                        </div>
                     </div>
                 </div>
 
@@ -308,10 +302,9 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer class="w-full px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="text-steel-gray text-xs tracking-widest uppercase">
-                &copy; <span id="year"></span> NEW AIR CORP. ALL RIGHTS RESERVED.
+                &copy; <span id="year"></span> NA ELEE ENGINEERING CORP. ALL RIGHTS RESERVED.
             </div>
             <div class="flex gap-6 text-steel-gray text-xs tracking-widest uppercase">
                 <a href="#" class="hover:text-muted-gold transition-colors">Contact</a>
@@ -322,83 +315,88 @@
     </main>
 
     <script>
-        // Set current year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Intro Animation Orchestrator
         window.addEventListener('DOMContentLoaded', () => {
-            
             const comingSoonText = document.getElementById('coming-soon-text');
             const introLogo = document.getElementById('intro-logo');
             const overlay = document.getElementById('intro-overlay');
             const mainContent = document.getElementById('main-content');
 
-            // 1. Entrance of "COMING SOON" (1.5 seconds)
             comingSoonText.style.animation = 'cinematicFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards';
 
-            // 2. Hold for exactly 2 seconds total, then Fade out "COMING SOON"
             setTimeout(() => {
                 comingSoonText.style.animation = 'cinematicFadeOut 0.8s cubic-bezier(0.5, 0, 0.2, 1) forwards';
             }, 2000);
 
-            // 3. Reveal "NEW AIR" Logo seamlessly after text disappears
             setTimeout(() => {
                 introLogo.style.display = 'flex';
                 introLogo.style.animation = 'logoReveal 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
             }, 2800);
 
-            // 4. Fade out the overlay and transition to main page
             setTimeout(() => {
                 overlay.style.animation = 'overlayVanish 1.5s ease forwards';
                 mainContent.classList.add('content-visible');
             }, 5500);
 
-            // 5. Hard remove overlay from DOM flow
             setTimeout(() => {
                 overlay.style.display = 'none';
+                fetchTelemetryData(); // Start fetching weather when intro ends
             }, 7000);
         });
 
-        // Countdown Timer Logic
-        // Fixed release date (e.g., November 15, 2026)
-        const targetDate = new Date('2026-11-15T12:00:00Z');
+        // Weather API Logic using Open-Meteo
+        async function fetchTelemetryData() {
+            // Target Location: Cairo (30.066300, 31.278684)
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=30.0663&longitude=31.2786&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error("Network response was not ok");
+                
+                const data = await response.json();
+                
+                const temp = Math.round(data.current.temperature_2m);
+                const wind = data.current.wind_speed_10m;
+                const humidity = data.current.relative_humidity_2m;
+                const code = data.current.weather_code;
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate.getTime() - now;
+                document.getElementById('temperature').innerText = `${temp}°`;
+                document.getElementById('wind-speed').innerText = `Wind: ${wind} km/h`;
+                document.getElementById('humidity').innerText = `Humidity: ${humidity}%`;
+                document.getElementById('weather-desc').innerText = getWeatherDescription(code);
 
-            if (distance < 0) {
-                document.getElementById("days").innerText = "00";
-                document.getElementById("hours").innerText = "00";
-                document.getElementById("minutes").innerText = "00";
-                document.getElementById("seconds").innerText = "00";
-                return;
+            } catch (error) {
+                console.error("Telemetry Sync Failed:", error);
+                document.getElementById('temperature').innerText = "ERR";
+                document.getElementById('weather-desc').innerText = "SYSTEM OFFLINE";
+                document.getElementById('wind-speed').innerText = "Data Unreachable";
+                document.getElementById('humidity').innerText = "";
             }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Pad with leading zeros
-            document.getElementById("days").innerText = days.toString().padStart(2, '0');
-            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }
 
-        setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
+        // WMO Weather interpretation codes
+        function getWeatherDescription(code) {
+            if (code === 0) return 'Clear Sky';
+            if (code === 1 || code === 2 || code === 3) return 'Partly Cloudy';
+            if (code >= 45 && code <= 48) return 'Fog';
+            if (code >= 51 && code <= 57) return 'Drizzle';
+            if (code >= 61 && code <= 67) return 'Rain';
+            if (code >= 71 && code <= 77) return 'Snow';
+            if (code >= 80 && code <= 82) return 'Showers';
+            if (code >= 95 && code <= 99) return 'Thunderstorm';
+            return 'Active';
+        }
 
-        // Email Form Logic (Prevent default and show elegant message without alerts)
+        // Update telemetry every 10 minutes (600,000 ms)
+        setInterval(fetchTelemetryData, 600000);
+
         function handleFormSubmit(event) {
             event.preventDefault();
             const form = document.getElementById('notify-form');
             const message = document.getElementById('form-message');
             
-            // Simulate processing
             const btn = form.querySelector('button');
-            const originalText = btn.innerText;
             btn.innerText = 'PROCESSING...';
             btn.disabled = true;
 
@@ -407,7 +405,6 @@
                 message.style.display = 'block';
                 message.style.opacity = '0';
                 
-                // Fade in message
                 setTimeout(() => {
                     message.style.transition = 'opacity 0.5s ease';
                     message.style.opacity = '1';
