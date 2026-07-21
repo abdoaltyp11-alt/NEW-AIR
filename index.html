@@ -274,10 +274,8 @@
                     </div>
                 </div>
 
-                <!-- FORM SECTION: PURE HTML (NO JAVASCRIPT INTERFERENCE) -->
                 <div class="max-w-md mx-auto relative z-20">
-                    <form action="https://formsubmit.co/E.A.A.A.Kamael@naelee.tech" method="POST" class="flex flex-col sm:flex-row gap-4">
-                        <!-- الحقل الخاص بالإيميل (ضروري جداً وجود name="email") -->
+                    <form action="https://formsubmit.co/E.A.A.A.Kamael@naelee.tech" method="POST" class="flex flex-col sm:flex-row gap-4 mb-8">
                         <input 
                             type="email" 
                             name="email"
@@ -285,7 +283,6 @@
                             placeholder="ENTER YOUR EMAIL" 
                             class="flex-grow bg-graphite-light border border-white/10 text-white px-6 py-4 text-sm tracking-wide input-focus-gold transition-all duration-300 placeholder-steel-gray"
                         >
-                        <!-- زر الإرسال -->
                         <button 
                             type="submit" 
                             class="bg-muted-gold hover:bg-yellow-600 text-black font-semibold px-8 py-4 text-sm tracking-widest uppercase transition-colors duration-300 cursor-pointer"
@@ -293,18 +290,26 @@
                             Notify
                         </button>
                     </form>
+
+                    <!-- رابط الإيميل المباشر الجديد -->
+                    <div class="flex flex-col items-center justify-center gap-3 bg-graphite-light/40 border border-white/5 p-4 rounded-sm backdrop-blur-sm">
+                        <span class="text-steel-gray text-xs uppercase tracking-widest-xl">Or Contact Directly</span>
+                        <a href="mailto:E.A.A.A.Kamael@naelee.tech" class="text-muted-gold hover:text-white transition-all duration-300 text-sm md:text-base tracking-widest font-mono drop-shadow-[0_0_8px_rgba(197,160,89,0.2)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+                            E.A.A.A.Kamael@naelee.tech
+                        </a>
+                    </div>
                 </div>
-                <!-- END FORM SECTION -->
 
             </div>
         </section>
 
         <footer class="w-full px-8 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="text-steel-gray text-xs tracking-widest uppercase">
+            <div class="text-steel-gray text-xs tracking-widest uppercase text-center md:text-left">
                 &copy; <span id="year"></span> NA ELEE ENGINEERING CORP. ALL RIGHTS RESERVED.
             </div>
             <div class="flex gap-6 text-steel-gray text-xs tracking-widest uppercase">
-                <a href="#" class="hover:text-muted-gold transition-colors">Contact</a>
+                <!-- تم تحديث هذا الرابط أيضاً ليفتح الإيميل مباشرة -->
+                <a href="mailto:E.A.A.A.Kamael@naelee.tech" class="hover:text-muted-gold transition-colors">Contact</a>
                 <a href="#" class="hover:text-muted-gold transition-colors">Press</a>
                 <a href="#" class="hover:text-muted-gold transition-colors">Privacy</a>
             </div>
@@ -312,10 +317,10 @@
     </main>
 
     <script>
-        // Set Year
+        // Set Year dynamically
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Intro Animations
+        // Handle Intro Sequence Animations
         window.addEventListener('DOMContentLoaded', () => {
             const comingSoonText = document.getElementById('coming-soon-text');
             const introLogo = document.getElementById('intro-logo');
@@ -344,8 +349,8 @@
             }, 7000);
         });
 
-        // Weather API Logic
         async function fetchTelemetryData() {
+            // Cairo, Egypt coordinates
             const url = 'https://api.open-meteo.com/v1/forecast?latitude=30.0663&longitude=31.2786&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
             
             try {
@@ -373,6 +378,7 @@
             }
         }
 
+        // Helper function to decode WMO weather codes
         function getWeatherDescription(code) {
             if (code === 0) return 'Clear Sky';
             if (code === 1 || code === 2 || code === 3) return 'Partly Cloudy';
@@ -385,6 +391,7 @@
             return 'Active';
         }
 
+        // Refresh telemetry every 10 minutes (600,000 ms)
         setInterval(fetchTelemetryData, 600000);
     </script>
 </body>
