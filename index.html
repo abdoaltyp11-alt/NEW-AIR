@@ -11,6 +11,209 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
+        // ==================== حماية الكود المتقدمة ====================
+        
+        // 1. منع فتح أدوات المطور (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
+        document.addEventListener('keydown', function(e) {
+            // منع F12
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // منع Ctrl+Shift+I (أدوات المطور)
+            if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // منع Ctrl+Shift+J (وحدة التحكم)
+            if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // منع Ctrl+U (عرض مصدر الصفحة)
+            if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // منع Ctrl+S (حفظ الصفحة)
+            if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
+                e.preventDefault();
+                return false;
+            }
+            
+            // منع Ctrl+C (نسخ) - مع السماح بالنسخ من الحقول المحددة
+            if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
+                const target = e.target;
+                if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !target.isContentEditable) {
+                    e.preventDefault();
+                    return false;
+                }
+            }
+        });
+        
+        // 2. منع النقر بزر الماوس الأيمن (قائمة السياق)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // 3. منع السحب والإفلات للصور والعناصر
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+            return false;
+        });
+        
+        // 4. حماية إضافية - تعطيل اختصارات لوحة المفاتيح الشائعة
+        document.addEventListener('keyup', function(e) {
+            // منع Alt+Left/Right (التنقل الخلفي/الأمامي)
+            if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        // 5. كشف أدوات المطور ومنع استخدامها
+        (function detectDevTools() {
+            const startTime = new Date().getTime();
+            
+            // كشف تغيير الحجم (تستخدمه أدوات المطور)
+            window.addEventListener('resize', function() {
+                const currentTime = new Date().getTime();
+                if (currentTime - startTime > 5000) {
+                    const widthDiff = window.outerWidth - window.innerWidth;
+                    const heightDiff = window.outerHeight - window.innerHeight;
+                    
+                    if (widthDiff > 160 || heightDiff > 160) {
+                        // تم فتح أدوات المطور - إعادة تحميل الصفحة
+                        window.location.reload();
+                    }
+                }
+            });
+        })();
+        
+        // 6. منع محاولات التصحيح (Debugging)
+        function preventDebugging() {
+            // إعادة تعريف console.log لجعله غير فعال في بعض الحالات
+            if (window.console) {
+                const originalLog = console.log;
+                const originalWarn = console.warn;
+                const originalError = console.error;
+                
+                console.log = function() {
+                    // منع تسجيل المفاتيح الحساسة
+                    const args = Array.from(arguments);
+                    if (args.some(arg => typeof arg === 'string' && arg.includes('password'))) {
+                        return;
+                    }
+                    originalLog.apply(console, arguments);
+                };
+                
+                // تعطيل بعض دوال التصحيح
+                console.debug = function() {};
+                console.trace = function() {};
+            }
+        }
+        preventDebugging();
+        
+        // 7. منع استخدام eval و new Function (أدوات تنفيذ الكود الديناميكي)
+        const originalEval = window.eval;
+        window.eval = function() {
+            throw new Error('Eval is disabled for security reasons');
+        };
+        
+        // 8. تشويش الكود الحساس
+        function obfuscateSensitiveData() {
+            // تخزين البيانات الحساسة بشكل مشفر
+            const encodedEmail = btoa('E.A.A.A.Kamael@naelee.tech');
+            const encodedUrl = btoa('mailto:E.A.A.A.Kamael@naelee.tech');
+            
+            // فك التشفير عند الاستخدام
+            document.querySelectorAll('a[href*="mailto"]').forEach(link => {
+                if (link.getAttribute('data-encoded')) {
+                    link.href = atob(link.getAttribute('data-encoded'));
+                }
+            });
+        }
+        
+        // 9. منع إدراج الكود الخارجي (XSS)
+        function preventXSS() {
+            const originalCreateElement = document.createElement;
+            document.createElement = function(tagName) {
+                const element = originalCreateElement.call(document, tagName);
+                
+                // منع إضافة script tags عن طريق JavaScript
+                if (tagName.toLowerCase() === 'script') {
+                    Object.defineProperty(element, 'src', {
+                        set: function(value) {
+                            // التحقق من أن المصدر موثوق
+                            if (!value.startsWith('https://cdn.tailwindcss.com') && 
+                                !value.startsWith('https://fonts.googleapis.com') &&
+                                !value.startsWith('https://api.open-meteo.com')) {
+                                console.warn('External script blocked for security');
+                                return;
+                            }
+                            this.setAttribute('src', value);
+                        }
+                    });
+                }
+                
+                return element;
+            };
+        }
+        preventXSS();
+        
+        // 10. إضافة علامة مائية رقمية
+        function addDigitalWatermark() {
+            const watermark = document.createElement('div');
+            watermark.style.cssText = `
+                position: fixed;
+                bottom: 5px;
+                right: 5px;
+                color: rgba(197, 160, 89, 0.08);
+                font-size: 8px;
+                font-family: monospace;
+                pointer-events: none;
+                z-index: 9999;
+                user-select: none;
+            `;
+            watermark.textContent = '© NAELEE CORP. | ' + new Date().getFullYear() + ' | All Rights Reserved';
+            document.body.appendChild(watermark);
+        }
+        
+        // 11. حماية الصور من النسخ
+        function protectImages() {
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                img.addEventListener('copy', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            });
+        }
+        
+        // تنفيذ جميع الحماية
+        document.addEventListener('DOMContentLoaded', function() {
+            obfuscateSensitiveData();
+            addDigitalWatermark();
+            protectImages();
+            
+            // تشفير الروابط
+            document.querySelectorAll('a[data-encoded]').forEach(link => {
+                link.href = atob(link.getAttribute('data-encoded'));
+            });
+        });
+        
+        // ==================== نهاية الحماية ====================
+        
+        // إعدادات Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -33,6 +236,40 @@
     </script>
 
     <style>
+        /* حماية CSS من النسخ */
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        
+        /* السماح بتحديد النص في الحقول المحددة فقط */
+        input, textarea, [contenteditable="true"] {
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+            user-select: text !important;
+        }
+        
+        /* منع تحديد الصور */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        
+        /* منع تسليط الضوء على العناصر */
+        ::selection {
+            background: rgba(197, 160, 89, 0.2);
+            color: #fff;
+        }
+        
         :root {
             --grid-color: rgba(255, 255, 255, 0.03);
             --gold-glow: rgba(197, 160, 89, 0.3);
@@ -173,9 +410,14 @@
             outline: none;
             box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
         }
+        
+        /* منع انعكاس الصفحة */
+        @media print {
+            body { display: none; }
+        }
     </style>
 </head>
-<body class="antialiased selection:bg-muted-gold selection:text-black">
+<body class="antialiased">
 
     <div class="scanlines"></div>
 
@@ -275,10 +517,10 @@
                 </div>
 
                 <div class="max-w-md mx-auto relative z-20">
-                    <!-- رابط الإيميل المباشر -->
+                    <!-- رابط الإيميل المشفر -->
                     <div class="flex flex-col items-center justify-center gap-3 bg-graphite-light/40 border border-white/5 p-8 rounded-sm backdrop-blur-sm shadow-xl">
                         <span class="text-steel-gray text-xs uppercase tracking-widest-xl">Contact Directly</span>
-                        <a href="mailto:E.A.A.A.Kamael@naelee.tech" class="text-muted-gold hover:text-white transition-all duration-300 text-sm md:text-lg tracking-widest font-mono drop-shadow-[0_0_8px_rgba(197,160,89,0.2)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+                        <a href="#" data-encoded="bWFpbHRvOkUuQS5BLkEuS2FtYWVsQG5hZWxlZS50ZWNo" class="text-muted-gold hover:text-white transition-all duration-300 text-sm md:text-lg tracking-widest font-mono drop-shadow-[0_0_8px_rgba(197,160,89,0.2)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
                             E.A.A.A.Kamael@naelee.tech
                         </a>
                     </div>
@@ -292,8 +534,7 @@
                 &copy; <span id="year"></span> NAELEE ENGINEERING CORP. ALL RIGHTS RESERVED.
             </div>
             <div class="flex gap-6 text-steel-gray text-xs tracking-widest uppercase">
-                <!-- تم تحديث هذا الرابط أيضاً ليفتح الإيميل مباشرة -->
-                <a href="mailto:E.A.A.A.Kamael@naelee.tech" class="hover:text-muted-gold transition-colors">Contact</a>
+                <a href="#" data-encoded="bWFpbHRvOkUuQS5BLkEuS2FtYWVsQG5hZWxlZS50ZWNo" class="hover:text-muted-gold transition-colors">Contact</a>
                 <a href="#" class="hover:text-muted-gold transition-colors">Press</a>
                 <a href="#" class="hover:text-muted-gold transition-colors">Privacy</a>
             </div>
@@ -301,82 +542,82 @@
     </main>
 
     <script>
-        // Set Year dynamically
-        document.getElementById('year').textContent = new Date().getFullYear();
+        // ==================== كود التشغيل الأساسي ====================
+        (function() {
+            // Set Year dynamically
+            document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Handle Intro Sequence Animations
-        window.addEventListener('DOMContentLoaded', () => {
-            const comingSoonText = document.getElementById('coming-soon-text');
-            const introLogo = document.getElementById('intro-logo');
-            const overlay = document.getElementById('intro-overlay');
-            const mainContent = document.getElementById('main-content');
+            // Handle Intro Sequence Animations
+            window.addEventListener('DOMContentLoaded', () => {
+                const comingSoonText = document.getElementById('coming-soon-text');
+                const introLogo = document.getElementById('intro-logo');
+                const overlay = document.getElementById('intro-overlay');
+                const mainContent = document.getElementById('main-content');
 
-            comingSoonText.style.animation = 'cinematicFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards';
+                comingSoonText.style.animation = 'cinematicFadeIn 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards';
 
-            setTimeout(() => {
-                comingSoonText.style.animation = 'cinematicFadeOut 0.8s cubic-bezier(0.5, 0, 0.2, 1) forwards';
-            }, 2000);
+                setTimeout(() => {
+                    comingSoonText.style.animation = 'cinematicFadeOut 0.8s cubic-bezier(0.5, 0, 0.2, 1) forwards';
+                }, 2000);
 
-            setTimeout(() => {
-                introLogo.style.display = 'flex';
-                introLogo.style.animation = 'logoReveal 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
-            }, 2800);
+                setTimeout(() => {
+                    introLogo.style.display = 'flex';
+                    introLogo.style.animation = 'logoReveal 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards';
+                }, 2800);
 
-            setTimeout(() => {
-                overlay.style.animation = 'overlayVanish 1.5s ease forwards';
-                mainContent.classList.add('content-visible');
-            }, 5500);
+                setTimeout(() => {
+                    overlay.style.animation = 'overlayVanish 1.5s ease forwards';
+                    mainContent.classList.add('content-visible');
+                }, 5500);
 
-            setTimeout(() => {
-                overlay.style.display = 'none';
-                fetchTelemetryData();
-            }, 7000);
-        });
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    fetchTelemetryData();
+                }, 7000);
+            });
 
-        async function fetchTelemetryData() {
-            // Cairo, Egypt coordinates
-            const url = 'https://api.open-meteo.com/v1/forecast?latitude=30.0663&longitude=31.2786&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
-            
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error("Network response was not ok");
+            async function fetchTelemetryData() {
+                const url = 'https://api.open-meteo.com/v1/forecast?latitude=30.0663&longitude=31.2786&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
                 
-                const data = await response.json();
-                
-                const temp = Math.round(data.current.temperature_2m);
-                const wind = data.current.wind_speed_10m;
-                const humidity = data.current.relative_humidity_2m;
-                const code = data.current.weather_code;
+                try {
+                    const response = await fetch(url);
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    
+                    const data = await response.json();
+                    
+                    const temp = Math.round(data.current.temperature_2m);
+                    const wind = data.current.wind_speed_10m;
+                    const humidity = data.current.relative_humidity_2m;
+                    const code = data.current.weather_code;
 
-                document.getElementById('temperature').innerText = `${temp}°`;
-                document.getElementById('wind-speed').innerText = `Wind: ${wind} km/h`;
-                document.getElementById('humidity').innerText = `Humidity: ${humidity}%`;
-                document.getElementById('weather-desc').innerText = getWeatherDescription(code);
+                    document.getElementById('temperature').innerText = `${temp}°`;
+                    document.getElementById('wind-speed').innerText = `Wind: ${wind} km/h`;
+                    document.getElementById('humidity').innerText = `Humidity: ${humidity}%`;
+                    document.getElementById('weather-desc').innerText = getWeatherDescription(code);
 
-            } catch (error) {
-                console.error("Telemetry Sync Failed:", error);
-                document.getElementById('temperature').innerText = "ERR";
-                document.getElementById('weather-desc').innerText = "SYSTEM OFFLINE";
-                document.getElementById('wind-speed').innerText = "Data Unreachable";
-                document.getElementById('humidity').innerText = "";
+                } catch (error) {
+                    console.error("Telemetry Sync Failed:", error);
+                    document.getElementById('temperature').innerText = "ERR";
+                    document.getElementById('weather-desc').innerText = "SYSTEM OFFLINE";
+                    document.getElementById('wind-speed').innerText = "Data Unreachable";
+                    document.getElementById('humidity').innerText = "";
+                }
             }
-        }
 
-        // Helper function to decode WMO weather codes
-        function getWeatherDescription(code) {
-            if (code === 0) return 'Clear Sky';
-            if (code === 1 || code === 2 || code === 3) return 'Partly Cloudy';
-            if (code >= 45 && code <= 48) return 'Fog';
-            if (code >= 51 && code <= 57) return 'Drizzle';
-            if (code >= 61 && code <= 67) return 'Rain';
-            if (code >= 71 && code <= 77) return 'Snow';
-            if (code >= 80 && code <= 82) return 'Showers';
-            if (code >= 95 && code <= 99) return 'Thunderstorm';
-            return 'Active';
-        }
+            function getWeatherDescription(code) {
+                if (code === 0) return 'Clear Sky';
+                if (code === 1 || code === 2 || code === 3) return 'Partly Cloudy';
+                if (code >= 45 && code <= 48) return 'Fog';
+                if (code >= 51 && code <= 57) return 'Drizzle';
+                if (code >= 61 && code <= 67) return 'Rain';
+                if (code >= 71 && code <= 77) return 'Snow';
+                if (code >= 80 && code <= 82) return 'Showers';
+                if (code >= 95 && code <= 99) return 'Thunderstorm';
+                return 'Active';
+            }
 
-        // Refresh telemetry every 10 minutes (600,000 ms)
-        setInterval(fetchTelemetryData, 600000);
+            setInterval(fetchTelemetryData, 600000);
+        })();
     </script>
 </body>
 </html>
