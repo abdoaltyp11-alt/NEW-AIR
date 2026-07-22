@@ -15,37 +15,26 @@
         
         // 1. منع فتح أدوات المطور (F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U)
         document.addEventListener('keydown', function(e) {
-            // منع F12
             if (e.key === 'F12' || e.keyCode === 123) {
                 e.preventDefault();
                 return false;
             }
-            
-            // منع Ctrl+Shift+I (أدوات المطور)
             if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.keyCode === 73)) {
                 e.preventDefault();
                 return false;
             }
-            
-            // منع Ctrl+Shift+J (وحدة التحكم)
             if (e.ctrlKey && e.shiftKey && (e.key === 'J' || e.key === 'j' || e.keyCode === 74)) {
                 e.preventDefault();
                 return false;
             }
-            
-            // منع Ctrl+U (عرض مصدر الصفحة)
             if (e.ctrlKey && (e.key === 'U' || e.key === 'u' || e.keyCode === 85)) {
                 e.preventDefault();
                 return false;
             }
-            
-            // منع Ctrl+S (حفظ الصفحة)
             if (e.ctrlKey && (e.key === 'S' || e.key === 's' || e.keyCode === 83)) {
                 e.preventDefault();
                 return false;
             }
-            
-            // منع Ctrl+C (نسخ) - مع السماح بالنسخ من الحقول المحددة
             if (e.ctrlKey && (e.key === 'C' || e.key === 'c' || e.keyCode === 67)) {
                 const target = e.target;
                 if (target.tagName !== 'INPUT' && target.tagName !== 'TEXTAREA' && !target.isContentEditable) {
@@ -55,101 +44,75 @@
             }
         });
         
-        // 2. منع النقر بزر الماوس الأيمن (قائمة السياق)
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             return false;
         });
         
-        // 3. منع السحب والإفلات للصور والعناصر
         document.addEventListener('dragstart', function(e) {
             e.preventDefault();
             return false;
         });
         
-        // 4. حماية إضافية - تعطيل اختصارات لوحة المفاتيح الشائعة
         document.addEventListener('keyup', function(e) {
-            // منع Alt+Left/Right (التنقل الخلفي/الأمامي)
             if (e.altKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) {
                 e.preventDefault();
                 return false;
             }
         });
         
-        // 5. كشف أدوات المطور ومنع استخدامها
         (function detectDevTools() {
             const startTime = new Date().getTime();
-            
-            // كشف تغيير الحجم (تستخدمه أدوات المطور)
             window.addEventListener('resize', function() {
                 const currentTime = new Date().getTime();
                 if (currentTime - startTime > 5000) {
                     const widthDiff = window.outerWidth - window.innerWidth;
                     const heightDiff = window.outerHeight - window.innerHeight;
-                    
                     if (widthDiff > 160 || heightDiff > 160) {
-                        // تم فتح أدوات المطور - إعادة تحميل الصفحة
                         window.location.reload();
                     }
                 }
             });
         })();
         
-        // 6. منع محاولات التصحيح (Debugging)
         function preventDebugging() {
-            // إعادة تعريف console.log لجعله غير فعال في بعض الحالات
             if (window.console) {
                 const originalLog = console.log;
                 const originalWarn = console.warn;
                 const originalError = console.error;
-                
                 console.log = function() {
-                    // منع تسجيل المفاتيح الحساسة
                     const args = Array.from(arguments);
                     if (args.some(arg => typeof arg === 'string' && arg.includes('password'))) {
                         return;
                     }
                     originalLog.apply(console, arguments);
                 };
-                
-                // تعطيل بعض دوال التصحيح
                 console.debug = function() {};
                 console.trace = function() {};
             }
         }
         preventDebugging();
         
-        // 7. منع استخدام eval و new Function (أدوات تنفيذ الكود الديناميكي)
         const originalEval = window.eval;
         window.eval = function() {
             throw new Error('Eval is disabled for security reasons');
         };
         
-        // 8. تشويش الكود الحساس
         function obfuscateSensitiveData() {
-            // تخزين البيانات الحساسة بشكل مشفر
-            const encodedEmail = btoa('E.A.A.A.Kamael@naelee.tech');
-            const encodedUrl = btoa('mailto:E.A.A.A.Kamael@naelee.tech');
-            
-            // فك التشفير عند الاستخدام
-            document.querySelectorAll('a[href*="mailto"]').forEach(link => {
+            document.querySelectorAll('a[data-encoded]').forEach(link => {
                 if (link.getAttribute('data-encoded')) {
                     link.href = atob(link.getAttribute('data-encoded'));
                 }
             });
         }
         
-        // 9. منع إدراج الكود الخارجي (XSS)
         function preventXSS() {
             const originalCreateElement = document.createElement;
             document.createElement = function(tagName) {
                 const element = originalCreateElement.call(document, tagName);
-                
-                // منع إضافة script tags عن طريق JavaScript
                 if (tagName.toLowerCase() === 'script') {
                     Object.defineProperty(element, 'src', {
                         set: function(value) {
-                            // التحقق من أن المصدر موثوق
                             if (!value.startsWith('https://cdn.tailwindcss.com') && 
                                 !value.startsWith('https://fonts.googleapis.com') &&
                                 !value.startsWith('https://api.open-meteo.com')) {
@@ -160,13 +123,11 @@
                         }
                     });
                 }
-                
                 return element;
             };
         }
         preventXSS();
         
-        // 10. إضافة علامة مائية رقمية
         function addDigitalWatermark() {
             const watermark = document.createElement('div');
             watermark.style.cssText = `
@@ -184,14 +145,12 @@
             document.body.appendChild(watermark);
         }
         
-        // 11. حماية الصور من النسخ
         function protectImages() {
             document.querySelectorAll('img').forEach(img => {
                 img.addEventListener('contextmenu', function(e) {
                     e.preventDefault();
                     return false;
                 });
-                
                 img.addEventListener('copy', function(e) {
                     e.preventDefault();
                     return false;
@@ -199,21 +158,15 @@
             });
         }
         
-        // تنفيذ جميع الحماية
         document.addEventListener('DOMContentLoaded', function() {
             obfuscateSensitiveData();
             addDigitalWatermark();
             protectImages();
-            
-            // تشفير الروابط
             document.querySelectorAll('a[data-encoded]').forEach(link => {
                 link.href = atob(link.getAttribute('data-encoded'));
             });
         });
         
-        // ==================== نهاية الحماية ====================
-        
-        // إعدادات Tailwind
         tailwind.config = {
             theme: {
                 extend: {
@@ -236,7 +189,6 @@
     </script>
 
     <style>
-        /* حماية CSS من النسخ */
         * {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -246,7 +198,6 @@
             user-select: none;
         }
         
-        /* السماح بتحديد النص في الحقول المحددة فقط */
         input, textarea, [contenteditable="true"] {
             -webkit-user-select: text !important;
             -moz-user-select: text !important;
@@ -254,7 +205,6 @@
             user-select: text !important;
         }
         
-        /* منع تحديد الصور */
         img {
             -webkit-user-drag: none;
             -khtml-user-drag: none;
@@ -264,7 +214,6 @@
             pointer-events: none;
         }
         
-        /* منع تسليط الضوء على العناصر */
         ::selection {
             background: rgba(197, 160, 89, 0.2);
             color: #fff;
@@ -411,9 +360,35 @@
             box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
         }
         
-        /* منع انعكاس الصفحة */
         @media print {
             body { display: none; }
+        }
+
+        /* ====== تأثيرات الرابط ====== */
+        .contact-link {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .contact-link:hover {
+            color: #ffffff !important;
+            text-shadow: 0 0 20px rgba(197, 160, 89, 0.5), 0 0 40px rgba(197, 160, 89, 0.2);
+            transform: scale(1.02);
+        }
+        
+        .contact-link:active {
+            transform: scale(0.96);
+        }
+
+        .click-feedback {
+            animation: pulseGlow 0.6s ease;
+        }
+
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 0px rgba(197, 160, 89, 0); }
+            30% { text-shadow: 0 0 30px rgba(197, 160, 89, 0.8), 0 0 60px rgba(197, 160, 89, 0.4); }
+            100% { text-shadow: 0 0 0px rgba(197, 160, 89, 0); }
         }
     </style>
 </head>
@@ -517,10 +492,13 @@
                 </div>
 
                 <div class="max-w-md mx-auto relative z-20">
-                    <!-- رابط الإيميل المشفر -->
+                    <!-- الرابط المطلوب مع الاستجابة عند الضغط -->
                     <div class="flex flex-col items-center justify-center gap-3 bg-graphite-light/40 border border-white/5 p-8 rounded-sm backdrop-blur-sm shadow-xl">
                         <span class="text-steel-gray text-xs uppercase tracking-widest-xl">Contact Directly</span>
-                        <a href="#" data-encoded="bWFpbHRvOkUuQS5BLkEuS2FtYWVsQG5hZWxlZS50ZWNo" class="text-muted-gold hover:text-white transition-all duration-300 text-sm md:text-lg tracking-widest font-mono drop-shadow-[0_0_8px_rgba(197,160,89,0.2)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
+                        <a href="#" 
+                           data-encoded="bWFpbHRvOkUuQS5BLkEuS2FtYWVsQG5hZWxlZS50ZWNo" 
+                           id="contactLink"
+                           class="contact-link text-muted-gold hover:text-white transition-all duration-300 text-sm md:text-lg tracking-widest font-mono drop-shadow-[0_0_8px_rgba(197,160,89,0.2)] hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)]">
                             E.A.A.A.Kamael@naelee.tech
                         </a>
                     </div>
@@ -542,12 +520,47 @@
     </main>
 
     <script>
-        // ==================== كود التشغيل الأساسي ====================
         (function() {
-            // Set Year dynamically
+            // ==================== تشغيل الرابط مع الاستجابة ====================
+            
+            // إعداد الرابط الرئيسي
+            const contactLink = document.getElementById('contactLink');
+            
+            // دالة تنفيذ الرابط
+            function handleLinkClick(event) {
+                event.preventDefault();
+                
+                // تفعيل تأثير النقر
+                contactLink.classList.remove('click-feedback');
+                void contactLink.offsetWidth; // إعادة تعيين الأنيميشن
+                contactLink.classList.add('click-feedback');
+                
+                // فك تشفير الرابط والحصول على البريد الإلكتروني
+                const encoded = contactLink.getAttribute('data-encoded');
+                const email = atob(encoded); // bWFpbHRvOkUuQS5BLkEuS2FtYWVsQG5hZWxlZS50ZWNo -> mailto:E.A.A.A.Kamael@naelee.tech
+                
+                // التحقق من أن الرابط يحتوي على mailto:
+                if (email.startsWith('mailto:')) {
+                    // فتح عميل البريد الإلكتروني
+                    window.location.href = email;
+                } else {
+                    // في حالة لم يكن mailto، نضيفه
+                    window.location.href = 'mailto:' + email;
+                }
+                
+                // تسجيل النقرة للتحليل (اختياري)
+                console.log('Contact link clicked: ' + email);
+            }
+            
+            // إضافة مستمع النقر للرابط
+            if (contactLink) {
+                contactLink.addEventListener('click', handleLinkClick);
+            }
+            
+            // ==================== الكود الأساسي الموجود ====================
+            
             document.getElementById('year').textContent = new Date().getFullYear();
 
-            // Handle Intro Sequence Animations
             window.addEventListener('DOMContentLoaded', () => {
                 const comingSoonText = document.getElementById('coming-soon-text');
                 const introLogo = document.getElementById('intro-logo');
@@ -598,7 +611,7 @@
                 } catch (error) {
                     console.error("Telemetry Sync Failed:", error);
                     document.getElementById('temperature').innerText = "ERR";
-                    document.getElementById('weather-desc').innerText = "SYSTEM OFFLINE";
+                    document.getElementById('weather-desc').innerText = "SYSTEM OFFSHORE";
                     document.getElementById('wind-speed').innerText = "Data Unreachable";
                     document.getElementById('humidity').innerText = "";
                 }
@@ -617,6 +630,16 @@
             }
 
             setInterval(fetchTelemetryData, 600000);
+            
+            // ==================== حماية إضافية للرابط ====================
+            
+            // منع النقر بزر الماوس الأيمن على الرابط لمنع نسخ الرابط
+            if (contactLink) {
+                contactLink.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+            }
         })();
     </script>
 </body>
