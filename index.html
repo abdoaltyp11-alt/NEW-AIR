@@ -78,8 +78,6 @@
         function preventDebugging() {
             if (window.console) {
                 const originalLog = console.log;
-                const originalWarn = console.warn;
-                const originalError = console.error;
                 console.log = function() {
                     const args = Array.from(arguments);
                     if (args.some(arg => typeof arg === 'string' && arg.includes('password'))) {
@@ -130,6 +128,7 @@
         
         function addDigitalWatermark() {
             const watermark = document.createElement('div');
+            watermark.id = 'digital-watermark'; 
             watermark.style.cssText = `
                 position: fixed;
                 bottom: 5px;
@@ -354,17 +353,10 @@
         .precision-border::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
         .precision-border::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
 
-        .input-focus-gold:focus {
-            border-color: #C5A059;
-            outline: none;
-            box-shadow: 0 0 10px rgba(197, 160, 89, 0.15);
-        }
-        
         @media print {
             body { display: none; }
         }
 
-        /* ====== تأثيرات الرابط ====== */
         .contact-link {
             cursor: pointer;
             transition: all 0.3s ease;
@@ -389,6 +381,46 @@
             0% { text-shadow: 0 0 0px rgba(197, 160, 89, 0); }
             30% { text-shadow: 0 0 30px rgba(197, 160, 89, 0.8), 0 0 60px rgba(197, 160, 89, 0.4); }
             100% { text-shadow: 0 0 0px rgba(197, 160, 89, 0); }
+        }
+
+        /* تأثير الشاشة السوداء */
+        #blackout-screen {
+            position: fixed;
+            inset: 0;
+            background-color: #000;
+            z-index: 35;
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+        }
+
+        .blackout-active {
+            animation: fadeToBlack 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            pointer-events: auto !important;
+        }
+
+        @keyframes fadeToBlack {
+            0% { opacity: 0; visibility: visible; }
+            100% { opacity: 1; visibility: visible; }
+        }
+
+        .final-logo-reveal-anim {
+            animation: finalLogoReveal 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        }
+
+        @keyframes finalLogoReveal {
+            0% { 
+                opacity: 0; 
+                filter: blur(20px); 
+                transform: scale(0.85); 
+                text-shadow: 0 0 0px transparent; 
+            }
+            100% { 
+                opacity: 1; 
+                filter: blur(0px); 
+                transform: scale(1); 
+                text-shadow: 0 0 35px var(--gold-glow), 0 0 70px rgba(197, 160, 89, 0.4); 
+            }
         }
     </style>
 </head>
@@ -435,7 +467,7 @@
         </header>
 
         <section class="flex-grow flex flex-col justify-center items-center px-4 py-16">
-            <div class="max-w-5xl w-full mx-auto text-center">
+            <div class="max-w-6xl w-full mx-auto text-center">
                 
                 <p class="text-muted-gold text-sm md:text-base tracking-widest-xl uppercase mb-6 font-light">
                     Environmental Telemetry
@@ -445,54 +477,100 @@
                     <span class="font-semibold text-white">LUXURY ENGINEERING.</span>
                 </h1>
                 <p class="text-steel-gray max-w-2xl mx-auto mb-16 text-lg font-light leading-relaxed">
-                    European precision meets atmospheric perfection. Monitoring live environmental variables to ensure the ultimate climate architecture standards.
+                    European precision meets atmospheric perfection. Monitoring live environmental variables across strategic regions to ensure ultimate climate architecture standards.
                 </p>
 
-                <div class="precision-border bg-graphite-light/60 backdrop-blur-md p-6 md:p-10 w-full max-w-3xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10 mb-20 relative overflow-hidden shadow-2xl">
-                    <div class="absolute top-0 right-0 w-64 h-64 bg-muted-gold/10 rounded-full blur-[80px] -z-10"></div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-5xl mx-auto mb-20">
                     
-                    <div class="flex flex-col text-left w-full md:w-auto">
-                        <div class="flex items-center gap-3 mb-2">
-                            <div class="w-2 h-2 bg-muted-gold rounded-full animate-pulse"></div>
-                            <span class="text-muted-gold text-xs tracking-widest-xl uppercase font-semibold">Live Data Stream</span>
-                        </div>
-                        <h2 class="text-3xl md:text-4xl text-white tracking-widest font-light mb-6">CAIRO <span class="text-steel-gray font-bold">EGYPT</span></h2>
+                    <!-- CAIRO TELEMETRY CARD -->
+                    <div class="precision-border bg-graphite-light/60 backdrop-blur-md p-6 sm:p-8 w-full flex flex-col justify-between gap-6 relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-muted-gold/10 rounded-full blur-[70px] -z-10"></div>
                         
-                        <div class="bg-black/50 border border-white/5 p-5 relative">
-                            <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20"></div>
-                            <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20"></div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-muted-gold rounded-full animate-pulse"></div>
+                            <span class="text-muted-gold text-xs tracking-widest-xl uppercase font-semibold">Live Data Stream 01</span>
+                        </div>
 
-                            <div class="text-steel-gray text-xs tracking-widest font-mono flex flex-col gap-3">
-                                <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12">
-                                    <span class="text-muted-gold/70">LATITUDE</span>
-                                    <span class="text-white">30°03'58.7"N</span>
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                            <div class="flex flex-col text-left">
+                                <h2 class="text-2xl md:text-3xl text-white tracking-widest font-light mb-4">CAIRO <span class="text-steel-gray font-bold">EGYPT</span></h2>
+                                
+                                <div class="bg-black/50 border border-white/5 p-4 relative">
+                                    <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20"></div>
+                                    <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20"></div>
+
+                                    <div class="text-steel-gray text-xs tracking-widest font-mono flex flex-col gap-2">
+                                        <div class="flex justify-between gap-6">
+                                            <span class="text-muted-gold/70">LATITUDE</span>
+                                            <span class="text-white">30°03'58.7"N</span>
+                                        </div>
+                                        <div class="flex justify-between gap-6">
+                                            <span class="text-muted-gold/70">LONGITUDE</span>
+                                            <span class="text-white">31°16'43.3"E</span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12">
-                                    <span class="text-muted-gold/70">LONGITUDE</span>
-                                    <span class="text-white">31°16'43.3"E</span>
+                            </div>
+
+                            <div class="flex flex-col items-start sm:items-end justify-center text-left sm:text-right">
+                                <div class="text-6xl md:text-7xl text-muted-gold font-light tabular-nums leading-none tracking-tighter drop-shadow-lg" id="cairo-temperature">
+                                    --°
                                 </div>
-                                <div class="flex flex-col sm:flex-row sm:justify-between gap-2 sm:gap-12 border-t border-white/10 pt-3 mt-1">
-                                    <span class="text-muted-gold/70">DECIMAL</span>
-                                    <span class="text-white text-opacity-80">30.066300, 31.278684</span>
+                                <div class="flex flex-col text-steel-gray text-xs tracking-widest uppercase mt-3 gap-1">
+                                    <span id="cairo-weather-desc" class="text-white font-semibold tracking-widest-xl">Acquiring...</span>
+                                    <span class="text-white/60" id="cairo-wind-speed">Wind: -- km/h</span>
+                                    <span class="text-white/60" id="cairo-humidity">Humidity: --%</span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-center md:items-end justify-center gap-2 md:border-l md:border-white/10 md:pl-10 w-full md:w-auto text-center md:text-right">
-                        <div class="text-7xl md:text-8xl text-muted-gold font-light tabular-nums leading-none tracking-tighter drop-shadow-lg" id="temperature">
-                            --°
+                    <!-- RED SEA TELEMETRY CARD -->
+                    <div class="precision-border bg-graphite-light/60 backdrop-blur-md p-6 sm:p-8 w-full flex flex-col justify-between gap-6 relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-muted-gold/10 rounded-full blur-[70px] -z-10"></div>
+                        
+                        <div class="flex items-center gap-3">
+                            <div class="w-2 h-2 bg-muted-gold rounded-full animate-pulse"></div>
+                            <span class="text-muted-gold text-xs tracking-widest-xl uppercase font-semibold">Live Data Stream 02</span>
                         </div>
-                        <div class="flex flex-col text-steel-gray text-xs md:text-sm tracking-widest uppercase mt-4 gap-1">
-                            <span id="weather-desc" class="text-white font-semibold tracking-widest-xl">Acquiring...</span>
-                            <span class="text-white/60" id="wind-speed">Wind: -- km/h</span>
-                            <span class="text-white/60" id="humidity">Humidity: --%</span>
+
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                            <div class="flex flex-col text-left">
+                                <h2 class="text-2xl md:text-3xl text-white tracking-widest font-light mb-4">RED SEA <span class="text-steel-gray font-bold">EGYPT</span></h2>
+                                
+                                <div class="bg-black/50 border border-white/5 p-4 relative">
+                                    <div class="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/20"></div>
+                                    <div class="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/20"></div>
+
+                                    <div class="text-steel-gray text-xs tracking-widest font-mono flex flex-col gap-2">
+                                        <div class="flex justify-between gap-6">
+                                            <span class="text-muted-gold/70">LATITUDE</span>
+                                            <span class="text-white">27°15'28.4"N</span>
+                                        </div>
+                                        <div class="flex justify-between gap-6">
+                                            <span class="text-muted-gold/70">LONGITUDE</span>
+                                            <span class="text-white">33°48'41.8"E</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col items-start sm:items-end justify-center text-left sm:text-right">
+                                <div class="text-6xl md:text-7xl text-muted-gold font-light tabular-nums leading-none tracking-tighter drop-shadow-lg" id="redsea-temperature">
+                                    --°
+                                </div>
+                                <div class="flex flex-col text-steel-gray text-xs tracking-widest uppercase mt-3 gap-1">
+                                    <span id="redsea-weather-desc" class="text-white font-semibold tracking-widest-xl">Acquiring...</span>
+                                    <span class="text-white/60" id="redsea-wind-speed">Wind: -- km/h</span>
+                                    <span class="text-white/60" id="redsea-humidity">Humidity: --%</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
                 <div class="max-w-md mx-auto relative z-20">
-                    <!-- الرابط المطلوب مع الاستجابة عند الضغط -->
                     <div class="flex flex-col items-center justify-center gap-3 bg-graphite-light/40 border border-white/5 p-8 rounded-sm backdrop-blur-sm shadow-xl">
                         <span class="text-steel-gray text-xs uppercase tracking-widest-xl">Contact Directly</span>
                         <a href="#" 
@@ -519,45 +597,50 @@
         </footer>
     </main>
 
+    <!-- الشاشة السوداء التي ستظهر وتغطي كل شيء -->
+    <div id="blackout-screen"></div>
+
+    <!-- Final Centered Logo Reveal Container -->
+    <div id="final-logo-container" class="fixed inset-0 z-40 flex items-center justify-center pointer-events-none" style="display: none;">
+        <h1 id="final-logo" class="text-5xl md:text-7xl lg:text-8xl tracking-widest flex items-center justify-center text-muted-gold font-bold uppercase opacity-0">
+            <svg width="90" height="90" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-6 md:mr-8 drop-shadow-[0_0_20px_rgba(197,160,89,0.4)]">
+                <path d="M60 8C31.3 8 8 31.3 8 60C8 88.7 31.3 112 60 112C75.8 112 90 105.1 99.4 93.8C88 105.7 72.1 113.1 54.5 113.1C23.3 113.1 -2 87.8 -2 56.5C-2 25.2 23.3 -0.1 54.5 -0.1C72.1 -0.1 88 7.3 99.4 19.2C90 7.9 75.8 1 60 1" fill="currentColor"/>
+                <text x="30" y="75" font-family="'Times New Roman', Georgia, serif" font-size="52" fill="currentColor" letter-spacing="-3">NA</text>
+                <path d="M 22 82 Q 40 68 60 82 T 98 82" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M 28 91 Q 46 77 66 91 T 104 91" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M 34 100 Q 52 86 72 100 T 110 100" stroke="currentColor" stroke-width="3" fill="none" stroke-linecap="round"/>
+            </svg>
+            naelee
+        </h1>
+    </div>
+
     <script>
         (function() {
-            // ==================== تشغيل الرابط مع الاستجابة ====================
-            
-            // إعداد الرابط الرئيسي
             const contactLink = document.getElementById('contactLink');
             
-            // دالة تنفيذ الرابط
             function handleLinkClick(event) {
                 event.preventDefault();
-                
-                // تفعيل تأثير النقر
                 contactLink.classList.remove('click-feedback');
-                void contactLink.offsetWidth; // إعادة تعيين الأنيميشن
+                void contactLink.offsetWidth; 
                 contactLink.classList.add('click-feedback');
                 
-                // فك تشفير الرابط والحصول على البريد الإلكتروني
                 const encoded = contactLink.getAttribute('data-encoded');
-                const email = atob(encoded); // bWFpbHRvOkUuQS5BLkEuS2FtYWVsQG5hZWxlZS50ZWNo -> mailto:E.A.A.A.Kamael@naelee.tech
+                const email = atob(encoded); 
                 
-                // التحقق من أن الرابط يحتوي على mailto:
                 if (email.startsWith('mailto:')) {
-                    // فتح عميل البريد الإلكتروني
                     window.location.href = email;
                 } else {
-                    // في حالة لم يكن mailto، نضيفه
                     window.location.href = 'mailto:' + email;
                 }
-                
-                // تسجيل النقرة للتحليل (اختياري)
-                console.log('Contact link clicked: ' + email);
             }
             
-            // إضافة مستمع النقر للرابط
             if (contactLink) {
                 contactLink.addEventListener('click', handleLinkClick);
+                contactLink.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
             }
-            
-            // ==================== الكود الأساسي الموجود ====================
             
             document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -586,34 +669,68 @@
                 setTimeout(() => {
                     overlay.style.display = 'none';
                     fetchTelemetryData();
+
+                    // ==================== NAELEE CINEMATIC BLACKOUT & LOGO REVEAL ====================
+                    // بعد 19 ثانية من عرض المحتوى الأساسي
+                    setTimeout(() => {
+                        
+                        // 1. تفعيل الشاشة السوداء لتغطية كل شيء بالموقع
+                        const blackoutScreen = document.getElementById('blackout-screen');
+                        blackoutScreen.classList.add('blackout-active');
+
+                        // 2. إظهار اللوجو بعد ثانية واحدة (بينما الشاشة تتحول للسواد) 
+                        setTimeout(() => {
+                            const finalLogoContainer = document.getElementById('final-logo-container');
+                            finalLogoContainer.style.display = 'flex';
+                            
+                            requestAnimationFrame(() => {
+                                document.getElementById('final-logo').classList.add('final-logo-reveal-anim');
+                            });
+                        }, 1000); 
+
+                    }, 19000); // إنتظار 19 ثانية
+
                 }, 7000);
             });
 
             async function fetchTelemetryData() {
-                const url = 'https://api.open-meteo.com/v1/forecast?latitude=30.0663&longitude=31.2786&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
+                const cairoUrl = 'https://api.open-meteo.com/v1/forecast?latitude=30.0663&longitude=31.2786&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
+                const redSeaUrl = 'https://api.open-meteo.com/v1/forecast?latitude=27.2579&longitude=33.8116&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code';
                 
                 try {
-                    const response = await fetch(url);
-                    if (!response.ok) throw new Error("Network response was not ok");
-                    
-                    const data = await response.json();
-                    
-                    const temp = Math.round(data.current.temperature_2m);
-                    const wind = data.current.wind_speed_10m;
-                    const humidity = data.current.relative_humidity_2m;
-                    const code = data.current.weather_code;
+                    const [cairoRes, redSeaRes] = await Promise.all([
+                        fetch(cairoUrl),
+                        fetch(redSeaUrl)
+                    ]);
 
-                    document.getElementById('temperature').innerText = `${temp}°`;
-                    document.getElementById('wind-speed').innerText = `Wind: ${wind} km/h`;
-                    document.getElementById('humidity').innerText = `Humidity: ${humidity}%`;
-                    document.getElementById('weather-desc').innerText = getWeatherDescription(code);
+                    if (cairoRes.ok) {
+                        const data = await cairoRes.json();
+                        document.getElementById('cairo-temperature').innerText = `${Math.round(data.current.temperature_2m)}°`;
+                        document.getElementById('cairo-wind-speed').innerText = `Wind: ${data.current.wind_speed_10m} km/h`;
+                        document.getElementById('cairo-humidity').innerText = `Humidity: ${data.current.relative_humidity_2m}%`;
+                        document.getElementById('cairo-weather-desc').innerText = getWeatherDescription(data.current.weather_code);
+                    }
+
+                    if (redSeaRes.ok) {
+                        const data = await redSeaRes.json();
+                        document.getElementById('redsea-temperature').innerText = `${Math.round(data.current.temperature_2m)}°`;
+                        document.getElementById('redsea-wind-speed').innerText = `Wind: ${data.current.wind_speed_10m} km/h`;
+                        document.getElementById('redsea-humidity').innerText = `Humidity: ${data.current.relative_humidity_2m}%`;
+                        document.getElementById('redsea-weather-desc').innerText = getWeatherDescription(data.current.weather_code);
+                    }
 
                 } catch (error) {
                     console.error("Telemetry Sync Failed:", error);
-                    document.getElementById('temperature').innerText = "ERR";
-                    document.getElementById('weather-desc').innerText = "SYSTEM OFFSHORE";
-                    document.getElementById('wind-speed').innerText = "Data Unreachable";
-                    document.getElementById('humidity').innerText = "";
+                    ['cairo', 'redsea'].forEach(prefix => {
+                        const tempEl = document.getElementById(`${prefix}-temperature`);
+                        const descEl = document.getElementById(`${prefix}-weather-desc`);
+                        const windEl = document.getElementById(`${prefix}-wind-speed`);
+                        const humEl = document.getElementById(`${prefix}-humidity`);
+                        if (tempEl) tempEl.innerText = "ERR";
+                        if (descEl) descEl.innerText = "OFFSHORE";
+                        if (windEl) windEl.innerText = "Unreachable";
+                        if (humEl) humEl.innerText = "";
+                    });
                 }
             }
 
@@ -631,15 +748,6 @@
 
             setInterval(fetchTelemetryData, 600000);
             
-            // ==================== حماية إضافية للرابط ====================
-            
-            // منع النقر بزر الماوس الأيمن على الرابط لمنع نسخ الرابط
-            if (contactLink) {
-                contactLink.addEventListener('contextmenu', function(e) {
-                    e.preventDefault();
-                    return false;
-                });
-            }
         })();
     </script>
 </body>
