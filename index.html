@@ -531,7 +531,7 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: flex-start;
-            padding: clamp(1.2rem, 3vw, 3.5rem);
+            padding: clamp(1rem, 2.5vw, 3.5rem);
             text-align: left;
             transition: all 0.6s ease;
         }
@@ -579,7 +579,7 @@
 
         .section-card .card-title-main {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.1rem, 1.8vw, 2.2rem);
+            font-size: clamp(1rem, 1.6vw, 2rem);
             font-weight: 800;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -604,7 +604,7 @@
         }
 
         .section-card .card-sub {
-            font-size: clamp(0.5rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.45rem, 0.65vw, 0.7rem);
             letter-spacing: 0.25em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.5);
@@ -687,7 +687,7 @@
             transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1),
                 transform 0.8s cubic-bezier(0.25, 1, 0.5, 1),
                 filter 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-            padding: 20px 20px 40px;
+            padding: 16px 16px 40px;
         }
 
         .section-detail.active {
@@ -712,28 +712,32 @@
         .section-detail .detail-inner {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px 60px;
+            padding: 20px 16px 60px;
             position: relative;
         }
 
         .section-detail .back-btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
             font-family: 'Cinzel', serif;
-            font-size: clamp(0.7rem, 1vw, 0.9rem);
+            font-size: clamp(0.65rem, 0.9vw, 0.85rem);
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             cursor: pointer;
-            padding: 10px 20px;
+            padding: 12px 18px;
+            min-height: 48px;
+            min-width: 48px;
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 2px;
             transition: all 0.4s ease;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(4px);
-            margin-bottom: 30px;
+            margin-bottom: 24px;
             touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .section-detail .back-btn:hover {
@@ -743,19 +747,24 @@
             transform: translateX(-4px);
         }
 
+        .section-detail .back-btn:active {
+            transform: scale(0.96);
+        }
+
         .section-detail .back-btn svg {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             fill: none;
             stroke: currentColor;
-            stroke-width: 2;
+            stroke-width: 2.5;
             stroke-linecap: round;
             stroke-linejoin: round;
+            flex-shrink: 0;
         }
 
         .section-detail .detail-title {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            font-size: clamp(1.6rem, 3.5vw, 3.2rem);
             font-weight: 800;
             letter-spacing: 0.05em;
             margin-bottom: 10px;
@@ -778,7 +787,7 @@
         }
 
         .section-detail .detail-subtitle {
-            font-size: clamp(0.8rem, 1.2vw, 1.1rem);
+            font-size: clamp(0.7rem, 1vw, 1rem);
             letter-spacing: 0.3em;
             text-transform: uppercase;
             opacity: 0;
@@ -797,7 +806,7 @@
         }
 
         .section-detail .detail-body {
-            margin-top: 30px;
+            margin-top: 24px;
             opacity: 0;
             animation: bodyReveal 0.8s 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
@@ -818,7 +827,7 @@
             backdrop-filter: blur(6px);
             border: 1px solid rgba(212, 175, 55, 0.12);
             border-radius: 4px;
-            padding: 24px 20px;
+            padding: 20px 16px;
             transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             position: relative;
             overflow: hidden;
@@ -838,23 +847,23 @@
         }
 
         .service-card .card-icon {
-            font-size: 2rem;
-            margin-bottom: 12px;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
             display: block;
             color: var(--gold);
         }
 
         .service-card .card-title {
             font-family: 'Cinzel', serif;
-            font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+            font-size: clamp(0.85rem, 1.1vw, 1.1rem);
             font-weight: 700;
             letter-spacing: 0.05em;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .service-card .card-desc {
-            font-size: clamp(0.7rem, 0.9vw, 0.85rem);
+            font-size: clamp(0.65rem, 0.8vw, 0.8rem);
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.6;
             font-weight: 300;
@@ -862,9 +871,9 @@
 
         .service-card .card-phone {
             display: inline-block;
-            margin-top: 10px;
+            margin-top: 8px;
             font-family: 'Inter', sans-serif;
-            font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
             color: var(--gold-light);
             text-decoration: none;
             font-weight: 600;
@@ -880,7 +889,7 @@
             position: relative;
             width: 100%;
             overflow: hidden;
-            padding: 20px 0;
+            padding: 16px 0;
             background: rgba(0, 0, 0, 0.3);
             border-top: 1px solid rgba(212, 175, 55, 0.08);
             border-bottom: 1px solid rgba(212, 175, 55, 0.08);
@@ -905,10 +914,10 @@
         .marquee-item {
             flex-shrink: 0;
             font-family: 'Cinzel', serif;
-            font-size: clamp(0.9rem, 1.4vw, 1.4rem);
+            font-size: clamp(0.8rem, 1.2vw, 1.3rem);
             letter-spacing: 0.15em;
             color: rgba(255, 255, 255, 0.5);
-            padding: 8px 20px;
+            padding: 6px 16px;
             border: 1px solid rgba(212, 175, 55, 0.1);
             border-radius: 2px;
             background: rgba(212, 175, 55, 0.03);
@@ -938,7 +947,7 @@
             background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(5, 5, 5, 0.95));
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 4px;
-            padding: 30px 30px;
+            padding: 24px 20px;
             backdrop-filter: blur(8px);
             box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6);
             position: relative;
@@ -958,27 +967,27 @@
 
         .contact-card-gold .cc-title {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1rem, 1.3vw, 1.3rem);
+            font-size: clamp(0.9rem, 1.2vw, 1.2rem);
             font-weight: 700;
             letter-spacing: 0.15em;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .contact-card-gold .cc-sub {
-            font-size: clamp(0.7rem, 0.8vw, 0.8rem);
+            font-size: clamp(0.6rem, 0.7vw, 0.75rem);
             color: rgba(255, 255, 255, 0.4);
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
 
         .contact-card-gold .cc-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            padding: 8px 0;
-            font-size: clamp(0.85rem, 1vw, 1rem);
+            padding: 6px 0;
+            font-size: clamp(0.8rem, 0.9vw, 0.95rem);
             color: rgba(255, 255, 255, 0.8);
             font-weight: 300;
             text-decoration: none;
@@ -992,10 +1001,10 @@
 
         .contact-card-gold .cc-item .cc-label {
             color: rgba(255, 255, 255, 0.3);
-            font-size: clamp(0.6rem, 0.7vw, 0.7rem);
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            min-width: 60px;
+            min-width: 50px;
         }
 
         .contact-card-gold .cc-item .cc-value {
@@ -1046,7 +1055,7 @@
             width: 60px;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 12px 0 20px;
+            margin: 10px 0 18px;
             position: relative;
         }
 
@@ -1077,7 +1086,7 @@
 
         .established-text {
             font-family: 'Cinzel', serif;
-            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-size: clamp(1rem, 1.8vw, 1.6rem);
             letter-spacing: 0.15em;
             color: var(--gold-light);
             text-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
@@ -1136,12 +1145,12 @@
             }
 
             .section-card .card-title-main {
-                font-size: clamp(0.8rem, 1.5vw, 1rem);
+                font-size: clamp(0.75rem, 1.4vw, 0.95rem);
                 letter-spacing: 0.06em;
             }
 
             .section-card .card-sub {
-                font-size: clamp(0.4rem, 0.7vw, 0.5rem);
+                font-size: clamp(0.35rem, 0.6vw, 0.45rem);
                 letter-spacing: 0.12em;
             }
 
@@ -1177,26 +1186,32 @@
             }
 
             .section-detail .detail-inner {
-                padding: 15px 10px 40px;
+                padding: 12px 8px 40px;
             }
 
             .section-detail .back-btn {
-                padding: 8px 14px;
+                padding: 10px 14px;
+                min-height: 44px;
                 font-size: 0.6rem;
                 margin-bottom: 16px;
+                gap: 8px;
+            }
+            .section-detail .back-btn svg {
+                width: 18px;
+                height: 18px;
             }
 
             .service-card {
-                padding: 16px 14px;
+                padding: 14px 12px;
             }
 
             .contact-card-gold {
-                padding: 20px 16px;
+                padding: 18px 14px;
             }
 
             .marquee-item {
-                font-size: clamp(0.6rem, 2vw, 0.8rem);
-                padding: 4px 12px;
+                font-size: clamp(0.55rem, 1.8vw, 0.75rem);
+                padding: 4px 10px;
                 gap: 20px;
             }
 
@@ -1212,12 +1227,12 @@
             }
 
             .section-card .card-title-main {
-                font-size: clamp(0.6rem, 1.2vw, 0.75rem);
+                font-size: clamp(0.55rem, 1.2vw, 0.7rem);
                 letter-spacing: 0.04em;
             }
 
             .section-card .card-sub {
-                font-size: clamp(0.3rem, 0.5vw, 0.4rem);
+                font-size: clamp(0.3rem, 0.5vw, 0.38rem);
                 letter-spacing: 0.08em;
             }
 
@@ -1239,15 +1254,18 @@
             }
 
             .section-detail .detail-title {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+            }
+            .section-detail .detail-subtitle {
+                font-size: 0.6rem;
             }
 
             .service-card .card-title {
-                font-size: 0.8rem;
+                font-size: 0.75rem;
             }
 
             .service-card .card-desc {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
         }
 
@@ -2281,6 +2299,10 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     const finalScreen = document.getElementById('final-image-screen');
                     if (finalScreen) {
                         finalScreen.classList.add('active');
+                        // إضافة حالة تاريخية للشاشة الرئيسية
+                        if (!window.location.hash) {
+                            history.replaceState({ main: true }, '', window.location.pathname);
+                        }
                     }
                 }, 19000);
 
@@ -2349,7 +2371,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 
         setInterval(fetchTelemetryData, 600000);
 
-        // ==================== SECTION CARDS CLICK ====================
+        // ==================== SECTION CARDS & HISTORY API ====================
         const cards = document.querySelectorAll('.section-card');
         const detailViews = {
             1: document.getElementById('section-detail-1'),
@@ -2357,6 +2379,47 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             3: document.getElementById('section-detail-3'),
             4: document.getElementById('section-detail-4')
         };
+
+        // دالة إغلاق التفاصيل (تُستخدم من history back)
+        function closeDetail(sectionId, animate = true) {
+            const target = detailViews[sectionId];
+            if (!target) return;
+            if (animate) {
+                target.style.transition = 'opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease';
+                target.style.opacity = '0';
+                target.style.transform = 'scale(0.96)';
+                target.style.filter = 'blur(6px)';
+                setTimeout(() => {
+                    target.classList.remove('active');
+                    target.style.opacity = '';
+                    target.style.transform = '';
+                    target.style.filter = '';
+                    target.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
+                    const finalScreen = document.getElementById('final-image-screen');
+                    if (finalScreen) {
+                        finalScreen.style.transition =
+                            'opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease';
+                        finalScreen.style.opacity = '1';
+                        finalScreen.style.transform = 'scale(1)';
+                        finalScreen.style.filter = 'blur(0px)';
+                    }
+                }, 500);
+            } else {
+                target.classList.remove('active');
+                target.style.opacity = '';
+                target.style.transform = '';
+                target.style.filter = '';
+                target.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
+                const finalScreen = document.getElementById('final-image-screen');
+                if (finalScreen) {
+                    finalScreen.style.transition = 'none';
+                    finalScreen.style.opacity = '1';
+                    finalScreen.style.transform = 'scale(1)';
+                    finalScreen.style.filter = 'blur(0px)';
+                    setTimeout(() => { finalScreen.style.transition = ''; }, 50);
+                }
+            }
+        }
 
         function staggerCards(detailEl) {
             const cards = detailEl.querySelectorAll('.stagger-item');
@@ -2369,32 +2432,39 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 
         function openSection(sectionId) {
             // Close any open detail
-            Object.values(detailViews).forEach(el => {
-                if (el) {
-                    el.classList.remove('active');
-                    el.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
+            let activeId = null;
+            Object.entries(detailViews).forEach(([id, el]) => {
+                if (el && el.classList.contains('active')) {
+                    activeId = parseInt(id, 10);
+                    closeDetail(activeId, true);
                 }
             });
 
             const target = detailViews[sectionId];
             if (!target) return;
 
-            // Small blur/zoom on the final screen
-            const finalScreen = document.getElementById('final-image-screen');
-            if (finalScreen) {
-                finalScreen.style.transition = 'transform 0.4s ease, filter 0.4s ease';
-                finalScreen.style.transform = 'scale(0.97)';
-                finalScreen.style.filter = 'blur(4px)';
-                setTimeout(() => {
-                    finalScreen.style.transform = 'scale(1)';
-                    finalScreen.style.filter = 'blur(0px)';
-                }, 400);
-            }
-
-            target.classList.add('active');
-            target.scrollTop = 0;
+            // تأخير صغير لإغلاق السابق
             setTimeout(() => {
-                staggerCards(target);
+                // blur/zoom effect on final screen
+                const finalScreen = document.getElementById('final-image-screen');
+                if (finalScreen) {
+                    finalScreen.style.transition = 'transform 0.4s ease, filter 0.4s ease';
+                    finalScreen.style.transform = 'scale(0.97)';
+                    finalScreen.style.filter = 'blur(4px)';
+                    setTimeout(() => {
+                        finalScreen.style.transform = 'scale(1)';
+                        finalScreen.style.filter = 'blur(0px)';
+                    }, 400);
+                }
+
+                target.classList.add('active');
+                target.scrollTop = 0;
+                setTimeout(() => {
+                    staggerCards(target);
+                }, 300);
+
+                // دفع حالة جديدة في التاريخ
+                history.pushState({ section: sectionId }, '', '#section-' + sectionId);
             }, 300);
         }
 
@@ -2416,53 +2486,43 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }, { passive: true });
         });
 
-        // ==================== BACK BUTTONS ====================
+        // ==================== BACK BUTTONS (UI) ====================
         const backBtns = document.querySelectorAll('.back-btn');
         backBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                const sectionId = parseInt(this.getAttribute('data-back'), 10);
-                const target = detailViews[sectionId];
-                if (target) {
-                    target.style.transition = 'opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease';
-                    target.style.opacity = '0';
-                    target.style.transform = 'scale(0.96)';
-                    target.style.filter = 'blur(6px)';
-
-                    setTimeout(() => {
-                        target.classList.remove('active');
-                        target.style.opacity = '';
-                        target.style.transform = '';
-                        target.style.filter = '';
-                        target.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
-
-                        const finalScreen = document.getElementById('final-image-screen');
-                        if (finalScreen) {
-                            finalScreen.style.transition =
-                                'opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease';
-                            finalScreen.style.opacity = '1';
-                            finalScreen.style.transform = 'scale(1)';
-                            finalScreen.style.filter = 'blur(0px)';
-                        }
-                    }, 500);
-                }
+                // استخدام history.back() لمحاكاة زر الرجوع
+                window.history.back();
             });
         });
 
-        // ==================== KEYBOARD ESC ====================
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                let activeDetail = null;
-                let activeId = null;
-                Object.entries(detailViews).forEach(([id, el]) => {
-                    if (el && el.classList.contains('active')) {
-                        activeDetail = el;
-                        activeId = id;
-                    }
-                });
-                if (activeDetail && activeId) {
-                    const btn = activeDetail.querySelector('.back-btn');
-                    if (btn) btn.click();
+        // ==================== POPSTATE (Native Back) ====================
+        window.addEventListener('popstate', function(event) {
+            // إذا كانت هناك تفاصيل مفتوحة، نغلقها
+            let activeId = null;
+            Object.entries(detailViews).forEach(([id, el]) => {
+                if (el && el.classList.contains('active')) {
+                    activeId = parseInt(id, 10);
+                }
+            });
+
+            if (activeId !== null) {
+                closeDetail(activeId, true);
+                // نمنع الانتقال للصفحة السابقة خارج الموقع
+                // لكن بما أننا استخدمنا pushState، فـ popstate سيبقينا في نفس الصفحة
+                // نمنع السلوك الافتراضي للرجوع خارج الموقع عن طريق إعادة الدفع
+                // لكننا نريد أن يبقى المستخدم في الصفحة الرئيسية
+                // نضيف حالة جديدة للصفحة الرئيسية إذا لم تكن موجودة
+                if (!event.state || !event.state.section) {
+                    // إذا لم تكن هناك حالة قسم، نضيف حالة رئيسية
+                    history.replaceState({ main: true }, '', window.location.pathname);
+                }
+                e.preventDefault();
+            } else {
+                // إذا كنا بالفعل في الصفحة الرئيسية ولا يوجد تفاصيل مفتوحة
+                // نسمح بالرجوع العادي، لكننا نضيف حالة رئيسية لمنع الخروج
+                if (!event.state || !event.state.main) {
+                    history.replaceState({ main: true }, '', window.location.pathname);
                 }
             }
         });
@@ -2485,7 +2545,21 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             el.style.touchAction = 'manipulation';
         });
 
-        console.log('NAELEE | Luxury Engineering Excellence — Professional Sections Loaded');
+        // معالجة حالة التحميل المباشر مع هاش
+        if (window.location.hash) {
+            const hash = window.location.hash;
+            const match = hash.match(/section-(\d+)/);
+            if (match) {
+                const sec = parseInt(match[1], 10);
+                if (sec >= 1 && sec <= 4) {
+                    setTimeout(() => {
+                        openSection(sec);
+                    }, 1000);
+                }
+            }
+        }
+
+        console.log('NAELEE | Luxury Engineering Excellence — Professional Sections with History API');
     })();
 </script>
 
