@@ -1131,6 +1131,345 @@
             transform: translateY(0);
         }
 
+        /* ===== Product Cards in Section 4 ===== */
+        .product-card {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 4px;
+            padding: 16px;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            cursor: pointer;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            border-color: rgba(212, 175, 55, 0.5);
+            transform: translateY(-6px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 0 30px rgba(212,175,55,0.06);
+        }
+
+        .product-card img {
+            width: 100%;
+            max-height: 140px;
+            object-fit: contain;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 15px rgba(0,0,0,0.5));
+            transition: transform 0.4s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.04);
+        }
+
+        .product-card .product-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.9rem, 1.1vw, 1.2rem);
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.05em;
+        }
+
+        .product-card .product-name .gold-highlight {
+            background: linear-gradient(90deg, #D4AF37, #FDF5A6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-card .product-hp {
+            font-size: clamp(0.7rem, 0.8vw, 0.85rem);
+            color: rgba(255,255,255,0.4);
+            margin-top: 4px;
+            letter-spacing: 0.1em;
+        }
+
+        .product-card .product-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 14px;
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 20px;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(212,175,55,0.7);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover .product-badge {
+            background: rgba(212,175,55,0.08);
+            border-color: rgba(212,175,55,0.6);
+            color: #FDF5A6;
+        }
+
+        /* ===== Modal (Product Detail) ===== */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9500;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-box {
+            background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 6px;
+            max-width: 480px;
+            width: 100%;
+            padding: 28px 24px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.9);
+            position: relative;
+            transform: scale(0.94);
+            transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: scale(1);
+        }
+
+        .modal-box .close-modal {
+            position: absolute;
+            top: 12px;
+            right: 16px;
+            font-size: 1.8rem;
+            color: rgba(255,255,255,0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+            background: none;
+            border: none;
+            padding: 4px 8px;
+        }
+
+        .modal-box .close-modal:hover {
+            color: #FDF5A6;
+            transform: rotate(90deg);
+        }
+
+        .modal-box .modal-product-img {
+            width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+            margin-bottom: 16px;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.6));
+        }
+
+        .modal-box .modal-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 4px;
+        }
+
+        .modal-box .modal-title .gold-highlight {
+            background: linear-gradient(90deg, #D4AF37, #FDF5A6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-box .modal-hp-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin: 16px 0 8px;
+            text-align: center;
+        }
+
+        .modal-box .hp-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-box .hp-options button {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212,175,55,0.15);
+            color: rgba(255,255,255,0.6);
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            touch-action: manipulation;
+        }
+
+        .modal-box .hp-options button:hover {
+            background: rgba(212,175,55,0.08);
+            border-color: rgba(212,175,55,0.4);
+            color: #fff;
+        }
+
+        .modal-box .hp-options button.selected {
+            background: rgba(212,175,55,0.15);
+            border-color: #D4AF37;
+            color: #FDF5A6;
+            box-shadow: 0 0 20px rgba(212,175,55,0.1);
+        }
+
+        .modal-box .add-to-cart-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #D4AF37, #b38728);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: #050505;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            touch-action: manipulation;
+        }
+
+        .modal-box .add-to-cart-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3);
+        }
+
+        .modal-box .add-to-cart-btn:active {
+            transform: scale(0.96);
+        }
+
+        .modal-box .add-to-cart-btn:disabled {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* ===== Customer Form Modal ===== */
+        .customer-form-modal .modal-box {
+            max-width: 400px;
+        }
+
+        .customer-form-modal .form-group {
+            margin-bottom: 16px;
+        }
+
+        .customer-form-modal .form-group label {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 4px;
+        }
+
+        .customer-form-modal .form-group input {
+            width: 100%;
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(212,175,55,0.15);
+            border-radius: 4px;
+            color: #fff;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s ease;
+            outline: none;
+        }
+
+        .customer-form-modal .form-group input:focus {
+            border-color: rgba(212,175,55,0.5);
+            box-shadow: 0 0 20px rgba(212,175,55,0.04);
+        }
+
+        .customer-form-modal .form-group input::placeholder {
+            color: rgba(255,255,255,0.2);
+        }
+
+        .customer-form-modal .submit-order-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #D4AF37, #b38728);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            color: #050505;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            touch-action: manipulation;
+        }
+
+        .customer-form-modal .submit-order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.3);
+        }
+
+        .customer-form-modal .submit-order-btn:active {
+            transform: scale(0.96);
+        }
+
+        .customer-form-modal .order-summary {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(212,175,55,0.08);
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+
+        .customer-form-modal .order-summary strong {
+            color: #FDF5A6;
+            font-weight: 600;
+        }
+
+        /* ===== Toast ===== */
+        .toast-message {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.9);
+            border: 1px solid rgba(212,175,55,0.3);
+            padding: 12px 24px;
+            border-radius: 30px;
+            color: #FDF5A6;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            z-index: 99999;
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+        }
+
+        .toast-message.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 768px) {
             .section-grid {
@@ -1218,6 +1557,15 @@
             .marquee-track {
                 gap: 20px;
             }
+
+            .modal-box {
+                padding: 20px 16px;
+                max-width: 100%;
+                margin: 10px;
+            }
+            .product-card img {
+                max-height: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1267,318 +1615,122 @@
             .service-card .card-desc {
                 font-size: 0.6rem;
             }
+
+            .modal-box .modal-title {
+                font-size: 1.1rem;
+            }
+            .modal-box .hp-options button {
+                padding: 6px 14px;
+                font-size: 0.75rem;
+            }
         }
 
         /* ===== Utility ===== */
-        .gap-2 {
-            gap: 0.5rem;
-        }
-        .gap-4 {
-            gap: 1rem;
-        }
-        .gap-6 {
-            gap: 1.5rem;
-        }
-        .gap-8 {
-            gap: 2rem;
-        }
-        .mt-2 {
-            margin-top: 0.5rem;
-        }
-        .mt-4 {
-            margin-top: 1rem;
-        }
-        .mt-6 {
-            margin-top: 1.5rem;
-        }
-        .mt-8 {
-            margin-top: 2rem;
-        }
-        .mt-10 {
-            margin-top: 2.5rem;
-        }
-        .mt-12 {
-            margin-top: 3rem;
-        }
-        .mb-2 {
-            margin-bottom: 0.5rem;
-        }
-        .mb-4 {
-            margin-bottom: 1rem;
-        }
-        .mb-6 {
-            margin-bottom: 1.5rem;
-        }
-        .mb-8 {
-            margin-bottom: 2rem;
-        }
-        .mb-10 {
-            margin-bottom: 2.5rem;
-        }
-        .mb-12 {
-            margin-bottom: 3rem;
-        }
-        .text-center {
-            text-align: center;
-        }
-        .text-left {
-            text-align: left;
-        }
-        .text-right {
-            text-align: right;
-        }
-        .flex {
-            display: flex;
-        }
-        .flex-col {
-            flex-direction: column;
-        }
-        .flex-row {
-            flex-direction: row;
-        }
-        .items-center {
-            align-items: center;
-        }
-        .items-start {
-            align-items: flex-start;
-        }
-        .items-end {
-            align-items: flex-end;
-        }
-        .justify-center {
-            justify-content: center;
-        }
-        .justify-between {
-            justify-content: space-between;
-        }
-        .flex-wrap {
-            flex-wrap: wrap;
-        }
-        .w-full {
-            width: 100%;
-        }
-        .max-w-4xl {
-            max-width: 56rem;
-        }
-        .max-w-6xl {
-            max-width: 72rem;
-        }
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .relative {
-            position: relative;
-        }
-        .absolute {
-            position: absolute;
-        }
-        .inset-0 {
-            inset: 0;
-        }
-        .z-10 {
-            z-index: 10;
-        }
-        .z-20 {
-            z-index: 20;
-        }
-        .grid {
-            display: grid;
-        }
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, 1fr);
-        }
-        .grid-cols-2 {
-            grid-template-columns: repeat(2, 1fr);
-        }
-        .grid-cols-3 {
-            grid-template-columns: repeat(3, 1fr);
-        }
+        .gap-2 { gap: 0.5rem; }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+        .mt-8 { margin-top: 2rem; }
+        .mt-10 { margin-top: 2.5rem; }
+        .mt-12 { margin-top: 3rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-10 { margin-bottom: 2.5rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .text-right { text-align: right; }
+        .flex { display: flex; }
+        .flex-col { flex-direction: column; }
+        .flex-row { flex-direction: row; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .items-end { align-items: flex-end; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .flex-wrap { flex-wrap: wrap; }
+        .w-full { width: 100%; }
+        .max-w-4xl { max-width: 56rem; }
+        .max-w-6xl { max-width: 72rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .inset-0 { inset: 0; }
+        .z-10 { z-index: 10; }
+        .z-20 { z-index: 20; }
+        .grid { display: grid; }
+        .grid-cols-1 { grid-template-columns: repeat(1, 1fr); }
+        .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+        .grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
         @media (min-width: 768px) {
-            .md\:grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .md\:grid-cols-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
         }
         @media (min-width: 1024px) {
-            .lg\:grid-cols-2 {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .lg\:grid-cols-3 {
-                grid-template-columns: repeat(3, 1fr);
-            }
+            .lg\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+            .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
         }
-        .gap-3 {
-            gap: 0.75rem;
-        }
-        .shadow-lg {
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-        .rounded-sm {
-            border-radius: 2px;
-        }
-        .border {
-            border-width: 1px;
-        }
-        .border-t {
-            border-top-width: 1px;
-        }
-        .border-b {
-            border-bottom-width: 1px;
-        }
-        .border-white\/10 {
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-        .border-white\/5 {
-            border-color: rgba(255, 255, 255, 0.05);
-        }
-        .bg-black\/20 {
-            background-color: rgba(0, 0, 0, 0.2);
-        }
-        .bg-black\/40 {
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .bg-black\/60 {
-            background-color: rgba(0, 0, 0, 0.6);
-        }
-        .text-white {
-            color: #fff;
-        }
-        .text-gray-300 {
-            color: #d1d5db;
-        }
-        .text-gray-400 {
-            color: #9ca3af;
-        }
-        .text-gray-500 {
-            color: #6b7280;
-        }
-        .text-xs {
-            font-size: 0.75rem;
-        }
-        .text-sm {
-            font-size: 0.875rem;
-        }
-        .text-base {
-            font-size: 1rem;
-        }
-        .text-lg {
-            font-size: 1.125rem;
-        }
-        .text-xl {
-            font-size: 1.25rem;
-        }
-        .text-2xl {
-            font-size: 1.5rem;
-        }
-        .text-3xl {
-            font-size: 1.875rem;
-        }
-        .text-4xl {
-            font-size: 2.25rem;
-        }
-        .font-light {
-            font-weight: 300;
-        }
-        .font-normal {
-            font-weight: 400;
-        }
-        .font-semibold {
-            font-weight: 600;
-        }
-        .font-bold {
-            font-weight: 700;
-        }
-        .font-black {
-            font-weight: 900;
-        }
-        .uppercase {
-            text-transform: uppercase;
-        }
-        .tracking-widest {
-            letter-spacing: 0.1em;
-        }
-        .tracking-widest-xl {
-            letter-spacing: 0.3em;
-        }
-        .leading-relaxed {
-            line-height: 1.625;
-        }
-        .leading-tight {
-            line-height: 1.25;
-        }
-        .px-4 {
-            padding-left: 1rem;
-            padding-right: 1rem;
-        }
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-        .py-2 {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-        }
-        .py-8 {
-            padding-top: 2rem;
-            padding-bottom: 2rem;
-        }
-        .py-16 {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-        }
-        .p-6 {
-            padding: 1.5rem;
-        }
-        .p-8 {
-            padding: 2rem;
-        }
-        .min-h-screen {
-            min-height: 100vh;
-        }
-        .hidden {
-            display: none;
-        }
+        .gap-3 { gap: 0.75rem; }
+        .shadow-lg { box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); }
+        .rounded-sm { border-radius: 2px; }
+        .border { border-width: 1px; }
+        .border-t { border-top-width: 1px; }
+        .border-b { border-bottom-width: 1px; }
+        .border-white\/10 { border-color: rgba(255, 255, 255, 0.1); }
+        .border-white\/5 { border-color: rgba(255, 255, 255, 0.05); }
+        .bg-black\/20 { background-color: rgba(0, 0, 0, 0.2); }
+        .bg-black\/40 { background-color: rgba(0, 0, 0, 0.4); }
+        .bg-black\/60 { background-color: rgba(0, 0, 0, 0.6); }
+        .text-white { color: #fff; }
+        .text-gray-300 { color: #d1d5db; }
+        .text-gray-400 { color: #9ca3af; }
+        .text-gray-500 { color: #6b7280; }
+        .text-xs { font-size: 0.75rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-base { font-size: 1rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-3xl { font-size: 1.875rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .font-light { font-weight: 300; }
+        .font-normal { font-weight: 400; }
+        .font-semibold { font-weight: 600; }
+        .font-bold { font-weight: 700; }
+        .font-black { font-weight: 900; }
+        .uppercase { text-transform: uppercase; }
+        .tracking-widest { letter-spacing: 0.1em; }
+        .tracking-widest-xl { letter-spacing: 0.3em; }
+        .leading-relaxed { line-height: 1.625; }
+        .leading-tight { line-height: 1.25; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+        .py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+        .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        .p-6 { padding: 1.5rem; }
+        .p-8 { padding: 2rem; }
+        .min-h-screen { min-height: 100vh; }
+        .hidden { display: none; }
         @media (min-width: 768px) {
-            .md\:block {
-                display: block;
-            }
-            .md\:text-5xl {
-                font-size: 3rem;
-            }
-            .md\:text-6xl {
-                font-size: 3.75rem;
-            }
-            .md\:text-7xl {
-                font-size: 4.5rem;
-            }
-            .md\:text-8xl {
-                font-size: 6rem;
-            }
-            .md\:text-9xl {
-                font-size: 8rem;
-            }
-            .md\:px-12 {
-                padding-left: 3rem;
-                padding-right: 3rem;
-            }
-            .md\:py-8 {
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-            }
+            .md\:block { display: block; }
+            .md\:text-5xl { font-size: 3rem; }
+            .md\:text-6xl { font-size: 3.75rem; }
+            .md\:text-7xl { font-size: 4.5rem; }
+            .md\:text-8xl { font-size: 6rem; }
+            .md\:text-9xl { font-size: 8rem; }
+            .md\:px-12 { padding-left: 3rem; padding-right: 3rem; }
+            .md\:py-8 { padding-top: 2rem; padding-bottom: 2rem; }
         }
         @media (min-width: 1024px) {
-            .lg\:text-7xl {
-                font-size: 4.5rem;
-            }
-            .lg\:text-8xl {
-                font-size: 6rem;
-            }
-            .lg\:block {
-                display: block;
-            }
+            .lg\:text-7xl { font-size: 4.5rem; }
+            .lg\:text-8xl { font-size: 6rem; }
+            .lg\:block { display: block; }
         }
 
         .section-detail {
@@ -1729,7 +1881,6 @@
             <!-- SECTION 1: ENGINEERING AIR TREATMENT -->
             <div class="section-card" data-section="1"
             style="background-image: url('https://i.postimg.cc/hvcY3c3n/image.png');">
-            <!-- Corner Accents -->
             <span class="corner-accent tl"></span>
             <span class="corner-accent br"></span>
             <span class="card-frame"></span>
@@ -2093,7 +2244,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
     </div>
 </div>
 
-<!-- SECTION 4: NEW HVAC & REFRIGERATION PARTS -->
+<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (مع نظام المنتجات) ===== -->
 <div class="section-detail" id="section-detail-4">
     <div class="detail-inner">
         <button class="back-btn" data-back="4">
@@ -2113,29 +2264,26 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 We provide OEM and aftermarket parts with guaranteed authenticity and performance.
             </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
-                <div class="service-card stagger-item">
-                    <span class="card-icon">🔧</span>
-                    <h3 class="card-title">HVAC Equipment</h3>
-                    <p class="card-desc">Complete HVAC systems and major components for commercial and industrial applications.</p>
+            <!-- ===== عرض المنتجات ===== -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <!-- منتج الدبابه -->
+                <div class="product-card" data-product="dababa" data-name="كبوري الدبابه" data-image="https://i.postimg.cc/43ffCR7C/image.png">
+                    <img src="https://i.postimg.cc/43ffCR7C/image.png" alt="كبوري الدبابه" loading="lazy" />
+                    <div class="product-name"><span class="gold-highlight">كبوري</span> الدبابه</div>
+                    <div class="product-hp">1.5 – 2 – 3 حصان</div>
+                    <span class="product-badge">اختر القدرة</span>
                 </div>
-                <div class="service-card stagger-item">
-                    <span class="card-icon">🧩</span>
-                    <h3 class="card-title">Refrigeration Components</h3>
-                    <p class="card-desc">Compressors, condensers, evaporators, and controls for refrigeration systems.</p>
-                </div>
-                <div class="service-card stagger-item">
-                    <span class="card-icon">🔄</span>
-                    <h3 class="card-title">Spare Parts</h3>
-                    <p class="card-desc">Genuine and high-quality aftermarket parts for all major HVAC and refrigeration brands.</p>
-                </div>
-                <div class="service-card stagger-item">
-                    <span class="card-icon">🏗️</span>
-                    <h3 class="card-title">Industrial Solutions</h3>
-                    <p class="card-desc">Custom-engineered components for large-scale industrial refrigeration and process cooling.</p>
+
+                <!-- منتج الجمبو -->
+                <div class="product-card" data-product="gumbo" data-name="كبوري الجمبو" data-image="https://i.postimg.cc/fLgmtKnT/image.png">
+                    <img src="https://i.postimg.cc/fLgmtKnT/image.png" alt="كبوري الجمبو" loading="lazy" />
+                    <div class="product-name"><span class="gold-highlight">كبوري</span> الجمبو</div>
+                    <div class="product-hp">4 – 5 حصان</div>
+                    <span class="product-badge">اختر القدرة</span>
                 </div>
             </div>
 
+            <!-- Contact Card -->
             <div class="contact-card-gold max-w-2xl mx-auto">
                 <div class="cc-title gold-text-3d">HVAC &amp; REFRIGERATION PARTS</div>
                 <div class="cc-sub">Industrial Supply Division</div>
@@ -2153,6 +2301,43 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         </div>
     </div>
 </div>
+
+<!-- ===== MODAL: تفاصيل المنتج ===== -->
+<div class="modal-overlay" id="product-modal">
+    <div class="modal-box">
+        <button class="close-modal" id="close-product-modal">✕</button>
+        <img class="modal-product-img" id="modal-product-img" src="" alt="product" />
+        <div class="modal-title" id="modal-product-name"><span class="gold-highlight">كبوري</span> الدبابه</div>
+        <div class="modal-hp-label">اختر القدرة الحصانية</div>
+        <div class="hp-options" id="hp-options-container">
+            <!-- يتم تعبئتها بواسطة JS -->
+        </div>
+        <button class="add-to-cart-btn" id="add-to-cart-btn">إضافة إلى السلة</button>
+    </div>
+</div>
+
+<!-- ===== MODAL: بيانات العميل ===== -->
+<div class="modal-overlay customer-form-modal" id="customer-modal">
+    <div class="modal-box">
+        <button class="close-modal" id="close-customer-modal">✕</button>
+        <h3 style="font-family:'Cinzel',serif; font-size:1.2rem; text-align:center; color:#fff; margin-bottom:6px;">تأكيد الطلب</h3>
+        <div class="order-summary" id="order-summary-text">
+            <strong>كبوري الدبابه</strong> — 2 حصان
+        </div>
+        <div class="form-group">
+            <label for="customer-name">الاسم الكامل</label>
+            <input type="text" id="customer-name" placeholder="مثال: أحمد محمد" />
+        </div>
+        <div class="form-group">
+            <label for="customer-phone">رقم الهاتف</label>
+            <input type="tel" id="customer-phone" placeholder="مثال: 01012345678" />
+        </div>
+        <button class="submit-order-btn" id="submit-order-btn">إرسال الطلب عبر واتساب</button>
+    </div>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast-message" id="toast-message"></div>
 
 <script>
     (function() {
@@ -2299,7 +2484,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     const finalScreen = document.getElementById('final-image-screen');
                     if (finalScreen) {
                         finalScreen.classList.add('active');
-                        // إضافة حالة تاريخية للشاشة الرئيسية
                         if (!window.location.hash) {
                             history.replaceState({ main: true }, '', window.location.pathname);
                         }
@@ -2380,7 +2564,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             4: document.getElementById('section-detail-4')
         };
 
-        // دالة إغلاق التفاصيل (تُستخدم من history back)
         function closeDetail(sectionId, animate = true) {
             const target = detailViews[sectionId];
             if (!target) return;
@@ -2431,7 +2614,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         }
 
         function openSection(sectionId) {
-            // Close any open detail
             let activeId = null;
             Object.entries(detailViews).forEach(([id, el]) => {
                 if (el && el.classList.contains('active')) {
@@ -2443,9 +2625,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             const target = detailViews[sectionId];
             if (!target) return;
 
-            // تأخير صغير لإغلاق السابق
             setTimeout(() => {
-                // blur/zoom effect on final screen
                 const finalScreen = document.getElementById('final-image-screen');
                 if (finalScreen) {
                     finalScreen.style.transition = 'transform 0.4s ease, filter 0.4s ease';
@@ -2463,7 +2643,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     staggerCards(target);
                 }, 300);
 
-                // دفع حالة جديدة في التاريخ
                 history.pushState({ section: sectionId }, '', '#section-' + sectionId);
             }, 300);
         }
@@ -2475,59 +2654,45 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     openSection(section);
                 }
             });
-
             card.addEventListener('touchstart', function() {
                 this.style.transition = 'transform 0.1s ease';
                 this.style.transform = 'scale(0.98)';
             }, { passive: true });
-
             card.addEventListener('touchend', function() {
                 this.style.transform = 'scale(1)';
             }, { passive: true });
         });
 
-        // ==================== BACK BUTTONS (UI) ====================
+        // ==================== BACK BUTTONS ====================
         const backBtns = document.querySelectorAll('.back-btn');
         backBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                // استخدام history.back() لمحاكاة زر الرجوع
                 window.history.back();
             });
         });
 
-        // ==================== POPSTATE (Native Back) ====================
         window.addEventListener('popstate', function(event) {
-            // إذا كانت هناك تفاصيل مفتوحة، نغلقها
             let activeId = null;
             Object.entries(detailViews).forEach(([id, el]) => {
                 if (el && el.classList.contains('active')) {
                     activeId = parseInt(id, 10);
                 }
             });
-
             if (activeId !== null) {
                 closeDetail(activeId, true);
-                // نمنع الانتقال للصفحة السابقة خارج الموقع
-                // لكن بما أننا استخدمنا pushState، فـ popstate سيبقينا في نفس الصفحة
-                // نمنع السلوك الافتراضي للرجوع خارج الموقع عن طريق إعادة الدفع
-                // لكننا نريد أن يبقى المستخدم في الصفحة الرئيسية
-                // نضيف حالة جديدة للصفحة الرئيسية إذا لم تكن موجودة
                 if (!event.state || !event.state.section) {
-                    // إذا لم تكن هناك حالة قسم، نضيف حالة رئيسية
                     history.replaceState({ main: true }, '', window.location.pathname);
                 }
                 e.preventDefault();
             } else {
-                // إذا كنا بالفعل في الصفحة الرئيسية ولا يوجد تفاصيل مفتوحة
-                // نسمح بالرجوع العادي، لكننا نضيف حالة رئيسية لمنع الخروج
                 if (!event.state || !event.state.main) {
                     history.replaceState({ main: true }, '', window.location.pathname);
                 }
             }
         });
 
-        // ==================== Prevent body scroll ====================
+        // ==================== منع السكرول عند فتح التفاصيل ====================
         const detailObserver = new MutationObserver(() => {
             let anyActive = false;
             Object.values(detailViews).forEach(el => {
@@ -2545,7 +2710,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             el.style.touchAction = 'manipulation';
         });
 
-        // معالجة حالة التحميل المباشر مع هاش
         if (window.location.hash) {
             const hash = window.location.hash;
             const match = hash.match(/section-(\d+)/);
@@ -2559,7 +2723,150 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }
         }
 
-        console.log('NAELEE | Luxury Engineering Excellence — Professional Sections with History API');
+        // ==================== نظام المنتجات (SECTION 4) ====================
+        // بيانات المنتجات
+        const products = {
+            dababa: {
+                name: 'كبوري الدبابه',
+                image: 'https://i.postimg.cc/43ffCR7C/image.png',
+                hpOptions: ['1.5 حصان', '2 حصان', '3 حصان']
+            },
+            gumbo: {
+                name: 'كبوري الجمبو',
+                image: 'https://i.postimg.cc/fLgmtKnT/image.png',
+                hpOptions: ['4 حصان', '5 حصان']
+            }
+        };
+
+        let selectedProduct = null; // { id, name, image, hp }
+        let selectedHp = null;
+
+        // عناصر المودال
+        const productModal = document.getElementById('product-modal');
+        const customerModal = document.getElementById('customer-modal');
+        const closeProduct = document.getElementById('close-product-modal');
+        const closeCustomer = document.getElementById('close-customer-modal');
+        const modalImg = document.getElementById('modal-product-img');
+        const modalName = document.getElementById('modal-product-name');
+        const hpContainer = document.getElementById('hp-options-container');
+        const addToCartBtn = document.getElementById('add-to-cart-btn');
+        const customerName = document.getElementById('customer-name');
+        const customerPhone = document.getElementById('customer-phone');
+        const submitOrderBtn = document.getElementById('submit-order-btn');
+        const orderSummary = document.getElementById('order-summary-text');
+        const toast = document.getElementById('toast-message');
+
+        // فتح مودال المنتج
+        function openProductModal(productId) {
+            const prod = products[productId];
+            if (!prod) return;
+            selectedProduct = { id: productId, name: prod.name, image: prod.image };
+            selectedHp = null;
+
+            modalImg.src = prod.image;
+            modalName.innerHTML = `<span class="gold-highlight">${prod.name.split(' ')[0]}</span> ${prod.name.split(' ').slice(1).join(' ')}`;
+
+            hpContainer.innerHTML = '';
+            prod.hpOptions.forEach(hp => {
+                const btn = document.createElement('button');
+                btn.textContent = hp;
+                btn.dataset.hp = hp;
+                btn.addEventListener('click', function() {
+                    hpContainer.querySelectorAll('button').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    selectedHp = hp;
+                    addToCartBtn.disabled = false;
+                });
+                hpContainer.appendChild(btn);
+            });
+
+            addToCartBtn.disabled = true;
+            productModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // إغلاق مودال المنتج
+        function closeProductModal() {
+            productModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // إغلاق مودال العميل
+        function closeCustomerModal() {
+            customerModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // عرض توست
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.classList.add('show');
+            clearTimeout(toast._timer);
+            toast._timer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // أحداث المنتجات (النقر على البطاقات)
+        document.querySelectorAll('.product-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const productId = this.dataset.product;
+                if (productId) openProductModal(productId);
+            });
+        });
+
+        closeProduct.addEventListener('click', closeProductModal);
+        closeCustomer.addEventListener('click', closeCustomerModal);
+
+        // إضافة إلى السلة
+        addToCartBtn.addEventListener('click', function() {
+            if (!selectedProduct || !selectedHp) {
+                showToast('الرجاء اختيار القدرة الحصانية');
+                return;
+            }
+            // إغلاق مودال المنتج وفتح مودال العميل
+            productModal.classList.remove('active');
+            // عرض ملخص الطلب
+            orderSummary.innerHTML = `<strong>${selectedProduct.name}</strong> — ${selectedHp}`;
+            customerName.value = '';
+            customerPhone.value = '';
+            customerModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // إرسال الطلب عبر واتساب
+        submitOrderBtn.addEventListener('click', function() {
+            const name = customerName.value.trim();
+            const phone = customerPhone.value.trim();
+            if (!name || !phone) {
+                showToast('الرجاء إدخال الاسم ورقم الهاتف');
+                return;
+            }
+            // بناء رسالة واتساب
+            const msg = `طلب شراء:\nالمنتج: ${selectedProduct.name}\nالقدرة: ${selectedHp}\nالاسم: ${name}\nالهاتف: ${phone}`;
+            const encodedMsg = encodeURIComponent(msg);
+            const whatsappUrl = `https://wa.me/201114898319?text=${encodedMsg}`;
+
+            // إغلاق المودال
+            customerModal.classList.remove('active');
+            document.body.style.overflow = '';
+            showToast('جاري التحويل إلى واتساب...');
+
+            // فتح واتساب بعد تأخير بسيط
+            setTimeout(() => {
+                window.open(whatsappUrl, '_blank');
+            }, 600);
+        });
+
+        // إغلاق المودال عند الضغط خارج المحتوى
+        productModal.addEventListener('click', function(e) {
+            if (e.target === this) closeProductModal();
+        });
+        customerModal.addEventListener('click', function(e) {
+            if (e.target === this) closeCustomerModal();
+        });
+
+        console.log('NAELEE | Luxury Engineering Excellence — Professional Sections with Product Order System');
     })();
 </script>
 
