@@ -187,7 +187,7 @@
             --input-border: rgba(212, 175, 55, 0.15);
         }
 
-        /* ===== الثيم الفاتح (أبيض - زهي - جميل) ===== */
+        /* ===== الثيم الفاتح ===== */
         body.light-theme {
             --bg-body: #fcf6f0;
             --bg-body-overlay: rgba(255, 248, 245, 0.7);
@@ -1653,7 +1653,7 @@
             transform: translateY(0);
         }
 
-        /* ===== Product Cards in Section 4 ===== */
+        /* ===== Product Cards ===== */
         .product-card {
             background: rgba(10, 10, 10, 0.7);
             backdrop-filter: blur(6px);
@@ -1760,7 +1760,229 @@
             color: #b38728;
         }
 
-        /* ===== Modal (Product Detail) ===== */
+        /* ===== Sales Tabs ===== */
+        .sales-tabs {
+            display: flex;
+            gap: 4px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            padding: 4px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            flex-wrap: wrap;
+        }
+
+        body.light-theme .sales-tabs {
+            background: rgba(255, 248, 245, 0.4);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .sales-tab {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px 20px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: all 0.4s ease;
+            color: rgba(255, 255, 255, 0.4);
+            background: transparent;
+            border: none;
+            touch-action: manipulation;
+        }
+
+        body.light-theme .sales-tab {
+            color: rgba(60, 50, 45, 0.4);
+        }
+
+        .sales-tab:hover {
+            color: rgba(255, 255, 255, 0.7);
+            background: rgba(212, 175, 55, 0.06);
+        }
+
+        body.light-theme .sales-tab:hover {
+            color: rgba(60, 50, 45, 0.7);
+            background: rgba(212, 175, 55, 0.04);
+        }
+
+        .sales-tab.active {
+            background: rgba(212, 175, 55, 0.15);
+            color: #FDF5A6;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.06);
+        }
+
+        body.light-theme .sales-tab.active {
+            background: rgba(212, 175, 55, 0.1);
+            color: #b38728;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.04);
+        }
+
+        .sales-tab .tab-sub {
+            display: block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.45rem;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            opacity: 0.5;
+            margin-top: 2px;
+        }
+
+        .sales-tab-content {
+            display: none;
+            animation: tabFade 0.5s ease forwards;
+        }
+
+        .sales-tab-content.active {
+            display: block;
+        }
+
+        @keyframes tabFade {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Price Tables (بدون Dealer Price) ===== */
+        .price-table-wrap {
+            overflow-x: auto;
+            margin-bottom: 24px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            padding: 2px;
+        }
+
+        body.light-theme .price-table-wrap {
+            background: rgba(255, 248, 245, 0.3);
+            border-color: rgba(212, 175, 55, 0.08);
+        }
+
+        .price-table {
+            width: 100%;
+            min-width: 500px;
+            border-collapse: collapse;
+            font-size: clamp(0.6rem, 0.7vw, 0.75rem);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .price-table thead th {
+            background: rgba(212, 175, 55, 0.12);
+            color: #FDF5A6;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 10px 8px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            text-align: center;
+            font-size: clamp(0.55rem, 0.65vw, 0.7rem);
+            white-space: nowrap;
+        }
+
+        body.light-theme .price-table thead th {
+            background: rgba(212, 175, 55, 0.08);
+            color: #b38728;
+            border-color: rgba(212, 175, 55, 0.12);
+        }
+
+        .price-table tbody td {
+            padding: 8px 6px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.75);
+            font-weight: 300;
+            transition: background 0.2s ease;
+        }
+
+        body.light-theme .price-table tbody td {
+            border-color: rgba(0, 0, 0, 0.04);
+            color: rgba(60, 50, 45, 0.75);
+        }
+
+        .price-table tbody tr:hover td {
+            background: rgba(212, 175, 55, 0.04);
+        }
+
+        body.light-theme .price-table tbody tr:hover td {
+            background: rgba(212, 175, 55, 0.03);
+        }
+
+        .price-table tbody td.model {
+            font-weight: 600;
+            color: #FDF5A6;
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
+            letter-spacing: 0.02em;
+        }
+
+        body.light-theme .price-table tbody td.model {
+            color: #b38728;
+        }
+
+        .price-table tbody td.price {
+            font-weight: 600;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body.light-theme .price-table tbody td.price {
+            color: #1a1412;
+        }
+
+        .price-table tbody td.price-enduser {
+            color: #FDF5A6;
+        }
+
+        body.light-theme .price-table tbody td.price-enduser {
+            color: #b38728;
+        }
+
+        .price-table .brand-header {
+            background: rgba(212, 175, 55, 0.06);
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #FDF5A6;
+            padding: 10px 8px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            font-size: clamp(0.65rem, 0.8vw, 0.85rem);
+        }
+
+        body.light-theme .price-table .brand-header {
+            background: rgba(212, 175, 55, 0.04);
+            color: #b38728;
+            border-color: rgba(212, 175, 55, 0.08);
+        }
+
+        .price-table .category-header {
+            background: rgba(255, 255, 255, 0.03);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+            padding: 8px 8px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: clamp(0.5rem, 0.6vw, 0.65rem);
+        }
+
+        body.light-theme .price-table .category-header {
+            background: rgba(0, 0, 0, 0.02);
+            color: rgba(60, 50, 45, 0.4);
+            border-color: rgba(0, 0, 0, 0.03);
+        }
+
+        /* ===== Modal ===== */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -2117,7 +2339,7 @@
             transform: translateX(-50%) translateY(0);
         }
 
-        /* ===== زر تبديل الثيم الثابت (موجود دائماً) ===== */
+        /* ===== زر تبديل الثيم الثابت ===== */
         #theme-toggle-fixed {
             position: fixed;
             top: 20px;
@@ -2187,10 +2409,21 @@
         }
 
         /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .section-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+            .section-card {
+                min-height: 200px;
+            }
+        }
+
         @media (max-width: 768px) {
             .section-grid {
                 gap: 4px;
                 padding: 4px;
+                grid-template-columns: 1fr 1fr;
             }
 
             .section-card .card-number {
@@ -2256,6 +2489,29 @@
                 height: 18px;
             }
 
+            .sales-tabs {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .sales-tab {
+                min-width: 80px;
+                padding: 10px 12px;
+                font-size: 0.6rem;
+            }
+
+            .price-table {
+                min-width: 400px;
+                font-size: 0.55rem;
+            }
+            .price-table thead th {
+                font-size: 0.5rem;
+                padding: 6px 4px;
+            }
+            .price-table tbody td {
+                padding: 5px 4px;
+                font-size: 0.5rem;
+            }
+
             .service-card {
                 padding: 14px 12px;
             }
@@ -2288,6 +2544,7 @@
             .section-grid {
                 gap: 3px;
                 padding: 3px;
+                grid-template-columns: 1fr 1fr;
             }
 
             .section-card .card-title-main {
@@ -2322,6 +2579,36 @@
             }
             .section-detail .detail-subtitle {
                 font-size: 0.6rem;
+            }
+
+            .sales-tab {
+                min-width: 60px;
+                padding: 8px 8px;
+                font-size: 0.5rem;
+            }
+            .sales-tab .tab-sub {
+                font-size: 0.35rem;
+            }
+
+            .price-table {
+                min-width: 300px;
+                font-size: 0.45rem;
+            }
+            .price-table thead th {
+                font-size: 0.4rem;
+                padding: 4px 2px;
+            }
+            .price-table tbody td {
+                padding: 4px 2px;
+                font-size: 0.4rem;
+            }
+            .price-table .brand-header {
+                font-size: 0.5rem;
+                padding: 6px 4px;
+            }
+            .price-table .category-header {
+                font-size: 0.4rem;
+                padding: 4px 4px;
             }
 
             .service-card .card-title {
@@ -2463,7 +2750,7 @@
     <!-- كانفاس الغبار الذهبي -->
     <canvas id="gold-dust-canvas"></canvas>
 
-    <!-- ===== زر تبديل الثيم الثابت (يظهر في جميع الحالات) ===== -->
+    <!-- ===== زر تبديل الثيم الثابت ===== -->
     <button id="theme-toggle-fixed" aria-label="Toggle theme">
         <span class="toggle-icon">🌓</span>
         <span class="toggle-label">تبديل</span>
@@ -2473,7 +2760,7 @@
     <div id="intro-overlay">
         <div class="intro-text-wrapper">
             <h1 id="coming-soon-text" class="text-3xl md:text-5xl lg:text-6xl tracking-widest-xl text-center px-4 gold-subtitle">
-                coming soon
+                Welcome
             </h1>
         </div>
         <div class="intro-text-wrapper" id="intro-logo-container">
@@ -2490,13 +2777,12 @@
     <!-- ===== MAIN CONTENT ===== -->
     <main id="main-content" class="min-h-screen flex flex-col relative z-10">
 
-        <!-- HEADER (تم إزالة زر التبديل من هنا) -->
+        <!-- HEADER -->
         <header class="w-full px-6 md:px-12 py-8 flex justify-between items-center border-b border-white/10 bg-black/20 backdrop-blur-sm">
             <div class="font-cinzel font-bold text-3xl tracking-widest uppercase flex items-center gold-text-3d">
                 <img src="https://i.postimg.cc/htKYhR5V/Chat-GPT-Image-29-ywlyw-2026-02-35-20-m.png" alt="NAELLE Logo" class="h-10 md:h-12 w-auto mr-4" style="object-fit: contain;" />
                 NAELEE
             </div>
-            <!-- لم يعد هناك زر هنا -->
         </header>
 
         <!-- HERO -->
@@ -2594,7 +2880,7 @@
         </footer>
     </main>
 
-    <!-- ===== FINAL IMAGE SCREEN — PROFESSIONAL LUXURY GRID ===== -->
+    <!-- ===== FINAL IMAGE SCREEN — PROFESSIONAL LUXURY GRID (4 cards) ===== -->
     <div id="final-image-screen">
         <div class="section-grid">
 
@@ -2677,7 +2963,7 @@
     </div>
 </div>
 
-<!-- SECTION 4: NEW HVAC & REFRIGERATION PARTS -->
+<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS ===== -->
 <div class="section-card" data-section="4"
 style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 <span class="corner-accent tl"></span>
@@ -2687,15 +2973,16 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 <div class="card-content">
     <div class="card-icon-wrap">
         <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3" />
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5" />
+            <path d="M2 12l10 5 10-5" />
         </svg>
     </div>
     <div class="card-title-main">
-        <span class="gold-highlight">New</span> HVAC &amp;<br />Refrigeration Parts
+        <span class="gold-highlight">NEW</span> HVAC &amp;<br />Refrigeration Parts
     </div>
     <div class="card-gold-line"></div>
-    <div class="card-sub">Industrial Supply</div>
+    <div class="card-sub">KAPO &amp; Air Conditioners</div>
     <div class="hover-arrow">
         <span>Explore</span>
         <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
@@ -2715,27 +3002,20 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
             BACK TO SERVICES
         </button>
-
         <div class="gold-line"></div>
-
         <div class="established-text">
             <span class="gold-glow"></span>
             ✦ ESTABLISHED 1996 ✦
         </div>
-
         <h2 class="detail-title gold-text-3d">ENGINEERING AIR TREATMENT</h2>
         <p class="detail-subtitle gold-subtitle">NEW AIR EGYPT — Luxury Engineering Excellence</p>
-
         <div class="detail-body">
             <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-10">
                 NEW AIR EGYPT is a premier engineering firm specializing in advanced air treatment solutions.
                 With decades of expertise, we deliver precision-engineered climate systems for residential,
                 commercial, and industrial environments across Egypt and the Middle East.
             </p>
-
-            <!-- 6 Service Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
-                <!-- Card 1: Split / Concealed / Ducted -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">❄️</span>
                     <h3 class="card-title">Split / Concealed / Ducted</h3>
@@ -2743,44 +3023,32 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     <a href="tel:+201114898319" class="card-phone">+20 11 14898319</a>
                     <div class="mt-2 text-xs text-gray-500">Eng. Sherif: <a href="tel:+201002685262" class="text-gold-light hover:text-white transition-colors">+20 10 02685262</a></div>
                 </div>
-
-                <!-- Card 2: Commercial Central AC -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">🏢</span>
                     <h3 class="card-title">Commercial Central AC</h3>
                     <p class="card-desc">تكييف مركزي تجاري — تكييف وتهوية for offices, malls, and commercial spaces.</p>
                 </div>
-
-                <!-- Card 3: Central AC for Facilities -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">🏭</span>
                     <h3 class="card-title">Central AC for Facilities</h3>
                     <p class="card-desc">تكييف مركزي للمنشآت — تهوية ومكافحة حريق for large-scale facilities.</p>
                 </div>
-
-                <!-- Card 4: Industrial Central AC -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">⚙️</span>
                     <h3 class="card-title">Industrial Central AC</h3>
                     <p class="card-desc">تكييف مركزي صناعي — تهوية — ترطيب — معالجة — مكافحة حريق for industrial plants.</p>
                 </div>
-
-                <!-- Card 5: Cold Rooms & Chambers -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">🧊</span>
                     <h3 class="card-title">Cold Rooms &amp; Chambers</h3>
                     <p class="card-desc">غرف وعنابر تبريد — تجميد — تجفيف — معالجة for food storage and processing.</p>
                 </div>
-
-                <!-- Card 6: Portfolio -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">📐</span>
                     <h3 class="card-title">Previous Works</h3>
                     <p class="card-desc">سابقة أعمال الطبقات المختلفة — A portfolio of excellence across all project tiers.</p>
                 </div>
             </div>
-
-            <!-- Contact Card -->
             <div class="contact-card-gold max-w-2xl mx-auto">
                 <div class="cc-title gold-text-3d">NEW AIR EGYPT</div>
                 <div class="cc-sub">Engineering Air Treatment Division</div>
@@ -2799,19 +3067,16 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
     </div>
 </div>
 
-<!-- SECTION 2: NEW DESIGN — LUXURY NATURE -->
+<!-- SECTION 2: NEW DESIGN -->
 <div class="section-detail" id="section-detail-2">
     <div class="detail-inner">
         <button class="back-btn" data-back="2">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
             BACK TO SERVICES
         </button>
-
         <div class="gold-line"></div>
-
         <h2 class="detail-title gold-text-3d">NEW DESIGN</h2>
         <p class="detail-subtitle gold-subtitle">LUXURY NATURE — Where Engineering Meets Elegance</p>
-
         <div class="detail-body">
             <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-10">
                 At NAELEE, we believe that engineering is an art form. Our Luxury Nature division
@@ -2819,7 +3084,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 spaces that are both technically superior and aesthetically sublime.
                 From private villas to luxury resorts, we deliver environments that inspire.
             </p>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12">
                 <div class="service-card stagger-item">
                     <span class="card-icon">🌿</span>
@@ -2842,7 +3106,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     <p class="card-desc">Energy-efficient solutions that reduce environmental impact without compromising comfort.</p>
                 </div>
             </div>
-
             <div class="contact-card-gold max-w-2xl mx-auto">
                 <div class="cc-title gold-text-3d">LUXURY NATURE DIVISION</div>
                 <div class="cc-sub">Design &amp; Engineering Excellence</div>
@@ -2861,19 +3124,16 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
     </div>
 </div>
 
-<!-- SECTION 3: NEW AIR WAVE — MARINE AIR CONDITIONER -->
+<!-- SECTION 3: NEW AIR WAVE -->
 <div class="section-detail" id="section-detail-3">
     <div class="detail-inner">
         <button class="back-btn" data-back="3">
             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
             BACK TO SERVICES
         </button>
-
         <div class="gold-line"></div>
-
         <h2 class="detail-title gold-text-3d">NEW AIR WAVE</h2>
         <p class="detail-subtitle gold-subtitle">MARINE AIR CONDITIONING — Engineering the Seas</p>
-
         <div class="detail-body">
             <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-10">
                 NEW AIR WAVE delivers world-class marine air conditioning solutions for vessels of all sizes.
@@ -2881,8 +3141,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 reliable, efficient, and corrosion-resistant climate control systems engineered
                 for the harshest marine environments.
             </p>
-
-            <!-- Marine Services Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
                 <div class="service-card stagger-item">
                     <span class="card-icon">⛵</span>
@@ -2925,8 +3183,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     <p class="card-desc">مولدات عازلة للصوت بحرية — Silent power solutions for luxury and commercial vessels.</p>
                 </div>
             </div>
-
-            <!-- Authorized Agents Marquee -->
             <div class="mb-12">
                 <h3 class="text-center font-cinzel text-lg md:text-xl tracking-widest gold-subtitle mb-6 uppercase">
                     AUTHORIZED AGENTS &amp; PARTNERS
@@ -2944,8 +3200,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </div>
                 </div>
             </div>
-
-            <!-- Contact Card -->
             <div class="contact-card-gold max-w-2xl mx-auto">
                 <div class="cc-title gold-text-3d">NEW AIR WAVE — MARINE</div>
                 <div class="cc-sub">Marine Air Conditioning Division</div>
@@ -2964,7 +3218,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
     </div>
 </div>
 
-<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (مع نظام المنتجات) ===== -->
+<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (مع تبويب KAPO والتكييفات) ===== -->
 <div class="section-detail" id="section-detail-4">
     <div class="detail-inner">
         <button class="back-btn" data-back="4">
@@ -2974,50 +3228,402 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 
         <div class="gold-line"></div>
 
-        <h2 class="detail-title gold-text-3d">HVAC &amp; REFRIGERATION</h2>
-        <p class="detail-subtitle gold-subtitle">PARTS — Industrial Supply Chain Excellence</p>
+        <h2 class="detail-title gold-text-3d">NEW HVAC &amp; REFRIGERATION PARTS</h2>
+        <p class="detail-subtitle gold-subtitle">KAPO &amp; Air Conditioners — Price Lists</p>
 
         <div class="detail-body">
-            <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-10">
-                NAELEE's HVAC &amp; Refrigeration Parts division is a premier supplier of high-quality
-                components for the heating, ventilation, air conditioning, and refrigeration industry.
-                We provide OEM and aftermarket parts with guaranteed authenticity and performance.
-            </p>
 
-            <!-- ===== عرض المنتجات ===== -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-                <!-- منتج الدبابه -->
-                <div class="product-card" data-product="dababa" data-name="كابو الدبابه" data-image="https://i.postimg.cc/Y0yrYkHM/image.png">
-                    <img src="https://i.postimg.cc/Y0yrYkHM/image.png" alt="كابو الدبابه" loading="lazy" />
-                    <div class="product-name"><span class="gold-highlight">كابو</span> الدبابه</div>
-                    <div class="product-hp">1.5 – 2 – 3 حصان</div>
-                    <span class="product-badge">اختر القدرة</span>
+            <!-- ===== تبويبات ===== -->
+            <div class="sales-tabs" role="tablist">
+                <button class="sales-tab active" data-tab="kapo" role="tab">
+                    KAPO
+                    <span class="tab-sub">كابو</span>
+                </button>
+                <button class="sales-tab" data-tab="ac" role="tab">
+                    التكييفات
+                    <span class="tab-sub">Air Conditioners</span>
+                </button>
+            </div>
+
+            <!-- ===== محتوى KAPO ===== -->
+            <div class="sales-tab-content active" id="tab-kapo">
+                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-6">
+                    منتجات كابو — اختر المنتج والقدرة الحصانية المناسبة.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- كابو الدبابه -->
+                    <div class="product-card" data-product="dababa" data-name="كابو الدبابه" data-image="https://i.postimg.cc/Y0yrYkHM/image.png">
+                        <img src="https://i.postimg.cc/Y0yrYkHM/image.png" alt="كابو الدبابه" loading="lazy" />
+                        <div class="product-name"><span class="gold-highlight">كابو</span> الدبابه</div>
+                        <div class="product-hp">1.5 – 2 – 3 حصان</div>
+                        <span class="product-badge">اختر القدرة</span>
+                    </div>
+                    <!-- كابو الجمبو -->
+                    <div class="product-card" data-product="gumbo" data-name="كابو الجمبو" data-image="https://i.postimg.cc/P5MtQmh2/image.png">
+                        <img src="https://i.postimg.cc/P5MtQmh2/image.png" alt="كابو الجمبو" loading="lazy" />
+                        <div class="product-name"><span class="gold-highlight">كابو</span> الجمبو</div>
+                        <div class="product-hp">4 – 5 حصان</div>
+                        <span class="product-badge">اختر القدرة</span>
+                    </div>
                 </div>
 
-                <!-- منتج الجمبو -->
-                <div class="product-card" data-product="gumbo" data-name="كابو الجمبو" data-image="https://i.postimg.cc/P5MtQmh2/image.png">
-                    <img src="https://i.postimg.cc/P5MtQmh2/image.png" alt="كابو الجمبو" loading="lazy" />
-                    <div class="product-name"><span class="gold-highlight">كابو</span> الجمبو</div>
-                    <div class="product-hp">4 – 5 حصان</div>
-                    <span class="product-badge">اختر القدرة</span>
+                <!-- ===== فريق المبيعات ===== -->
+                <div class="contact-card-gold max-w-2xl mx-auto mt-8">
+                    <div class="cc-title gold-text-3d">فريق المبيعات</div>
+                    <div class="cc-sub">Sales Team — اتصل بنا مباشرة</div>
+                    <div class="flex flex-col gap-3 mt-2">
+                        <a href="tel:+201002685262" class="cc-item">
+                            <span class="cc-label">مهندس شريف</span>
+                            <span class="cc-value">+20 10 02685262</span>
+                        </a>
+                        <a href="tel:+201114898319" class="cc-item">
+                            <span class="cc-label">المهندس عمرو</span>
+                            <span class="cc-value">+20 11 14898319</span>
+                        </a>
+                    </div>
+                    <div class="mt-4 text-xs text-gray-500 border-t border-white/10 pt-4 text-center">
+                        <span class="gold-subtitle">✧</span> اضغط على الرقم للاتصال المباشر <span class="gold-subtitle">✧</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Contact Card -->
-            <div class="contact-card-gold max-w-2xl mx-auto">
-                <div class="cc-title gold-text-3d">HVAC &amp; REFRIGERATION PARTS</div>
-                <div class="cc-sub">Industrial Supply Division</div>
-                <div class="flex flex-col gap-2">
-                    <a href="tel:+201223228448" class="cc-item">
-                        <span class="cc-label">Phone</span>
-                        <span class="cc-value">0 11 14898319</span>
-                    </a>
-                    <a href="mailto:ceo@naelee.tech" class="cc-item">
-                        <span class="cc-label">Email</span>
-                        <span class="cc-value">sales@naelee.tech</span>
-                    </a>
+            <!-- ===== محتوى التكييفات (تم حذف عمود Dealer Price) ===== -->
+            <div class="sales-tab-content" id="tab-ac">
+                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-6">
+                    قوائم أسعار Carrier و Midea — جميع الموديلات والأسعار من ملف PDF.
+                </p>
+
+                <!-- ===== CARRIER ===== -->
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest">Carrier</h3>
+
+                <!-- Carrier: High Wall Inverter Split Systems (XCOOL Inverter) -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53KHEFT12DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>CO</td><td class="price price-enduser">30,390</td></tr>
+                            <tr><td class="model">53KHEFT18DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>CO</td><td class="price price-enduser">44,910</td></tr>
+                            <tr><td class="model">53KHEFT24DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>CO</td><td class="price price-enduser">50,995</td></tr>
+                            <tr><td class="model">53QHEFT12DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>HP</td><td class="price price-enduser">33,105</td></tr>
+                            <tr><td class="model">53QHEFT18DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>HP</td><td class="price price-enduser">48,565</td></tr>
+                            <tr><td class="model">53QHEFT24DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>HP</td><td class="price price-enduser">51,140</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Optimax Inverter -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53QHABT30DN-708F</td><td>Optimax Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">85,940</td></tr>
+                            <tr><td class="model">53QHABT36DN-708F</td><td>Optimax Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">98,750</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Optimax Pro Fixed -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53KHCT12N-708</td><td>Optimax Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">26,415</td></tr>
+                            <tr><td class="model">53KHCT18N-708</td><td>Optimax Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">37,325</td></tr>
+                            <tr><td class="model">53KHCT24N-708</td><td>Optimax Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">44,705</td></tr>
+                            <tr><td class="model">53QHCT12N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">28,630</td></tr>
+                            <tr><td class="model">53QHCT18N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">40,730</td></tr>
+                            <tr><td class="model">53QHCT24N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">48,200</td></tr>
+                            <tr><td class="model">53QHABT30N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">76,460</td></tr>
+                            <tr><td class="model">53QHABT36N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">87,850</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: XCOOL NEW -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53KHEFT12N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">26,415</td></tr>
+                            <tr><td class="model">53KHEFT18N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">37,935</td></tr>
+                            <tr><td class="model">53KHEFT24N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">45,520</td></tr>
+                            <tr><td class="model">53QHEFT12N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">28,630</td></tr>
+                            <tr><td class="model">53QHEFT18N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">41,345</td></tr>
+                            <tr><td class="model">53QHEFT24N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">49,015</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Ducted Inverter -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — Ducted Inverter Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53QDMAGT18DN-728</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">64,300</td></tr>
+                            <tr><td class="model">53QDMAGT24DN-728</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">74,085</td></tr>
+                            <tr><td class="model">53QDMAGT36DN-728</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">109,270</td></tr>
+                            <tr><td class="model">53QDHGTG48DN-528</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">143,050</td></tr>
+                            <tr><td class="model">53QDHGTG60DN-528</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">157,860</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Ducted Fixed -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — Ducted Split Fixed Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53QDMAGT12N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">41,260</td></tr>
+                            <tr><td class="model">53QDMAGT18N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">53,655</td></tr>
+                            <tr><td class="model">53QDMAGT24N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">64,385</td></tr>
+                            <tr><td class="model">53QDMAGT30N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">82,705</td></tr>
+                            <tr><td class="model">53QDMAGT36N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">95,055</td></tr>
+                            <tr><td class="model">53QDMAGT48N-528</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">124,335</td></tr>
+                            <tr><td class="model">53QDMAGT60N-528</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">137,300</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Cassette -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — Cassette Split Inverter Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53QCDT36DN-708</td><td>DÉCOR Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">131,010</td></tr>
+                            <tr><td class="model">53QCDT48DN-508</td><td>DÉCOR Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">144,070</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Floor Standing -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Carrier — Floor Standing Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53QFGDT60DN-508</td><td>Elegant Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">166,640</td></tr>
+                            <tr><td class="model">53QFMT36N-708</td><td>Elegant Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">114,265</td></tr>
+                            <tr><td class="model">53KFGDT60N-508</td><td>Elegant Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">145,060</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ===== MIDEA ===== -->
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mt-12 mb-4 tracking-widest">Midea</h3>
+
+                <!-- Midea: AI ECO MASTER Inverter -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Midea — High Wall Inverter Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">M1SEFT-12CRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">27,525</td></tr>
+                            <tr><td class="model">M1SEFT-18CRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">40,510</td></tr>
+                            <tr><td class="model">M1SEFT-24CRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">46,050</td></tr>
+                            <tr><td class="model">M1SEFT-12HRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">29,990</td></tr>
+                            <tr><td class="model">M1SEFT-18HRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">43,815</td></tr>
+                            <tr><td class="model">M1SEFT-24HRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">49,800</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Midea: Mission Inverter -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Midea — High Wall Inverter Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">M1SABT-30HRDNF-Q8</td><td>Mission Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">78,725</td></tr>
+                            <tr><td class="model">M1SABT-36HRDNF-Q8</td><td>Mission Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">90,495</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Midea: XtreamPro NEW -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Midea — High Wall Fixed Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">M1SEFT-12CRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">23,430</td></tr>
+                            <tr><td class="model">M1SEFT-18CRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">35,210</td></tr>
+                            <tr><td class="model">M1SEFT-24CRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">43,160</td></tr>
+                            <tr><td class="model">M1SEFT-12HRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">25,435</td></tr>
+                            <tr><td class="model">M1SEFT-18HRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">38,670</td></tr>
+                            <tr><td class="model">M1SEFT-24HRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">46,350</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Midea: Mission Pro -->
+                <div class="price-table-wrap">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="5" class="brand-header">Midea — High Wall Fixed Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">End User Guide</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">M1SCT-12CRN-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">23,430</td></tr>
+                            <tr><td class="model">M1SCT-18CRN-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">34,595</td></tr>
+                            <tr><td class="model">M1SCT-24CRN-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">42,345</td></tr>
+                            <tr><td class="model">M1SCT-12HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">25,435</td></tr>
+                            <tr><td class="model">M1SCT-18HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">38,060</td></tr>
+                            <tr><td class="model">M1SCT-24HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">45,535</td></tr>
+                            <tr><td class="model">M1SABT-30HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">70,235</td></tr>
+                            <tr><td class="model">M1SABT-36HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">80,690</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- ===== فريق المبيعات ===== -->
+                <div class="contact-card-gold max-w-2xl mx-auto mt-10">
+                    <div class="cc-title gold-text-3d">فريق المبيعات</div>
+                    <div class="cc-sub">Sales Team — اتصل بنا مباشرة</div>
+                    <div class="flex flex-col gap-3 mt-2">
+                        <a href="tel:+201002685262" class="cc-item">
+                            <span class="cc-label">مهندس شريف</span>
+                            <span class="cc-value">+20 10 02685262</span>
+                        </a>
+                        <a href="tel:+201114898319" class="cc-item">
+                            <span class="cc-label">المهندس عمرو</span>
+                            <span class="cc-value">+20 11 14898319</span>
+                        </a>
+                    </div>
+                    <div class="mt-4 text-xs text-gray-500 border-t border-white/10 pt-4 text-center">
+                        <span class="gold-subtitle">✧</span> اضغط على الرقم للاتصال المباشر <span class="gold-subtitle">✧</span>
+                    </div>
+                </div>
+
+                <div class="text-center mt-6 text-xs text-gray-500">
+                    <span class="gold-subtitle">✦</span> الأسعار تشمل دعم الوحدة الخارجية وخطوط الأنابيب &amp; تشمل ضريبة المبيعات والهندسة <span class="gold-subtitle">✦</span>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -3426,7 +4032,8 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }
         });
 
-        document.querySelectorAll('.section-card, .back-btn, .contact-link, .card-phone, .cc-item').forEach(el => {
+        document.querySelectorAll('.section-card, .back-btn, .contact-link, .card-phone, .cc-item, .sales-tab').forEach(
+        el => {
             el.style.touchAction = 'manipulation';
         });
 
@@ -3443,8 +4050,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }
         }
 
-        // ==================== نظام المنتجات (SECTION 4) ====================
-        // بيانات المنتجات
+        // ==================== نظام المنتجات (KAPO) ====================
         const products = {
             dababa: {
                 name: 'كابو الدبابه',
@@ -3458,10 +4064,9 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }
         };
 
-        let selectedProduct = null; // { id, name, image, hp }
+        let selectedProduct = null;
         let selectedHp = null;
 
-        // عناصر المودال
         const productModal = document.getElementById('product-modal');
         const customerModal = document.getElementById('customer-modal');
         const closeProduct = document.getElementById('close-product-modal');
@@ -3476,7 +4081,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         const orderSummary = document.getElementById('order-summary-text');
         const toast = document.getElementById('toast-message');
 
-        // فتح مودال المنتج
         function openProductModal(productId) {
             const prod = products[productId];
             if (!prod) return;
@@ -3484,7 +4088,8 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             selectedHp = null;
 
             modalImg.src = prod.image;
-            modalName.innerHTML = `<span class="gold-highlight">${prod.name.split(' ')[0]}</span> ${prod.name.split(' ').slice(1).join(' ')}`;
+            modalName.innerHTML =
+                `<span class="gold-highlight">${prod.name.split(' ')[0]}</span> ${prod.name.split(' ').slice(1).join(' ')}`;
 
             hpContainer.innerHTML = '';
             prod.hpOptions.forEach(hp => {
@@ -3505,19 +4110,16 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             document.body.style.overflow = 'hidden';
         }
 
-        // إغلاق مودال المنتج
         function closeProductModal() {
             productModal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        // إغلاق مودال العميل
         function closeCustomerModal() {
             customerModal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        // عرض توست
         function showToast(msg) {
             toast.textContent = msg;
             toast.classList.add('show');
@@ -3527,7 +4129,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }, 3000);
         }
 
-        // أحداث المنتجات (النقر على البطاقات)
         document.querySelectorAll('.product-card').forEach(card => {
             card.addEventListener('click', function() {
                 const productId = this.dataset.product;
@@ -3538,15 +4139,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         closeProduct.addEventListener('click', closeProductModal);
         closeCustomer.addEventListener('click', closeCustomerModal);
 
-        // إضافة إلى السلة
         addToCartBtn.addEventListener('click', function() {
             if (!selectedProduct || !selectedHp) {
                 showToast('الرجاء اختيار القدرة الحصانية');
                 return;
             }
-            // إغلاق مودال المنتج وفتح مودال العميل
             productModal.classList.remove('active');
-            // عرض ملخص الطلب
             orderSummary.innerHTML = `<strong>${selectedProduct.name}</strong> — ${selectedHp}`;
             customerName.value = '';
             customerPhone.value = '';
@@ -3554,7 +4152,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             document.body.style.overflow = 'hidden';
         });
 
-        // إرسال الطلب عبر واتساب
         submitOrderBtn.addEventListener('click', function() {
             const name = customerName.value.trim();
             const phone = customerPhone.value.trim();
@@ -3562,23 +4159,19 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 showToast('الرجاء إدخال الاسم ورقم الهاتف');
                 return;
             }
-            // بناء رسالة واتساب
             const msg = `طلب شراء:\nالمنتج: ${selectedProduct.name}\nالقدرة: ${selectedHp}\nالاسم: ${name}\nالهاتف: ${phone}`;
             const encodedMsg = encodeURIComponent(msg);
             const whatsappUrl = `https://wa.me/201114898319?text=${encodedMsg}`;
 
-            // إغلاق المودال
             customerModal.classList.remove('active');
             document.body.style.overflow = '';
             showToast('جاري التحويل إلى واتساب...');
 
-            // فتح واتساب بعد تأخير بسيط
             setTimeout(() => {
                 window.open(whatsappUrl, '_blank');
             }, 600);
         });
 
-        // إغلاق المودال عند الضغط خارج المحتوى
         productModal.addEventListener('click', function(e) {
             if (e.target === this) closeProductModal();
         });
@@ -3586,11 +4179,27 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             if (e.target === this) closeCustomerModal();
         });
 
-        // ==================== زر تبديل الثيم (الزر الثابت) ====================
+        // ==================== تبويبات ====================
+        const tabs = document.querySelectorAll('.sales-tab');
+        const contents = {
+            kapo: document.getElementById('tab-kapo'),
+            ac: document.getElementById('tab-ac')
+        };
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.dataset.tab;
+                tabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                Object.values(contents).forEach(c => c.classList.remove('active'));
+                if (contents[target]) contents[target].classList.add('active');
+            });
+        });
+
+        // ==================== زر تبديل الثيم ====================
         const themeToggle = document.getElementById('theme-toggle-fixed');
         const body = document.body;
 
-        // التحقق من الثيم المخزن
         const savedTheme = localStorage.getItem('naelee-theme');
         if (savedTheme === 'light') {
             body.classList.add('light-theme');
@@ -3599,23 +4208,16 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             themeToggle.querySelector('.toggle-icon').textContent = '🌓';
         }
 
-        // حدث النقر على الزر
         themeToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             body.classList.toggle('light-theme');
             const isLight = body.classList.contains('light-theme');
             localStorage.setItem('naelee-theme', isLight ? 'light' : 'dark');
-            // تغيير الأيقونة
             const icon = this.querySelector('.toggle-icon');
-            if (isLight) {
-                icon.textContent = '☀️';
-            } else {
-                icon.textContent = '🌓';
-            }
-            console.log('Theme toggled:', isLight ? 'Light' : 'Dark');
+            icon.textContent = isLight ? '☀️' : '🌓';
         });
 
-        console.log('NAELEE | Luxury Engineering Excellence — Professional Sections with Product Order System & Fixed Theme Toggle');
+        console.log('NAELEE | Updated: Removed Dealer Price column from AC tables.');
     })();
 </script>
 
