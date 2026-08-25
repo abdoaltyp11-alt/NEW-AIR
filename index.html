@@ -1852,7 +1852,7 @@
             }
         }
 
-        /* ===== Price Tables (بدون Dealer Price) ===== */
+        /* ===== Price Tables (مع عمود ركوس كود و Press بدلاً من End User Guide) ===== */
         .price-table-wrap {
             overflow-x: auto;
             margin-bottom: 24px;
@@ -1860,6 +1860,7 @@
             border: 1px solid rgba(212, 175, 55, 0.1);
             background: rgba(0, 0, 0, 0.2);
             padding: 2px;
+            position: relative;
         }
 
         body.light-theme .price-table-wrap {
@@ -1869,7 +1870,7 @@
 
         .price-table {
             width: 100%;
-            min-width: 500px;
+            min-width: 600px; /* زيادة العرض لاستيعاب العمود الجديد */
             border-collapse: collapse;
             font-size: clamp(0.6rem, 0.7vw, 0.75rem);
             font-family: 'Inter', sans-serif;
@@ -1937,11 +1938,12 @@
             color: #1a1412;
         }
 
-        .price-table tbody td.price-enduser {
+        .price-table tbody td.press-price {
             color: #FDF5A6;
+            font-weight: 600;
         }
 
-        body.light-theme .price-table tbody td.price-enduser {
+        body.light-theme .price-table tbody td.press-price {
             color: #b38728;
         }
 
@@ -2500,7 +2502,7 @@
             }
 
             .price-table {
-                min-width: 400px;
+                min-width: 500px;
                 font-size: 0.55rem;
             }
             .price-table thead th {
@@ -2591,7 +2593,7 @@
             }
 
             .price-table {
-                min-width: 300px;
+                min-width: 400px;
                 font-size: 0.45rem;
             }
             .price-table thead th {
@@ -2874,7 +2876,7 @@
             </div>
             <div class="flex gap-8 text-gray-400 text-xs tracking-widest uppercase font-semibold">
                 <a href="#" class="hover:text-muted-gold transition-colors duration-300">Contact</a>
-                <a href="#" class="hover:text-muted-gold transition-colors duration-300">Press</a>
+                <a href="#" class="hover:text-muted-gold transition-colors duration-300"> End User Press</a>
                 <a href="#" class="hover:text-muted-gold transition-colors duration-300">Privacy</a>
             </div>
         </footer>
@@ -3287,315 +3289,367 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 </div>
             </div>
 
-            <!-- ===== محتوى التكييفات (تم حذف عمود Dealer Price) ===== -->
+            <!-- ===== محتوى التكييفات (محدث بالبيانات من PDF وإضافة عمود ركوس كود وتغيير End User Guide إلى Press) ===== -->
             <div class="sales-tab-content" id="tab-ac">
                 <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-6">
-                    قوائم أسعار Carrier و Midea — جميع الموديلات والأسعار من ملف PDF.
+                  
                 </p>
 
                 <!-- ===== CARRIER ===== -->
-                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest">Carrier</h3>
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest flex items-center gap-4">
+                    <img src="https://i.postimg.cc/SKbMCyyL/image.png" alt="Carrier" class="h-10 w-auto" />
+                    Carrier
+                </h3>
 
                 <!-- Carrier: High Wall Inverter Split Systems (XCOOL Inverter) -->
-                <div class="price-table-wrap">
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header"> Rakwat Code</th>
+                                <th class="category-header"> enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53KHEFT12DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>CO</td><td class="price price-enduser">30,390</td></tr>
-                            <tr><td class="model">53KHEFT18DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>CO</td><td class="price price-enduser">44,910</td></tr>
-                            <tr><td class="model">53KHEFT24DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>CO</td><td class="price price-enduser">50,995</td></tr>
-                            <tr><td class="model">53QHEFT12DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>HP</td><td class="price price-enduser">33,105</td></tr>
-                            <tr><td class="model">53QHEFT18DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>HP</td><td class="price price-enduser">48,565</td></tr>
-                            <tr><td class="model">53QHEFT24DN8-708F</td><td>XCOOL Inverter</td><td>R-32</td><td>HP</td><td class="price price-enduser">55,140</td></tr>
+                            <tr><td class="model">53KHEFT12DN8-708F</td><td rowspan="6">XCOOL Inverter</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>001</td><td class="press-price">30,390</td></tr>
+                            <tr><td class="model">53KHEFT18DN8-708F</td><td>CO</td><td>2.25</td><td>002</td><td class="press-price">44,910</td></tr>
+                            <tr><td class="model">53KHEFT24DN8-708F</td><td>CO</td><td>3</td><td>003</td><td class="press-price">50,995</td></tr>
+                            <tr><td class="model">53QHEFT12DN8-708F</td><td>HP</td><td>1.5</td><td>004</td><td class="press-price">33,105</td></tr>
+                            <tr><td class="model">53QHEFT18DN8-708F</td><td>HP</td><td>2.25</td><td>005</td><td class="press-price">48,565</td></tr>
+                            <tr><td class="model">53QHEFT24DN8-708F</td><td>HP</td><td>3</td><td>006</td><td class="press-price">55,140</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: Optimax Inverter -->
-                <div class="price-table-wrap">
+                <!-- Carrier: High Wall Inverter Split Systems (Optimax Inverter) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code</th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QHABT30DN-708F</td><td>Optimax Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">85,940</td></tr>
-                            <tr><td class="model">53QHABT36DN-708F</td><td>Optimax Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">98,750</td></tr>
+                            <tr><td class="model">53QHABT30DN-708F</td><td rowspan="2">Optimax Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>007</td><td class="press-price">85,940</td></tr>
+                            <tr><td class="model">53QHABT36DN-708F</td><td>5</td><td>008</td><td class="press-price">98,750</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: Optimax Pro Fixed -->
-                <div class="price-table-wrap">
+                <!-- Carrier: High Wall Fixed Split Systems (Optimax Pro) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code </th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53KHCT12N-708</td><td>Optimax Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">26,415</td></tr>
-                            <tr><td class="model">53KHCT18N-708</td><td>Optimax Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">37,325</td></tr>
-                            <tr><td class="model">53KHCT24N-708</td><td>Optimax Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">44,705</td></tr>
-                            <tr><td class="model">53QHCT12N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">28,630</td></tr>
-                            <tr><td class="model">53QHCT18N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">40,730</td></tr>
-                            <tr><td class="model">53QHCT24N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">48,200</td></tr>
-                            <tr><td class="model">53QHABT30N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">76,460</td></tr>
-                            <tr><td class="model">53QHABT36N-708F</td><td>Optimax Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">87,850</td></tr>
+                            <tr><td class="model">53KHCT12N-708</td><td rowspan="6">Optimax Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td>009</td><td class="press-price">26,415</td></tr>
+                            <tr><td class="model">53KHCT18N-708</td><td>CO</td><td>2.5</td><td>010</td><td class="press-price">37,325</td></tr>
+                            <tr><td class="model">53KHCT24N-708</td><td>CO</td><td>3</td><td>011</td><td class="press-price">44,705</td></tr>
+                            <tr><td class="model">53QHCT12N-708F</td><td>HP</td><td>1.5</td><td>012</td><td class="press-price">28,630</td></tr>
+                            <tr><td class="model">53QHCT18N-708F</td><td>HP</td><td>2.5</td><td>013</td><td class="press-price">40,730</td></tr>
+                            <tr><td class="model">53QHCT24N-708F</td><td>HP</td><td>3</td><td>014</td><td class="press-price">48,200</td></tr>
+                            <tr><td class="model">53QHABT30N-708F</td><td rowspan="2">Optimax Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>015</td><td class="press-price">76,460</td></tr>
+                            <tr><td class="model">53QHABT36N-708F</td><td>5</td><td>016</td><td class="press-price">87,850</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: XCOOL NEW -->
-                <div class="price-table-wrap">
+                <!-- Carrier: High Wall Fixed Split Systems (XCOOL NEW) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header"> Rakwat Code</th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53KHEFT12N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">26,415</td></tr>
-                            <tr><td class="model">53KHEFT18N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">37,935</td></tr>
-                            <tr><td class="model">53KHEFT24N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">45,520</td></tr>
-                            <tr><td class="model">53QHEFT12N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">28,630</td></tr>
-                            <tr><td class="model">53QHEFT18N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">41,345</td></tr>
-                            <tr><td class="model">53QHEFT24N8-708F</td><td>XCOOL NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">49,015</td></tr>
+                            <tr><td class="model">53KHEFT12N8-708F</td><td rowspan="6">XCOOL NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>017</td><td class="press-price">26,415</td></tr>
+                            <tr><td class="model">53KHEFT18N8-708F</td><td>CO</td><td>2.5</td><td>018</td><td class="press-price">37,935</td></tr>
+                            <tr><td class="model">53KHEFT24N8-708F</td><td>CO</td><td>3</td><td>019</td><td class="press-price">45,520</td></tr>
+                            <tr><td class="model">53QHEFT12N8-708F</td><td>HP</td><td>1.5</td><td>020</td><td class="press-price">28,630</td></tr>
+                            <tr><td class="model">53QHEFT18N8-708F</td><td>HP</td><td>2.5</td><td>021</td><td class="press-price">41,345</td></tr>
+                            <tr><td class="model">53QHEFT24N8-708F</td><td>HP</td><td>3</td><td>022</td><td class="press-price">49,015</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: Ducted Inverter -->
-                <div class="price-table-wrap">
+                <!-- Carrier: Ducted Inverter Split Systems (ClassiCool Inverter) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — Ducted Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — Ducted Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code </th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QDMAGT18DN-728</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">64,300</td></tr>
-                            <tr><td class="model">53QDMAGT24DN-728</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">74,085</td></tr>
-                            <tr><td class="model">53QDMAGT36DN-728</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">109,270</td></tr>
-                            <tr><td class="model">53QDHGTG48DN-528</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">143,050</td></tr>
-                            <tr><td class="model">53QDHGTG60DN-528</td><td>ClassiCool Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">157,860</td></tr>
+                            <tr><td class="model">53QDMAG6T18DN-728</td><td rowspan="5">ClassiCool Inverter</td><td rowspan="5">R410A</td><td rowspan="5">HP</td><td>2.5</td><td>023</td><td class="press-price">64,300</td></tr>
+                            <tr><td class="model">53QDMAG6T24DN-728</td><td>3</td><td>024</td><td class="press-price">74,085</td></tr>
+                            <tr><td class="model">53QDMAG6T36DN-728</td><td>5</td><td>025</td><td class="press-price">109,270</td></tr>
+                            <tr><td class="model">53QDHGTG48DN-528</td><td>6</td><td>026</td><td class="press-price">143,050</td></tr>
+                            <tr><td class="model">53QDHGTG60DN-528</td><td>7.5</td><td>027</td><td class="press-price">157,860</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: Ducted Fixed -->
-                <div class="price-table-wrap">
+                <!-- Carrier: Ducted Split Fixed Systems (ClassiCool Pro) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — Ducted Split Fixed Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — Ducted Split Fixed Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header"> Rakwat Code</th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QDMAGT12N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">41,260</td></tr>
-                            <tr><td class="model">53QDMAGT18N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">53,655</td></tr>
-                            <tr><td class="model">53QDMAGT24N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">64,385</td></tr>
-                            <tr><td class="model">53QDMAGT30N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">82,705</td></tr>
-                            <tr><td class="model">53QDMAGT36N-728</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">95,055</td></tr>
-                            <tr><td class="model">53QDMAGT48N-528</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">124,335</td></tr>
-                            <tr><td class="model">53QDMAGT60N-528</td><td>ClassiCool Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">137,300</td></tr>
+                            <tr><td class="model">53QDMAG6T12N-728</td><td rowspan="7">ClassiCool Pro</td><td rowspan="7">R410A</td><td rowspan="7">HP</td><td>1.5</td><td>028</td><td class="press-price">41,260</td></tr>
+                            <tr><td class="model">53QDMAG6T18N-728</td><td>2.5</td><td>029</td><td class="press-price">53,655</td></tr>
+                            <tr><td class="model">53QDMAG6T24N-728</td><td>3</td><td>030</td><td class="press-price">64,385</td></tr>
+                            <tr><td class="model">53QDMAG6T30N-728</td><td>4</td><td>031</td><td class="press-price">82,705</td></tr>
+                            <tr><td class="model">53QDMAG6T36N-728</td><td>5</td><td>032</td><td class="press-price">95,055</td></tr>
+                            <tr><td class="model">53QDMAG6T48N-528</td><td>6</td><td>033</td><td class="press-price">124,335</td></tr>
+                            <tr><td class="model">53QDMAG6T60N-528</td><td>7.5</td><td>034</td><td class="press-price">137,300</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: Cassette -->
-                <div class="price-table-wrap">
+                <!-- Carrier: Cassette Split Inverter Systems (DÉCOR Inverter) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — Cassette Split Inverter Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — Cassette Split Inverter Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header"> Rakwat Code</th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QCDT36DN-708</td><td>DÉCOR Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">131,010</td></tr>
-                            <tr><td class="model">53QCDT48DN-508</td><td>DÉCOR Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">144,070</td></tr>
+                            <tr><td class="model">53QCDT36DN-708</td><td rowspan="2">DÉCOR Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>5</td><td>035</td><td class="press-price">131,010</td></tr>
+                            <tr><td class="model">53QCDT48DN-508</td><td>6</td><td>036</td><td class="press-price">144,070</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Carrier: Floor Standing -->
-                <div class="price-table-wrap">
+                <!-- Carrier: Floor Standing Inverter Split System (Elegant Inverter) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Carrier — Floor Standing Systems</th>
+                                <th colspan="7" class="brand-header">Carrier — Floor Standing Inverter Split System</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header"> Rakwat Code</th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QFGDT60DN-508</td><td>Elegant Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">166,640</td></tr>
-                            <tr><td class="model">53QFMT36N-708</td><td>Elegant Pro</td><td>R410A</td><td>HP</td><td class="price price-enduser">114,265</td></tr>
-                            <tr><td class="model">53KFGDT60N-508</td><td>Elegant Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">145,060</td></tr>
+                            <tr><td class="model">53QFGDT60DN-508</td><td>Elegant Inverter</td><td>R410A</td><td>HP</td><td>7.5</td><td>037</td><td class="press-price">166,640</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Carrier: Floor Standing Fixed Split Systems (Elegant Pro) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                    <table class="price-table">
+                        <thead>
+                            <tr>
+                                <th colspan="7" class="brand-header">Carrier — Floor Standing Fixed Split Systems</th>
+                            </tr>
+                            <tr>
+                                <th class="category-header">Model</th>
+                                <th class="category-header">Commercial Name</th>
+                                <th class="category-header">Refrigerant Type</th>
+                                <th class="category-header">Application</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code </th>
+                                <th class="category-header">enduser Press</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="model">53QFMT36N-708</td><td rowspan="2">Elegant Pro</td><td rowspan="2">R410A</td><td>HP</td><td>5</td><td>038</td><td class="press-price">114,265</td></tr>
+                            <tr><td class="model">53KFGDT60N-508</td><td>CO</td><td>7.5</td><td>039</td><td class="press-price">145,060</td></tr>
                         </tbody>
                     </table>
                 </div>
 
                 <!-- ===== MIDEA ===== -->
-                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mt-12 mb-4 tracking-widest">Midea</h3>
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mt-12 mb-4 tracking-widest flex items-center gap-4">
+                    <img src="https://i.postimg.cc/0QbKqrZR/image.png" alt="Midea" class="h-10 w-auto" />
+                    Midea
+                </h3>
 
-                <!-- Midea: AI ECO MASTER Inverter -->
-                <div class="price-table-wrap">
+                <!-- Midea: High Wall Inverter Split Systems (AI ECO MASTER) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Midea — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">Midea — High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header"> Rakwat Code</th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SEFT-12CRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">27,525</td></tr>
-                            <tr><td class="model">M1SEFT-18CRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">40,510</td></tr>
-                            <tr><td class="model">M1SEFT-24CRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">46,050</td></tr>
-                            <tr><td class="model">M1SEFT-12HRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">29,990</td></tr>
-                            <tr><td class="model">M1SEFT-18HRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">43,815</td></tr>
-                            <tr><td class="model">M1SEFT-24HRDN8F-Q8</td><td>AI ECO MASTER</td><td>R-32</td><td>CO</td><td class="price price-enduser">49,800</td></tr>
+                            <tr><td class="model">M1SEFT-12CRDN8F-Q8</td><td rowspan="6">AI ECO MASTER</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>040</td><td class="press-price">27,525</td></tr>
+                            <tr><td class="model">M1SEFT-18CRDN8F-Q8</td><td>CO</td><td>2.5</td><td>041</td><td class="press-price">40,510</td></tr>
+                            <tr><td class="model">M1SEFT-24CRDN8F-Q8</td><td>CO</td><td>3</td><td>042</td><td class="press-price">46,050</td></tr>
+                            <tr><td class="model">M1SEFT-12HRDN8F-Q8</td><td>HP</td><td>1.5</td><td>043</td><td class="press-price">29,990</td></tr>
+                            <tr><td class="model">M1SEFT-18HRDN8F-Q8</td><td>HP</td><td>2.5</td><td>044</td><td class="press-price">43,815</td></tr>
+                            <tr><td class="model">M1SEFT-24HRDN8F-Q8</td><td>HP</td><td>3</td><td>045</td><td class="press-price">49,800</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Midea: Mission Inverter -->
-                <div class="price-table-wrap">
+                <!-- Midea: High Wall Inverter Split Systems (Mission Inverter) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Midea — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">Midea — High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code </th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SABT-30HRDNF-Q8</td><td>Mission Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">78,725</td></tr>
-                            <tr><td class="model">M1SABT-36HRDNF-Q8</td><td>Mission Inverter</td><td>R410A</td><td>HP</td><td class="price price-enduser">90,495</td></tr>
+                            <tr><td class="model">M1SABT-30HRDNF-Q8</td><td rowspan="2">Mission Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>046</td><td class="press-price">78,725</td></tr>
+                            <tr><td class="model">M1SABT-36HRDNF-Q8</td><td>5</td><td>047</td><td class="press-price">90,495</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Midea: XtreamPro NEW -->
-                <div class="price-table-wrap">
+                <!-- Midea: High Wall Fixed Split Systems (XstreamPro NEW) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Midea — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">Midea — High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code </th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SEFT-12CRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">23,430</td></tr>
-                            <tr><td class="model">M1SEFT-18CRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">35,210</td></tr>
-                            <tr><td class="model">M1SEFT-24CRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">43,160</td></tr>
-                            <tr><td class="model">M1SEFT-12HRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">25,435</td></tr>
-                            <tr><td class="model">M1SEFT-18HRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">38,670</td></tr>
-                            <tr><td class="model">M1SEFT-24HRN8F-Q8</td><td>XtreamPro NEW</td><td>R-32</td><td>CO</td><td class="price price-enduser">46,350</td></tr>
+                            <tr><td class="model">M1SEFT-12CRN8F-Q8</td><td rowspan="6">XstreamPro NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>048</td><td class="press-price">23,430</td></tr>
+                            <tr><td class="model">M1SEFT-18CRN8F-Q8</td><td>CO</td><td>2.5</td><td>049</td><td class="press-price">35,210</td></tr>
+                            <tr><td class="model">M1SEFT-24CRN8F-Q8</td><td>CO</td><td>3</td><td>050</td><td class="press-price">43,160</td></tr>
+                            <tr><td class="model">M1SEFT-12HRN8F-Q8</td><td>HP</td><td>1.5</td><td>051</td><td class="press-price">25,435</td></tr>
+                            <tr><td class="model">M1SEFT-18HRN8F-Q8</td><td>HP</td><td>2.5</td><td>052</td><td class="press-price">38,670</td></tr>
+                            <tr><td class="model">M1SEFT-24HRN8F-Q8</td><td>HP</td><td>3</td><td>053</td><td class="press-price">46,350</td></tr>
                         </tbody>
                     </table>
                 </div>
 
-                <!-- Midea: Mission Pro -->
-                <div class="price-table-wrap">
+                <!-- Midea: High Wall Fixed Split Systems (Mission Pro) -->
+                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="5" class="brand-header">Midea — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">Midea — High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
                                 <th class="category-header">Commercial Name</th>
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
-                                <th class="category-header">End User Guide</th>
+                                <th class="category-header">Horse power</th>
+                                <th class="category-header">Rakwat Code </th>
+                                <th class="category-header">enduser Press</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SCT-12CRN-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">23,430</td></tr>
-                            <tr><td class="model">M1SCT-18CRN-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">34,595</td></tr>
-                            <tr><td class="model">M1SCT-24CRN-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">42,345</td></tr>
-                            <tr><td class="model">M1SCT-12HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">25,435</td></tr>
-                            <tr><td class="model">M1SCT-18HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">38,060</td></tr>
-                            <tr><td class="model">M1SCT-24HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">45,535</td></tr>
-                            <tr><td class="model">M1SABT-30HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">70,235</td></tr>
-                            <tr><td class="model">M1SABT-36HRN-F-Q8</td><td>Mission Pro</td><td>R410A</td><td>CO</td><td class="price price-enduser">80,690</td></tr>
+                            <tr><td class="model">M1SCT-12CRN-Q8</td><td rowspan="6">Mission Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td>054</td><td class="press-price">23,430</td></tr>
+                            <tr><td class="model">M1SCT-18CRN-Q8</td><td>CO</td><td>2.5</td><td>055</td><td class="press-price">34,595</td></tr>
+                            <tr><td class="model">M1SCT-24CRN-Q8</td><td>CO</td><td>3</td><td>056</td><td class="press-price">42,345</td></tr>
+                            <tr><td class="model">M1SCT-12HRN-F-Q8</td><td>HP</td><td>1.5</td><td>057</td><td class="press-price">25,435</td></tr>
+                            <tr><td class="model">M1SCT-18HRN-F-Q8</td><td>HP</td><td>2.5</td><td>058</td><td class="press-price">38,060</td></tr>
+                            <tr><td class="model">M1SCT-24HRN-F-Q8</td><td>HP</td><td>3</td><td>059</td><td class="press-price">45,535</td></tr>
+                            <tr><td class="model">M1SABT-30HRN-F-Q8</td><td rowspan="2">Mission Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>060</td><td class="press-price">70,235</td></tr>
+                            <tr><td class="model">M1SABT-36HRN-F-Q8</td><td>5</td><td>061</td><td class="press-price">80,690</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3620,7 +3674,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 </div>
 
                 <div class="text-center mt-6 text-xs text-gray-500">
-                    <span class="gold-subtitle">✦</span> الأسعار تشمل دعم الوحدة الخارجية وخطوط الأنابيب &amp; تشمل ضريبة المبيعات والهندسة <span class="gold-subtitle">✦</span>
+                    <span class="gold-subtitle">✦</span> الأسعار تشمل دعم الوحدة الخارجية وخطوط الأنابيب &amp; تشمل ضريبة المبيعات والهندسة (للموديلات 48k و 60k بدون خطوط التبريد) <span class="gold-subtitle">✦</span>
                 </div>
             </div>
 
@@ -4217,7 +4271,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             icon.textContent = isLight ? '☀️' : '🌓';
         });
 
-        console.log('NAELEE | Updated: Removed Dealer Price column from AC tables.');
+        console.log('NAELEE | Updated AC tables: added ركوس كود column and renamed End User Guide to Press.');
     })();
 </script>
 
