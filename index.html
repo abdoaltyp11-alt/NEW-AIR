@@ -187,7 +187,6 @@
             --input-border: rgba(212, 175, 55, 0.15);
         }
 
-        /* ===== الثيم الفاتح ===== */
         body.light-theme {
             --bg-body: #fcf6f0;
             --bg-body-overlay: rgba(255, 248, 245, 0.7);
@@ -826,7 +825,6 @@
             will-change: transform;
         }
 
-        /* Multi-layer overlay for cinematic depth */
         .section-card::before {
             content: '';
             position: absolute;
@@ -848,7 +846,6 @@
                     rgba(0, 0, 0, 0.25) 100%);
         }
 
-        /* Vignette effect */
         .section-card::after {
             content: '';
             position: absolute;
@@ -863,7 +860,6 @@
             background: radial-gradient(circle at 70% 20%, transparent 30%, rgba(0, 0, 0, 0.08) 100%);
         }
 
-        /* Gold border frame that appears on hover */
         .section-card .card-frame {
             position: absolute;
             inset: 6px;
@@ -879,7 +875,6 @@
             box-shadow: inset 0 0 40px rgba(212, 175, 55, 0.06), 0 0 40px rgba(212, 175, 55, 0.04);
         }
 
-        /* Corner accents (L-shapes) */
         .section-card .corner-accent {
             position: absolute;
             width: 18px;
@@ -933,7 +928,6 @@
             transition: all 0.6s ease;
         }
 
-        /* Premium Numbering */
         .section-card .card-number {
             position: absolute;
             top: 16px;
@@ -1049,7 +1043,6 @@
             background: linear-gradient(90deg, #FDF5A6, #D4AF37, transparent);
         }
 
-        /* Hover indicator arrow */
         .section-card .hover-arrow {
             display: inline-flex;
             align-items: center;
@@ -1870,7 +1863,7 @@
 
         .price-table {
             width: 100%;
-            min-width: 600px; /* زيادة العرض لاستيعاب العمود الجديد */
+            min-width: 600px;
             border-collapse: collapse;
             font-size: clamp(0.6rem, 0.7vw, 0.75rem);
             font-family: 'Inter', sans-serif;
@@ -2965,7 +2958,7 @@
     </div>
 </div>
 
-<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS ===== -->
+<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (KAPO فقط) ===== -->
 <div class="section-card" data-section="4"
 style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 <span class="corner-accent tl"></span>
@@ -3018,13 +3011,19 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 commercial, and industrial environments across Egypt and the Middle East.
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
-                <div class="service-card stagger-item">
+
+                <!-- ===== المربع الأول المعدل (يؤدي إلى القسم الخامس) ===== -->
+                <div class="service-card stagger-item" data-section="5" style="cursor:pointer;">
                     <span class="card-icon">❄️</span>
                     <h3 class="card-title">Split / Concealed / Ducted</h3>
                     <p class="card-desc">أجهزة اسبلت، كونسيلد، دكتد للفيلات والقصور — Premium residential climate solutions.</p>
-                    <a href="tel:+201114898319" class="card-phone">+20 11 14898319</a>
-                    <div class="mt-2 text-xs text-gray-500">Eng. Sherif: <a href="tel:+201002685262" class="text-gold-light hover:text-white transition-colors">+20 10 02685262</a></div>
+                    <div class="mt-2 text-xs text-gray-500 flex flex-col gap-1">
+                        <span>مهندس شريف: <a href="tel:+201002685262" class="text-gold-light hover:text-white transition-colors">+20 10 02685262</a></span>
+                        <span>المهندس عمرو: <a href="tel:+201114898319" class="text-gold-light hover:text-white transition-colors">+20 11 14898319</a></span>
+                    </div>
                 </div>
+
+                <!-- باقي الخدمات كما هي -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">🏢</span>
                     <h3 class="card-title">Commercial Central AC</h3>
@@ -3220,7 +3219,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
     </div>
 </div>
 
-<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (مع تبويب KAPO والتكييفات) ===== -->
+<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (KAPO فقط، تم حذف التكييفات) ===== -->
 <div class="section-detail" id="section-detail-4">
     <div class="detail-inner">
         <button class="back-btn" data-back="4">
@@ -3231,20 +3230,17 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         <div class="gold-line"></div>
 
         <h2 class="detail-title gold-text-3d">NEW HVAC &amp; REFRIGERATION PARTS</h2>
-        <p class="detail-subtitle gold-subtitle">KAPO &amp; Air Conditioners — Price Lists</p>
+        <p class="detail-subtitle gold-subtitle">KAPO — Price List</p>
 
         <div class="detail-body">
 
-            <!-- ===== تبويبات ===== -->
+            <!-- ===== تبويبات (فقط KAPO) ===== -->
             <div class="sales-tabs" role="tablist">
                 <button class="sales-tab active" data-tab="kapo" role="tab">
                     KAPO
                     <span class="tab-sub">كابو</span>
                 </button>
-                <button class="sales-tab" data-tab="ac" role="tab">
-                    التكييفات
-                    <span class="tab-sub">Air Conditioners</span>
-                </button>
+                <!-- تم حذف تبويب التكييفات -->
             </div>
 
             <!-- ===== محتوى KAPO ===== -->
@@ -3289,11 +3285,28 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 </div>
             </div>
 
-            <!-- ===== محتوى التكييفات (محدث بالبيانات من PDF وإضافة عمود ركوس كود وتغيير End User Guide إلى Press) ===== -->
-            <div class="sales-tab-content" id="tab-ac">
-                <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-6">
-                  
-                </p>
+        </div>
+    </div>
+</div>
+
+<!-- ===== SECTION 5: HVAC & REFRIGERATION PARTS (جداول التكييفات فقط) ===== -->
+<div class="section-detail" id="section-detail-5">
+    <div class="detail-inner">
+        <button class="back-btn" data-back="5">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+            BACK TO SERVICES
+        </button>
+        <div class="gold-line"></div>
+        <h2 class="detail-title gold-text-3d">HVAC &amp; REFRIGERATION PARTS</h2>
+        <p class="detail-subtitle gold-subtitle">Carrier &amp; Midea — Price Lists</p>
+        <div class="detail-body">
+            <div class="sales-tabs" role="tablist">
+                <button class="sales-tab active" data-tab="ac-5" role="tab">
+                    التكييفات
+                    <span class="tab-sub">Air Conditioners</span>
+                </button>
+            </div>
+            <div class="sales-tab-content active" id="tab-ac-5">
 
                 <!-- ===== CARRIER ===== -->
                 <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest flex items-center gap-4">
@@ -3314,17 +3327,17 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header"> Rakwat Code</th>
-                                <th class="category-header"> enduser Press</th>
+                                <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53KHEFT12DN8-708F</td><td rowspan="6">XCOOL Inverter</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>001</td><td class="press-price">30,390</td></tr>
-                            <tr><td class="model">53KHEFT18DN8-708F</td><td>CO</td><td>2.25</td><td>002</td><td class="press-price">44,910</td></tr>
-                            <tr><td class="model">53KHEFT24DN8-708F</td><td>CO</td><td>3</td><td>003</td><td class="press-price">50,995</td></tr>
-                            <tr><td class="model">53QHEFT12DN8-708F</td><td>HP</td><td>1.5</td><td>004</td><td class="press-price">33,105</td></tr>
-                            <tr><td class="model">53QHEFT18DN8-708F</td><td>HP</td><td>2.25</td><td>005</td><td class="press-price">48,565</td></tr>
-                            <tr><td class="model">53QHEFT24DN8-708F</td><td>HP</td><td>3</td><td>006</td><td class="press-price">55,140</td></tr>
+                            <tr><td class="model">53KHEFT12DN8-708F</td><td rowspan="6">XCOOL Inverter</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td class="press-price">30,390</td><td>001</td></tr>
+                            <tr><td class="model">53KHEFT18DN8-708F</td><td>CO</td><td>2.25</td><td class="press-price">44,910</td><td>002</td></tr>
+                            <tr><td class="model">53KHEFT24DN8-708F</td><td>CO</td><td>3</td><td class="press-price">50,995</td><td>003</td></tr>
+                            <tr><td class="model">53QHEFT12DN8-708F</td><td>HP</td><td>1.5</td><td class="press-price">33,105</td><td>004</td></tr>
+                            <tr><td class="model">53QHEFT18DN8-708F</td><td>HP</td><td>2.25</td><td class="press-price">48,565</td><td>005</td></tr>
+                            <tr><td class="model">53QHEFT24DN8-708F</td><td>HP</td><td>3</td><td class="press-price">55,140</td><td>006</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3342,13 +3355,13 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code</th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QHABT30DN-708F</td><td rowspan="2">Optimax Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>007</td><td class="press-price">85,940</td></tr>
-                            <tr><td class="model">53QHABT36DN-708F</td><td>5</td><td>008</td><td class="press-price">98,750</td></tr>
+                            <tr><td class="model">53QHABT30DN-708F</td><td rowspan="2">Optimax Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td class="press-price">85,940</td><td>007</td></tr>
+                            <tr><td class="model">53QHABT36DN-708F</td><td>5</td><td class="press-price">98,750</td><td>008</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3366,19 +3379,19 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code </th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53KHCT12N-708</td><td rowspan="6">Optimax Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td>009</td><td class="press-price">26,415</td></tr>
-                            <tr><td class="model">53KHCT18N-708</td><td>CO</td><td>2.5</td><td>010</td><td class="press-price">37,325</td></tr>
-                            <tr><td class="model">53KHCT24N-708</td><td>CO</td><td>3</td><td>011</td><td class="press-price">44,705</td></tr>
-                            <tr><td class="model">53QHCT12N-708F</td><td>HP</td><td>1.5</td><td>012</td><td class="press-price">28,630</td></tr>
-                            <tr><td class="model">53QHCT18N-708F</td><td>HP</td><td>2.5</td><td>013</td><td class="press-price">40,730</td></tr>
-                            <tr><td class="model">53QHCT24N-708F</td><td>HP</td><td>3</td><td>014</td><td class="press-price">48,200</td></tr>
-                            <tr><td class="model">53QHABT30N-708F</td><td rowspan="2">Optimax Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>015</td><td class="press-price">76,460</td></tr>
-                            <tr><td class="model">53QHABT36N-708F</td><td>5</td><td>016</td><td class="press-price">87,850</td></tr>
+                            <tr><td class="model">53KHCT12N-708</td><td rowspan="6">Optimax Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td class="press-price">26,415</td><td>009</td></tr>
+                            <tr><td class="model">53KHCT18N-708</td><td>CO</td><td>2.5</td><td class="press-price">37,325</td><td>010</td></tr>
+                            <tr><td class="model">53KHCT24N-708</td><td>CO</td><td>3</td><td class="press-price">44,705</td><td>011</td></tr>
+                            <tr><td class="model">53QHCT12N-708F</td><td>HP</td><td>1.5</td><td class="press-price">28,630</td><td>012</td></tr>
+                            <tr><td class="model">53QHCT18N-708F</td><td>HP</td><td>2.5</td><td class="press-price">40,730</td><td>013</td></tr>
+                            <tr><td class="model">53QHCT24N-708F</td><td>HP</td><td>3</td><td class="press-price">48,200</td><td>014</td></tr>
+                            <tr><td class="model">53QHABT30N-708F</td><td rowspan="2">Optimax Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td class="press-price">76,460</td><td>015</td></tr>
+                            <tr><td class="model">53QHABT36N-708F</td><td>5</td><td class="press-price">87,850</td><td>016</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3396,17 +3409,17 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header"> Rakwat Code</th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53KHEFT12N8-708F</td><td rowspan="6">XCOOL NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>017</td><td class="press-price">26,415</td></tr>
-                            <tr><td class="model">53KHEFT18N8-708F</td><td>CO</td><td>2.5</td><td>018</td><td class="press-price">37,935</td></tr>
-                            <tr><td class="model">53KHEFT24N8-708F</td><td>CO</td><td>3</td><td>019</td><td class="press-price">45,520</td></tr>
-                            <tr><td class="model">53QHEFT12N8-708F</td><td>HP</td><td>1.5</td><td>020</td><td class="press-price">28,630</td></tr>
-                            <tr><td class="model">53QHEFT18N8-708F</td><td>HP</td><td>2.5</td><td>021</td><td class="press-price">41,345</td></tr>
-                            <tr><td class="model">53QHEFT24N8-708F</td><td>HP</td><td>3</td><td>022</td><td class="press-price">49,015</td></tr>
+                            <tr><td class="model">53KHEFT12N8-708F</td><td rowspan="6">XCOOL NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td class="press-price">26,415</td><td>017</td></tr>
+                            <tr><td class="model">53KHEFT18N8-708F</td><td>CO</td><td>2.5</td><td class="press-price">37,935</td><td>018</td></tr>
+                            <tr><td class="model">53KHEFT24N8-708F</td><td>CO</td><td>3</td><td class="press-price">45,520</td><td>019</td></tr>
+                            <tr><td class="model">53QHEFT12N8-708F</td><td>HP</td><td>1.5</td><td class="press-price">28,630</td><td>020</td></tr>
+                            <tr><td class="model">53QHEFT18N8-708F</td><td>HP</td><td>2.5</td><td class="press-price">41,345</td><td>021</td></tr>
+                            <tr><td class="model">53QHEFT24N8-708F</td><td>HP</td><td>3</td><td class="press-price">49,015</td><td>022</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3424,16 +3437,16 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code </th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QDMAG6T18DN-728</td><td rowspan="5">ClassiCool Inverter</td><td rowspan="5">R410A</td><td rowspan="5">HP</td><td>2.5</td><td>023</td><td class="press-price">64,300</td></tr>
-                            <tr><td class="model">53QDMAG6T24DN-728</td><td>3</td><td>024</td><td class="press-price">74,085</td></tr>
-                            <tr><td class="model">53QDMAG6T36DN-728</td><td>5</td><td>025</td><td class="press-price">109,270</td></tr>
-                            <tr><td class="model">53QDHGTG48DN-528</td><td>6</td><td>026</td><td class="press-price">143,050</td></tr>
-                            <tr><td class="model">53QDHGTG60DN-528</td><td>7.5</td><td>027</td><td class="press-price">157,860</td></tr>
+                            <tr><td class="model">53QDMAG6T18DN-728</td><td rowspan="5">ClassiCool Inverter</td><td rowspan="5">R410A</td><td rowspan="5">HP</td><td>2.5</td><td class="press-price">64,300</td><td>023</td></tr>
+                            <tr><td class="model">53QDMAG6T24DN-728</td><td>3</td><td class="press-price">74,085</td><td>024</td></tr>
+                            <tr><td class="model">53QDMAG6T36DN-728</td><td>5</td><td class="press-price">109,270</td><td>025</td></tr>
+                            <tr><td class="model">53QDHGTG48DN-528</td><td>6</td><td class="press-price">143,050</td><td>026</td></tr>
+                            <tr><td class="model">53QDHGTG60DN-528</td><td>7.5</td><td class="press-price">157,860</td><td>027</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3451,18 +3464,18 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header"> Rakwat Code</th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QDMAG6T12N-728</td><td rowspan="7">ClassiCool Pro</td><td rowspan="7">R410A</td><td rowspan="7">HP</td><td>1.5</td><td>028</td><td class="press-price">41,260</td></tr>
-                            <tr><td class="model">53QDMAG6T18N-728</td><td>2.5</td><td>029</td><td class="press-price">53,655</td></tr>
-                            <tr><td class="model">53QDMAG6T24N-728</td><td>3</td><td>030</td><td class="press-price">64,385</td></tr>
-                            <tr><td class="model">53QDMAG6T30N-728</td><td>4</td><td>031</td><td class="press-price">82,705</td></tr>
-                            <tr><td class="model">53QDMAG6T36N-728</td><td>5</td><td>032</td><td class="press-price">95,055</td></tr>
-                            <tr><td class="model">53QDMAG6T48N-528</td><td>6</td><td>033</td><td class="press-price">124,335</td></tr>
-                            <tr><td class="model">53QDMAG6T60N-528</td><td>7.5</td><td>034</td><td class="press-price">137,300</td></tr>
+                            <tr><td class="model">53QDMAG6T12N-728</td><td rowspan="7">ClassiCool Pro</td><td rowspan="7">R410A</td><td rowspan="7">HP</td><td>1.5</td><td class="press-price">41,260</td><td>028</td></tr>
+                            <tr><td class="model">53QDMAG6T18N-728</td><td>2.5</td><td class="press-price">53,655</td><td>029</td></tr>
+                            <tr><td class="model">53QDMAG6T24N-728</td><td>3</td><td class="press-price">64,385</td><td>030</td></tr>
+                            <tr><td class="model">53QDMAG6T30N-728</td><td>4</td><td class="press-price">82,705</td><td>031</td></tr>
+                            <tr><td class="model">53QDMAG6T36N-728</td><td>5</td><td class="press-price">95,055</td><td>032</td></tr>
+                            <tr><td class="model">53QDMAG6T48N-528</td><td>6</td><td class="press-price">124,335</td><td>033</td></tr>
+                            <tr><td class="model">53QDMAG6T60N-528</td><td>7.5</td><td class="press-price">137,300</td><td>034</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3480,13 +3493,13 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header"> Rakwat Code</th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QCDT36DN-708</td><td rowspan="2">DÉCOR Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>5</td><td>035</td><td class="press-price">131,010</td></tr>
-                            <tr><td class="model">53QCDT48DN-508</td><td>6</td><td>036</td><td class="press-price">144,070</td></tr>
+                            <tr><td class="model">53QCDT36DN-708</td><td rowspan="2">DÉCOR Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>5</td><td class="press-price">131,010</td><td>035</td></tr>
+                            <tr><td class="model">53QCDT48DN-508</td><td>6</td><td class="press-price">144,070</td><td>036</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3504,12 +3517,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header"> Rakwat Code</th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QFGDT60DN-508</td><td>Elegant Inverter</td><td>R410A</td><td>HP</td><td>7.5</td><td>037</td><td class="press-price">166,640</td></tr>
+                            <tr><td class="model">53QFGDT60DN-508</td><td>Elegant Inverter</td><td>R410A</td><td>HP</td><td>7.5</td><td class="press-price">166,640</td><td>037</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3527,13 +3540,13 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code </th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">53QFMT36N-708</td><td rowspan="2">Elegant Pro</td><td rowspan="2">R410A</td><td>HP</td><td>5</td><td>038</td><td class="press-price">114,265</td></tr>
-                            <tr><td class="model">53KFGDT60N-508</td><td>CO</td><td>7.5</td><td>039</td><td class="press-price">145,060</td></tr>
+                            <tr><td class="model">53QFMT36N-708</td><td rowspan="2">Elegant Pro</td><td rowspan="2">R410A</td><td>HP</td><td>5</td><td class="press-price">114,265</td><td>038</td></tr>
+                            <tr><td class="model">53KFGDT60N-508</td><td>CO</td><td>7.5</td><td class="press-price">145,060</td><td>039</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3557,17 +3570,17 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header"> Rakwat Code</th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SEFT-12CRDN8F-Q8</td><td rowspan="6">AI ECO MASTER</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>040</td><td class="press-price">27,525</td></tr>
-                            <tr><td class="model">M1SEFT-18CRDN8F-Q8</td><td>CO</td><td>2.5</td><td>041</td><td class="press-price">40,510</td></tr>
-                            <tr><td class="model">M1SEFT-24CRDN8F-Q8</td><td>CO</td><td>3</td><td>042</td><td class="press-price">46,050</td></tr>
-                            <tr><td class="model">M1SEFT-12HRDN8F-Q8</td><td>HP</td><td>1.5</td><td>043</td><td class="press-price">29,990</td></tr>
-                            <tr><td class="model">M1SEFT-18HRDN8F-Q8</td><td>HP</td><td>2.5</td><td>044</td><td class="press-price">43,815</td></tr>
-                            <tr><td class="model">M1SEFT-24HRDN8F-Q8</td><td>HP</td><td>3</td><td>045</td><td class="press-price">49,800</td></tr>
+                            <tr><td class="model">M1SEFT-12CRDN8F-Q8</td><td rowspan="6">AI ECO MASTER</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td class="press-price">27,525</td><td>040</td></tr>
+                            <tr><td class="model">M1SEFT-18CRDN8F-Q8</td><td>CO</td><td>2.5</td><td class="press-price">40,510</td><td>041</td></tr>
+                            <tr><td class="model">M1SEFT-24CRDN8F-Q8</td><td>CO</td><td>3</td><td class="press-price">46,050</td><td>042</td></tr>
+                            <tr><td class="model">M1SEFT-12HRDN8F-Q8</td><td>HP</td><td>1.5</td><td class="press-price">29,990</td><td>043</td></tr>
+                            <tr><td class="model">M1SEFT-18HRDN8F-Q8</td><td>HP</td><td>2.5</td><td class="press-price">43,815</td><td>044</td></tr>
+                            <tr><td class="model">M1SEFT-24HRDN8F-Q8</td><td>HP</td><td>3</td><td class="press-price">49,800</td><td>045</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3585,13 +3598,13 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code </th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SABT-30HRDNF-Q8</td><td rowspan="2">Mission Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>046</td><td class="press-price">78,725</td></tr>
-                            <tr><td class="model">M1SABT-36HRDNF-Q8</td><td>5</td><td>047</td><td class="press-price">90,495</td></tr>
+                            <tr><td class="model">M1SABT-30HRDNF-Q8</td><td rowspan="2">Mission Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td class="press-price">78,725</td><td>046</td></tr>
+                            <tr><td class="model">M1SABT-36HRDNF-Q8</td><td>5</td><td class="press-price">90,495</td><td>047</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3609,17 +3622,17 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code </th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SEFT-12CRN8F-Q8</td><td rowspan="6">XstreamPro NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>048</td><td class="press-price">23,430</td></tr>
-                            <tr><td class="model">M1SEFT-18CRN8F-Q8</td><td>CO</td><td>2.5</td><td>049</td><td class="press-price">35,210</td></tr>
-                            <tr><td class="model">M1SEFT-24CRN8F-Q8</td><td>CO</td><td>3</td><td>050</td><td class="press-price">43,160</td></tr>
-                            <tr><td class="model">M1SEFT-12HRN8F-Q8</td><td>HP</td><td>1.5</td><td>051</td><td class="press-price">25,435</td></tr>
-                            <tr><td class="model">M1SEFT-18HRN8F-Q8</td><td>HP</td><td>2.5</td><td>052</td><td class="press-price">38,670</td></tr>
-                            <tr><td class="model">M1SEFT-24HRN8F-Q8</td><td>HP</td><td>3</td><td>053</td><td class="press-price">46,350</td></tr>
+                            <tr><td class="model">M1SEFT-12CRN8F-Q8</td><td rowspan="6">XstreamPro NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td class="press-price">23,430</td><td>048</td></tr>
+                            <tr><td class="model">M1SEFT-18CRN8F-Q8</td><td>CO</td><td>2.5</td><td class="press-price">35,210</td><td>049</td></tr>
+                            <tr><td class="model">M1SEFT-24CRN8F-Q8</td><td>CO</td><td>3</td><td class="press-price">43,160</td><td>050</td></tr>
+                            <tr><td class="model">M1SEFT-12HRN8F-Q8</td><td>HP</td><td>1.5</td><td class="press-price">25,435</td><td>051</td></tr>
+                            <tr><td class="model">M1SEFT-18HRN8F-Q8</td><td>HP</td><td>2.5</td><td class="press-price">38,670</td><td>052</td></tr>
+                            <tr><td class="model">M1SEFT-24HRN8F-Q8</td><td>HP</td><td>3</td><td class="press-price">46,350</td><td>053</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3637,19 +3650,19 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                                 <th class="category-header">Refrigerant Type</th>
                                 <th class="category-header">Application</th>
                                 <th class="category-header">Horse power</th>
-                                <th class="category-header">Rakwat Code </th>
                                 <th class="category-header">enduser Press</th>
+                                <th class="category-header">Rakwat Code</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td class="model">M1SCT-12CRN-Q8</td><td rowspan="6">Mission Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td>054</td><td class="press-price">23,430</td></tr>
-                            <tr><td class="model">M1SCT-18CRN-Q8</td><td>CO</td><td>2.5</td><td>055</td><td class="press-price">34,595</td></tr>
-                            <tr><td class="model">M1SCT-24CRN-Q8</td><td>CO</td><td>3</td><td>056</td><td class="press-price">42,345</td></tr>
-                            <tr><td class="model">M1SCT-12HRN-F-Q8</td><td>HP</td><td>1.5</td><td>057</td><td class="press-price">25,435</td></tr>
-                            <tr><td class="model">M1SCT-18HRN-F-Q8</td><td>HP</td><td>2.5</td><td>058</td><td class="press-price">38,060</td></tr>
-                            <tr><td class="model">M1SCT-24HRN-F-Q8</td><td>HP</td><td>3</td><td>059</td><td class="press-price">45,535</td></tr>
-                            <tr><td class="model">M1SABT-30HRN-F-Q8</td><td rowspan="2">Mission Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>060</td><td class="press-price">70,235</td></tr>
-                            <tr><td class="model">M1SABT-36HRN-F-Q8</td><td>5</td><td>061</td><td class="press-price">80,690</td></tr>
+                            <tr><td class="model">M1SCT-12CRN-Q8</td><td rowspan="6">Mission Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td class="press-price">23,430</td><td>054</td></tr>
+                            <tr><td class="model">M1SCT-18CRN-Q8</td><td>CO</td><td>2.5</td><td class="press-price">34,595</td><td>055</td></tr>
+                            <tr><td class="model">M1SCT-24CRN-Q8</td><td>CO</td><td>3</td><td class="press-price">42,345</td><td>056</td></tr>
+                            <tr><td class="model">M1SCT-12HRN-F-Q8</td><td>HP</td><td>1.5</td><td class="press-price">25,435</td><td>057</td></tr>
+                            <tr><td class="model">M1SCT-18HRN-F-Q8</td><td>HP</td><td>2.5</td><td class="press-price">38,060</td><td>058</td></tr>
+                            <tr><td class="model">M1SCT-24HRN-F-Q8</td><td>HP</td><td>3</td><td class="press-price">45,535</td><td>059</td></tr>
+                            <tr><td class="model">M1SABT-30HRN-F-Q8</td><td rowspan="2">Mission Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td class="press-price">70,235</td><td>060</td></tr>
+                            <tr><td class="model">M1SABT-36HRN-F-Q8</td><td>5</td><td class="press-price">80,690</td><td>061</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -3677,7 +3690,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     <span class="gold-subtitle">✦</span> الأسعار تشمل دعم الوحدة الخارجية وخطوط الأنابيب &amp; تشمل ضريبة المبيعات والهندسة (للموديلات 48k و 60k بدون خطوط التبريد) <span class="gold-subtitle">✦</span>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -3941,7 +3953,8 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             1: document.getElementById('section-detail-1'),
             2: document.getElementById('section-detail-2'),
             3: document.getElementById('section-detail-3'),
-            4: document.getElementById('section-detail-4')
+            4: document.getElementById('section-detail-4'),
+            5: document.getElementById('section-detail-5')   // <-- تمت الإضافة
         };
 
         function closeDetail(sectionId, animate = true) {
@@ -4027,6 +4040,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }, 300);
         }
 
+        // ربط النقر على البطاقات الأربع الرئيسية
         cards.forEach(card => {
             card.addEventListener('click', function(e) {
                 const section = parseInt(this.getAttribute('data-section'), 10);
@@ -4096,13 +4110,37 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             const match = hash.match(/section-(\d+)/);
             if (match) {
                 const sec = parseInt(match[1], 10);
-                if (sec >= 1 && sec <= 4) {
+                if (sec >= 1 && sec <= 5) {   // دعم القسم 5
                     setTimeout(() => {
                         openSection(sec);
                     }, 1000);
                 }
             }
         }
+
+        // ==================== فتح القسم الخامس عند النقر على عنصر data-section="5" ====================
+        document.querySelectorAll('[data-section="5"]').forEach(el => {
+            el.addEventListener('click', function(e) {
+                e.stopPropagation();
+                // إذا كان القسم الخامس مفتوحاً بالفعل، لا تفعل شيئاً
+                const target = detailViews[5];
+                if (target && target.classList.contains('active')) {
+                    return;
+                }
+                // نغلق أي قسم مفتوح آخر
+                let activeId = null;
+                Object.entries(detailViews).forEach(([id, view]) => {
+                    if (view && view.classList.contains('active')) {
+                        activeId = parseInt(id, 10);
+                        if (activeId !== 5) {
+                            closeDetail(activeId, true);
+                        }
+                    }
+                });
+                // نفتح القسم الخامس
+                openSection(5);
+            });
+        });
 
         // ==================== نظام المنتجات (KAPO) ====================
         const products = {
@@ -4233,23 +4271,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             if (e.target === this) closeCustomerModal();
         });
 
-        // ==================== تبويبات ====================
-        const tabs = document.querySelectorAll('.sales-tab');
-        const contents = {
-            kapo: document.getElementById('tab-kapo'),
-            ac: document.getElementById('tab-ac')
-        };
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', function() {
-                const target = this.dataset.tab;
-                tabs.forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                Object.values(contents).forEach(c => c.classList.remove('active'));
-                if (contents[target]) contents[target].classList.add('active');
-            });
-        });
-
         // ==================== زر تبديل الثيم ====================
         const themeToggle = document.getElementById('theme-toggle-fixed');
         const body = document.body;
@@ -4271,7 +4292,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             icon.textContent = isLight ? '☀️' : '🌓';
         });
 
-        console.log('NAELEE | Updated AC tables: added ركوس كود column and renamed End User Guide to Press.');
+        console.log('NAELEE | تم نقل جداول التكييفات إلى القسم الخامس، وأصبح المربع الأول يفتحه.');
     })();
 </script>
 
