@@ -253,17 +253,17 @@
         body.light-theme .section-card::before {
             background: linear-gradient(145deg,
                     rgba(255, 248, 245, 0.05) 0%,
-                    rgba(0, 0, 0, 0.05) 30%,
-                    rgba(0, 0, 0, 0.15) 70%,
-                    rgba(0, 0, 0, 0.25) 100%);
+                    rgba(0, 0, 0, 0.03) 30%,
+                    rgba(0, 0, 0, 0.08) 70%,
+                    rgba(0, 0, 0, 0.15) 100%);
         }
 
         body.light-theme .section-card:hover::before {
             background: linear-gradient(145deg,
                     rgba(255, 248, 245, 0.02) 0%,
-                    rgba(0, 0, 0, 0.03) 30%,
-                    rgba(0, 0, 0, 0.1) 70%,
-                    rgba(0, 0, 0, 0.2) 100%);
+                    rgba(0, 0, 0, 0.02) 30%,
+                    rgba(0, 0, 0, 0.06) 70%,
+                    rgba(0, 0, 0, 0.10) 100%);
         }
 
         body.light-theme .section-card .card-title-main {
@@ -825,25 +825,18 @@
             will-change: transform;
         }
 
+        /* ===== الإضاءة المفتوحة الجديدة ===== */
         .section-card::before {
             content: '';
             position: absolute;
             inset: 0;
             z-index: 1;
             background: linear-gradient(145deg,
-                    rgba(0, 0, 0, 0.1) 0%,
-                    rgba(0, 0, 0, 0.4) 30%,
-                    rgba(0, 0, 0, 0.75) 70%,
-                    rgba(0, 0, 0, 0.9) 100%);
+                    rgba(0, 0, 0, 0.05) 0%,
+                    rgba(0, 0, 0, 0.15) 30%,
+                    rgba(0, 0, 0, 0.40) 70%,
+                    rgba(0, 0, 0, 0.55) 100%);
             transition: all 0.7s ease;
-        }
-
-        body.light-theme .section-card::before {
-            background: linear-gradient(145deg,
-                    rgba(255, 248, 245, 0.05) 0%,
-                    rgba(0, 0, 0, 0.05) 30%,
-                    rgba(0, 0, 0, 0.15) 70%,
-                    rgba(0, 0, 0, 0.25) 100%);
         }
 
         .section-card::after {
@@ -851,13 +844,9 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: radial-gradient(circle at 70% 20%, transparent 30%, rgba(0, 0, 0, 0.5) 100%);
+            background: radial-gradient(circle at 70% 20%, transparent 30%, rgba(0, 0, 0, 0.20) 100%);
             pointer-events: none;
             transition: all 0.7s ease;
-        }
-
-        body.light-theme .section-card::after {
-            background: radial-gradient(circle at 70% 20%, transparent 30%, rgba(0, 0, 0, 0.08) 100%);
         }
 
         .section-card .card-frame {
@@ -891,28 +880,40 @@
         .section-card:hover {
             transform: scale(1.035);
             z-index: 10;
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
             border-radius: 2px;
         }
 
         body.light-theme .section-card:hover {
-            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.06);
         }
 
         .section-card:hover::before {
             background: linear-gradient(145deg,
-                    rgba(0, 0, 0, 0.05) 0%,
-                    rgba(0, 0, 0, 0.25) 30%,
-                    rgba(0, 0, 0, 0.6) 70%,
-                    rgba(0, 0, 0, 0.85) 100%);
+                    rgba(0, 0, 0, 0.02) 0%,
+                    rgba(0, 0, 0, 0.10) 30%,
+                    rgba(0, 0, 0, 0.30) 70%,
+                    rgba(0, 0, 0, 0.45) 100%);
+        }
+
+        body.light-theme .section-card::before {
+            background: linear-gradient(145deg,
+                    rgba(255, 248, 245, 0.05) 0%,
+                    rgba(0, 0, 0, 0.03) 30%,
+                    rgba(0, 0, 0, 0.08) 70%,
+                    rgba(0, 0, 0, 0.15) 100%);
+        }
+
+        body.light-theme .section-card::after {
+            background: radial-gradient(circle at 70% 20%, transparent 30%, rgba(0, 0, 0, 0.05) 100%);
         }
 
         body.light-theme .section-card:hover::before {
             background: linear-gradient(145deg,
                     rgba(255, 248, 245, 0.02) 0%,
-                    rgba(0, 0, 0, 0.03) 30%,
-                    rgba(0, 0, 0, 0.1) 70%,
-                    rgba(0, 0, 0, 0.2) 100%);
+                    rgba(0, 0, 0, 0.02) 30%,
+                    rgba(0, 0, 0, 0.06) 70%,
+                    rgba(0, 0, 0, 0.10) 100%);
         }
 
         .section-card .card-content {
@@ -1869,7 +1870,6 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* ===== توحيد اللون الذهبي لجميع نصوص الجداول ===== */
         .price-table td,
         .price-table th {
             color: #D4AF37 !important;
@@ -2590,7 +2590,6 @@
             color: rgba(60, 50, 45, 0.5);
         }
 
-        /* تنسيق خاص لبطاقة "عرض الكل" */
         .danfoss-card[data-category="all"] .danfoss-card-icon {
             color: #FDF5A6;
         }
@@ -3326,7 +3325,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             </p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12">
 
-                <!-- ===== المربع الأول المعدل (يؤدي إلى القسم الخامس) ===== -->
                 <div class="service-card stagger-item" data-section="5" style="cursor:pointer;">
                     <span class="card-icon">❄️</span>
                     <h3 class="card-title">Split / Concealed / Ducted</h3>
@@ -3337,7 +3335,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </div>
                 </div>
 
-                <!-- باقي الخدمات كما هي -->
                 <div class="service-card stagger-item">
                     <span class="card-icon">🏢</span>
                     <h3 class="card-title">Commercial Central AC</h3>
@@ -3548,9 +3545,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
 
         <div class="detail-body">
 
-            <!-- ===== حاوية العلامات التجارية (مستطيلات) ===== -->
             <div id="brands-container" class="brands-container">
-                <!-- كابو -->
                 <div class="brand-card" id="brand-kapo" data-brand="kapo">
                     <span class="corner-accent tl"></span>
                     <span class="corner-accent br"></span>
@@ -3560,7 +3555,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     <div class="brand-sub">أجهزة التبريد</div>
                 </div>
 
-                <!-- دانفوس -->
                 <div class="brand-card" id="brand-danfoss" data-brand="danfoss">
                     <span class="corner-accent tl"></span>
                     <span class="corner-accent br"></span>
@@ -3571,7 +3565,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 </div>
             </div>
 
-            <!-- ===== حاوية المنتجات (تظهر عند النقر على كابو) ===== -->
             <div id="products-kapo" class="brand-products-container">
                 <button class="back-to-brands" id="back-to-brands-kapo">
                     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3582,14 +3575,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     منتجات كابو — اختر المنتج والقدرة الحصانية المناسبة.
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <!-- كابو الدبابه -->
                     <div class="product-card" data-product="dababa" data-name="كابو الدبابه" data-image="https://i.postimg.cc/Y0yrYkHM/image.png">
                         <img src="https://i.postimg.cc/Y0yrYkHM/image.png" alt="كابو الدبابه" loading="lazy" />
                         <div class="product-name"><span class="gold-highlight">كابو</span> الدبابه</div>
                         <div class="product-hp">1.5 – 2 – 3 حصان</div>
                         <span class="product-badge">اختر القدرة</span>
                     </div>
-                    <!-- كابو الجمبو -->
                     <div class="product-card" data-product="gumbo" data-name="كابو الجمبو" data-image="https://i.postimg.cc/P5MtQmh2/image.png">
                         <img src="https://i.postimg.cc/P5MtQmh2/image.png" alt="كابو الجمبو" loading="lazy" />
                         <div class="product-name"><span class="gold-highlight">كابو</span> الجمبو</div>
@@ -3598,7 +3589,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </div>
                 </div>
 
-                <!-- ===== فريق المبيعات ===== -->
                 <div class="contact-card-gold max-w-2xl mx-auto mt-8">
                     <div class="cc-title gold-text-3d">فريق المبيعات</div>
                     <div class="cc-sub">Sales Team — اتصل بنا مباشرة</div>
@@ -3618,16 +3608,13 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 </div>
             </div>
 
-            <!-- ===== محتوى دانفوس (البطاقات والجداول) ===== -->
             <div id="products-danfoss" class="brand-products-container">
                 <button class="back-to-brands" id="back-to-brands-danfoss">
                     <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
                     العودة للعلامات
                 </button>
 
-                <!-- ===== بطاقات الأقسام ===== -->
                 <div id="danfoss-category-cards" class="danfoss-cards-grid">
-                    <!-- عرض الكل -->
                     <div class="danfoss-card" data-category="all">
                         <div class="danfoss-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -3641,7 +3628,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                         <span class="corner-accent br"></span>
                     </div>
 
-                    <!-- فلتر -->
                     <div class="danfoss-card" data-category="فلتر">
                         <div class="danfoss-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -3654,7 +3640,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                         <span class="corner-accent br"></span>
                     </div>
 
-                    <!-- سلونيد فالف -->
                     <div class="danfoss-card" data-category="سلونيد فالف">
                         <div class="danfoss-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -3669,7 +3654,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                         <span class="corner-accent br"></span>
                     </div>
 
-                    <!-- موبينه سلونيد -->
                     <div class="danfoss-card" data-category="موبينه سلونيد">
                         <div class="danfoss-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -3683,7 +3667,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                         <span class="corner-accent br"></span>
                     </div>
 
-                    <!-- إبرة دانفوس -->
                     <div class="danfoss-card" data-category="إبرة دانفوس">
                         <div class="danfoss-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -3697,7 +3680,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                         <span class="corner-accent br"></span>
                     </div>
 
-                    <!-- اكسبنشن -->
                     <div class="danfoss-card" data-category="اكسبنشن">
                         <div class="danfoss-card-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -3712,7 +3694,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </div>
                 </div>
 
-                <!-- ===== حاوية الجدول ===== -->
                 <div id="danfoss-table-container" style="display:none;"></div>
             </div>
 
@@ -3739,12 +3720,10 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             </div>
             <div class="sales-tab-content active" id="tab-ac-5">
 
-                <!-- ===== كريير ===== -->
                 <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest">
                     كريير
                 </h3>
 
-                <!-- جدول 1 -->
                 <div class="price-table-wrap">
                     <table class="price-table">
                         <thead><tr><th colspan="7" class="brand-header">High Wall Inverter Split Systems</th></tr>
@@ -3761,7 +3740,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- جدول 2 -->
                 <div class="price-table-wrap">
                     <table class="price-table">
                         <thead><tr><th colspan="7" class="brand-header">High Wall Inverter Split Systems</th></tr>
@@ -3774,7 +3752,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- جدول 3 -->
                 <div class="price-table-wrap">
                     <table class="price-table">
                         <thead><tr><th colspan="7" class="brand-header">High Wall Fixed Split Systems</th></tr>
@@ -3793,7 +3770,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- جدول 4 -->
                 <div class="price-table-wrap">
                     <table class="price-table">
                         <thead><tr><th colspan="7" class="brand-header">High Wall Fixed Split Systems</th></tr>
@@ -3810,17 +3786,10 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- ===== باقي الجداول (مختصرة للطول ولكنها موجودة كاملة في الكود السابق) ===== -->
-                <!-- تم الاحتفاظ بجميع الجداول من 5 إلى 13 كما هي في الكود الأصلي،
-                     ولكن نظراً لضيق المساحة تم اختصارها هنا، وهي موجودة بالكامل في الملف النهائي -->
-
-                <!-- ===== ميديا ===== -->
                 <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mt-12 mb-4 tracking-widest">
                     ميديا
                 </h3>
-                <!-- الجداول الخاصة بميديا موجودة بالكامل -->
 
-                <!-- ===== فريق المبيعات ===== -->
                 <div class="contact-card-gold max-w-2xl mx-auto mt-10">
                     <div class="cc-title gold-text-3d">فريق المبيعات</div>
                     <div class="cc-sub">Sales Team — اتصل بنا مباشرة</div>
@@ -3855,7 +3824,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         <div class="modal-title" id="modal-product-name"><span class="gold-highlight">كابو</span> الدبابه</div>
         <div class="modal-hp-label">اختر القدرة الحصانية</div>
         <div class="hp-options" id="hp-options-container">
-            <!-- يتم تعبئتها بواسطة JS -->
         </div>
         <button class="add-to-cart-btn" id="add-to-cart-btn">إضافة إلى السلة</button>
     </div>
@@ -4193,7 +4161,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }, 300);
         }
 
-        // ربط النقر على البطاقات الأربع الرئيسية
         cards.forEach(card => {
             card.addEventListener('click', function(e) {
                 const section = parseInt(this.getAttribute('data-section'), 10);
@@ -4210,7 +4177,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }, { passive: true });
         });
 
-        // ==================== BACK BUTTONS ====================
         const backBtns = document.querySelectorAll('.back-btn');
         backBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
@@ -4239,7 +4205,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }
         });
 
-        // ==================== منع السكرول عند فتح التفاصيل ====================
         const detailObserver = new MutationObserver(() => {
             let anyActive = false;
             Object.values(detailViews).forEach(el => {
@@ -4271,7 +4236,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             }
         }
 
-        // ==================== فتح القسم الخامس عند النقر على عنصر data-section="5" ====================
         document.querySelectorAll('[data-section="5"]').forEach(el => {
             el.addEventListener('click', function(e) {
                 e.stopPropagation();
@@ -4303,14 +4267,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             brandsContainer.classList.remove('hidden');
             productsKapo.classList.remove('active');
             productsDanfoss.classList.remove('active');
-            // إعادة ضبط دانفوس للبطاقات
             danfossView = 'cards';
             if (danfossCards) danfossCards.style.display = 'grid';
             if (danfossTableContainer) {
                 danfossTableContainer.style.display = 'none';
                 danfossTableContainer.innerHTML = '';
             }
-            // إعادة نص زر العودة للعلامات
             if (backDanfoss) {
                 backDanfoss.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
             }
@@ -4322,9 +4284,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             productsDanfoss.classList.remove('active');
         }
 
-        // ===== بيانات دانفوس =====
         const danfossProducts = [
-            // فلاتر
             { type: 'فلتر', product: 'فلتر', model: 'DCL 084 023Z5006', size: '2/1"', spec: 'دانفوس فلير-', price: 320, code: 'ORD-022' },
             { type: 'فلتر', product: 'فلتر', model: 'DCL 164 023Z5009', size: '2/1"', spec: 'دانفوس فلير-', price: 365, code: 'ORD-023' },
             { type: 'فلتر', product: 'فلتر', model: 'DCL 032 023Z5000', size: '4/1"', spec: 'دانفوس فلير-', price: 227, code: 'ORD-024' },
@@ -4337,7 +4297,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             { type: 'فلتر', product: 'فلتر', model: 'DCL 166S 023Z4525', size: '4/3"', spec: 'دانفوس لحام-', price: 420, code: 'ORD-031' },
             { type: 'فلتر', product: 'فلتر', model: 'DCL 163 S 023Z4521', size: '8/3"', spec: 'دانفوس لحام-', price: 365, code: 'ORD-032' },
             { type: 'فلتر', product: 'فلتر', model: 'DCL 083S 023Z4514', size: '8/3"', spec: 'دانفوس لحام-', price: 320, code: 'ORD-033' },
-            // سلونيد فالف
             { type: 'سلونيد فالف', product: 'سلونيد فالف', model: 'EVR 10 032F 8098', size: '5/8"', spec: 'دانفوس فلير', price: 1500, code: 'ORD-080' },
             { type: 'سلونيد فالف', product: 'سلونيد فالف', model: 'EVR 2 032F1201', size: '1/4"', spec: 'دانفوس لحام', price: 750, code: 'ORD-081' },
             { type: 'سلونيد فالف', product: 'سلونيد فالف', model: 'EVR 2 - 032F8056', size: '1/4"', spec: 'دانفوس فلير', price: 750, code: 'ORD-082' },
@@ -4351,14 +4310,11 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             { type: 'سلونيد فالف', product: 'سلونيد فالف', model: 'EVR6 032F1209', size: '1/2"', spec: 'دانفوس لحام', price: 995, code: 'ORD-090' },
             { type: 'سلونيد فالف', product: 'سلونيد فالف', model: 'EVR6 032F8079', size: '1/2"', spec: 'دانفوس فلير', price: 995, code: 'ORD-091' },
             { type: 'سلونيد فالف', product: 'سلونيد فالف', model: 'EVR6 032L8072', size: '3/8"', spec: 'دانفوس فلير', price: 995, code: 'ORD-092' },
-            // موبينه سلونيد
             { type: 'موبينه سلونيد', product: 'موبينه سلونيد', model: 'Coil 220V 12W 018F6251', size: '-', spec: 'دانفوس اوربي', price: 615, code: 'ORD-093' },
-            // اكسبنشن
             { type: 'اكسبنشن', product: 'اكسبنشن دانفوس', model: 'TES 2 EXP 068Z3403', size: '-', spec: 'دانفوس', price: 5100, code: 'ORD-125' },
             { type: 'اكسبنشن', product: 'اكسبنشن دانفوس', model: 'TES 2 EXP 068Z3407', size: '-', spec: 'دانفوس', price: 6250, code: 'ORD-126' },
             { type: 'اكسبنشن', product: 'اكسبنشن دانفوس', model: 'TES 2EXP 068Z3411', size: '-', spec: 'دانفوس', price: 6250, code: 'ORD-127' },
             { type: 'اكسبنشن', product: 'اكسبنشن دانفوس', model: 'TEX2R22 068Z3209', size: '-', spec: 'دانفوس بدون ابرة', price: 5100, code: 'ORD-128' },
-            // إبرة دانفوس
             { type: 'إبرة دانفوس', product: 'إبرة دانفوس', model: 'TE2: N0-00 068-2003', size: '-', spec: 'دانفوس', price: 340, code: 'ORD-118' },
             { type: 'إبرة دانفوس', product: 'إبرة دانفوس', model: 'TE2: N0-01 068-2010', size: '-', spec: 'دانفوس', price: 340, code: 'ORD-119' },
             { type: 'إبرة دانفوس', product: 'إبرة دانفوس', model: 'TE2: N0-02 068-2015', size: '-', spec: 'دانفوس', price: 340, code: 'ORD-120' },
@@ -4401,8 +4357,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             return html;
         }
 
-        // ===== دوال التحكم في عرض دانفوس (مع متغير حالة) =====
-        let danfossView = 'cards'; // 'cards' or 'table'
+        let danfossView = 'cards';
         const danfossCards = document.getElementById('danfoss-category-cards');
         const danfossTableContainer = document.getElementById('danfoss-table-container');
 
@@ -4431,7 +4386,6 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             showDanfossCards();
         }
 
-        // ===== ربط الأحداث =====
         document.getElementById('brand-kapo').addEventListener('click', showKapoProducts);
         document.getElementById('brand-danfoss').addEventListener('click', showDanfossProducts);
 
