@@ -1960,6 +1960,97 @@
             border-color: rgba(0, 0, 0, 0.03);
         }
 
+        /* ===== Brand Cards (كابو و دانفوس) ===== */
+        .brand-card {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 6px;
+            padding: 40px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+
+        body.light-theme .brand-card {
+            background: rgba(255, 248, 245, 0.7);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+
+        .brand-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(212, 175, 55, 0.6);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 40px rgba(212, 175, 55, 0.06);
+        }
+
+        body.light-theme .brand-card:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04), 0 0 40px rgba(212, 175, 55, 0.06);
+        }
+
+        .brand-card .brand-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.3));
+        }
+
+        .brand-card .brand-name {
+            font-family: 'Cinzel', serif;
+            font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+            font-weight: 800;
+            letter-spacing: 0.15em;
+            color: #fff;
+        }
+
+        body.light-theme .brand-card .brand-name {
+            color: #1a1412;
+        }
+
+        .brand-card .brand-sub {
+            font-size: clamp(0.7rem, 0.9vw, 0.9rem);
+            color: rgba(255, 255, 255, 0.4);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        body.light-theme .brand-card .brand-sub {
+            color: rgba(60, 50, 45, 0.4);
+        }
+
+        .brand-card .brand-glow {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            transition: opacity 0.6s ease;
+        }
+
+        .brand-card:hover .brand-glow {
+            opacity: 1;
+        }
+
+        .brand-card .corner-accent {
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            pointer-events: none;
+        }
+        .brand-card .corner-accent.tl { top: 12px; left: 12px; border-top: 2px solid #D4AF37; border-left: 2px solid #D4AF37; }
+        .brand-card .corner-accent.br { bottom: 12px; right: 12px; border-bottom: 2px solid #D4AF37; border-right: 2px solid #D4AF37; }
+        .brand-card:hover .corner-accent { opacity: 1; }
+
         /* ===== Modal ===== */
         .modal-overlay {
             position: fixed;
@@ -2516,6 +2607,17 @@
             .product-card img {
                 max-height: 100px;
             }
+
+            .brand-card {
+                padding: 30px 15px;
+                min-height: 150px;
+            }
+            .brand-card .brand-icon {
+                font-size: 2.2rem;
+            }
+            .brand-card .brand-name {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -2603,6 +2705,17 @@
             .modal-box .hp-options button {
                 padding: 6px 14px;
                 font-size: 0.75rem;
+            }
+
+            .brand-card {
+                padding: 20px 10px;
+                min-height: 120px;
+            }
+            .brand-card .brand-icon {
+                font-size: 1.8rem;
+            }
+            .brand-card .brand-name {
+                font-size: 1rem;
             }
         }
 
@@ -2716,6 +2829,84 @@
 
         .section-detail {
             scroll-behavior: smooth;
+        }
+
+        /* ===== إخفاء/إظهار المنتجات في القسم الرابع ===== */
+        .brand-products-container {
+            display: none;
+            animation: fadeInProducts 0.5s ease forwards;
+        }
+
+        .brand-products-container.active {
+            display: block;
+        }
+
+        .brands-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            animation: fadeInProducts 0.5s ease forwards;
+        }
+
+        .brands-container.hidden {
+            display: none;
+        }
+
+        @keyframes fadeInProducts {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .back-to-brands {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Cinzel', serif;
+            font-size: clamp(0.6rem, 0.8vw, 0.8rem);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            padding: 10px 16px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            margin-bottom: 20px;
+            touch-action: manipulation;
+        }
+
+        body.light-theme .back-to-brands {
+            color: rgba(60, 50, 45, 0.6);
+            background: rgba(255, 248, 245, 0.4);
+            border-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .back-to-brands:hover {
+            color: #FDF5A6;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+
+        body.light-theme .back-to-brands:hover {
+            color: #b38728;
+        }
+
+        .back-to-brands svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
     </style>
 </head>
@@ -3202,7 +3393,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
     </div>
 </div>
 
-<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (KAPO فقط، تم حذف التكييفات) ===== -->
+<!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS (كابو + دانفوس) ===== -->
 <div class="section-detail" id="section-detail-4">
     <div class="detail-inner">
         <button class="back-btn" data-back="4">
@@ -3213,21 +3404,40 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         <div class="gold-line"></div>
 
         <h2 class="detail-title gold-text-3d">NEW HVAC &amp; REFRIGERATION PARTS</h2>
-        <p class="detail-subtitle gold-subtitle">KAPO — Price List</p>
+        <p class="detail-subtitle gold-subtitle">اختر العلامة التجارية</p>
 
         <div class="detail-body">
 
-            <!-- ===== تبويبات (فقط KAPO) ===== -->
-            <div class="sales-tabs" role="tablist">
-                <button class="sales-tab active" data-tab="kapo" role="tab">
-                    KAPO
-                    <span class="tab-sub">كابو</span>
-                </button>
-                <!-- تم حذف تبويب التكييفات -->
+            <!-- ===== حاوية العلامات التجارية (مستطيلات) ===== -->
+            <div id="brands-container" class="brands-container">
+                <!-- كابو -->
+                <div class="brand-card" id="brand-kapo" data-brand="kapo">
+                    <span class="corner-accent tl"></span>
+                    <span class="corner-accent br"></span>
+                    <div class="brand-glow"></div>
+                    <div class="brand-icon">❄️</div>
+                    <div class="brand-name gold-text-3d">كابو</div>
+                    <div class="brand-sub">أجهزة التبريد</div>
+                </div>
+
+                <!-- دانفوس -->
+                <div class="brand-card" id="brand-danfoss" data-brand="danfoss">
+                    <span class="corner-accent tl"></span>
+                    <span class="corner-accent br"></span>
+                    <div class="brand-glow"></div>
+                    <div class="brand-icon">⚙️</div>
+                    <div class="brand-name gold-text-3d">دانفوس</div>
+                    <div class="brand-sub">مكونات التبريد</div>
+                </div>
             </div>
 
-            <!-- ===== محتوى KAPO ===== -->
-            <div class="sales-tab-content active" id="tab-kapo">
+            <!-- ===== حاوية المنتجات (تظهر عند النقر على كابو) ===== -->
+            <div id="products-kapo" class="brand-products-container">
+                <button class="back-to-brands" id="back-to-brands-kapo">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                    العودة للعلامات
+                </button>
+
                 <p class="text-gray-300 text-sm md:text-base font-light leading-relaxed max-w-3xl mb-6">
                     منتجات كابو — اختر المنتج والقدرة الحصانية المناسبة.
                 </p>
@@ -3268,6 +3478,19 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                 </div>
             </div>
 
+            <!-- ===== محتوى دانفوس (مؤقت) ===== -->
+            <div id="products-danfoss" class="brand-products-container">
+                <button class="back-to-brands" id="back-to-brands-danfoss">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                    العودة للعلامات
+                </button>
+                <div class="flex flex-col items-center justify-center py-16 text-center">
+                    <div class="text-6xl mb-4">🔧</div>
+                    <h3 class="font-cinzel text-2xl gold-text-3d mb-2">قريباً</h3>
+                    <p class="text-gray-400 max-w-md">سيتم إضافة منتجات دانفوس قريباً. تابعونا للمزيد.</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
@@ -3285,15 +3508,15 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         <div class="detail-body">
             <div class="sales-tabs" role="tablist">
                 <button class="sales-tab active" data-tab="ac-5" role="tab">
-                    Air Conditioners
-                    <span class="tab-sub"></span>
+                    التكييفات
+                    <span class="tab-sub">Air Conditioners</span>
                 </button>
             </div>
             <div class="sales-tab-content active" id="tab-ac-5">
 
                 <!-- ===== كريير (تم إزالة الاسم من العناوين) ===== -->
                 <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest">
-                    
+                    كريير
                 </h3>
 
                 <!-- جدول 1: High Wall Inverter Split Systems -->
@@ -3935,7 +4158,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             2: document.getElementById('section-detail-2'),
             3: document.getElementById('section-detail-3'),
             4: document.getElementById('section-detail-4'),
-            5: document.getElementById('section-detail-5')   // <-- تمت الإضافة
+            5: document.getElementById('section-detail-5')
         };
 
         function closeDetail(sectionId, animate = true) {
@@ -4091,7 +4314,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             const match = hash.match(/section-(\d+)/);
             if (match) {
                 const sec = parseInt(match[1], 10);
-                if (sec >= 1 && sec <= 5) {   // دعم القسم 5
+                if (sec >= 1 && sec <= 5) {
                     setTimeout(() => {
                         openSection(sec);
                     }, 1000);
@@ -4103,12 +4326,10 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         document.querySelectorAll('[data-section="5"]').forEach(el => {
             el.addEventListener('click', function(e) {
                 e.stopPropagation();
-                // إذا كان القسم الخامس مفتوحاً بالفعل، لا تفعل شيئاً
                 const target = detailViews[5];
                 if (target && target.classList.contains('active')) {
                     return;
                 }
-                // نغلق أي قسم مفتوح آخر
                 let activeId = null;
                 Object.entries(detailViews).forEach(([id, view]) => {
                     if (view && view.classList.contains('active')) {
@@ -4118,10 +4339,40 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                         }
                     }
                 });
-                // نفتح القسم الخامس
                 openSection(5);
             });
         });
+
+        // ==================== نظام العلامات التجارية في القسم الرابع ====================
+        const brandsContainer = document.getElementById('brands-container');
+        const productsKapo = document.getElementById('products-kapo');
+        const productsDanfoss = document.getElementById('products-danfoss');
+        const backKapo = document.getElementById('back-to-brands-kapo');
+        const backDanfoss = document.getElementById('back-to-brands-danfoss');
+
+        function showBrands() {
+            brandsContainer.classList.remove('hidden');
+            productsKapo.classList.remove('active');
+            productsDanfoss.classList.remove('active');
+        }
+
+        function showKapoProducts() {
+            brandsContainer.classList.add('hidden');
+            productsKapo.classList.add('active');
+            productsDanfoss.classList.remove('active');
+        }
+
+        function showDanfossProducts() {
+            brandsContainer.classList.add('hidden');
+            productsDanfoss.classList.add('active');
+            productsKapo.classList.remove('active');
+        }
+
+        document.getElementById('brand-kapo').addEventListener('click', showKapoProducts);
+        document.getElementById('brand-danfoss').addEventListener('click', showDanfossProducts);
+
+        backKapo.addEventListener('click', showBrands);
+        backDanfoss.addEventListener('click', showBrands);
 
         // ==================== نظام المنتجات (KAPO) ====================
         const products = {
@@ -4273,7 +4524,7 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
             icon.textContent = isLight ? '☀️' : '🌓';
         });
 
-        console.log('NAELEE | تم نقل جداول التكييفات إلى القسم الخامس، وأصبح المربع الأول يفتحه.');
+        console.log('NAELEE | القسم الرابع يعرض الآن كابو ودانفوس كمستطيلات.');
     })();
 </script>
 
