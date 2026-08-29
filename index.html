@@ -1869,9 +1869,14 @@
             font-family: 'Inter', sans-serif;
         }
 
+        /* ===== توحيد اللون الذهبي لجميع نصوص الجداول ===== */
+        .price-table td,
+        .price-table th {
+            color: #D4AF37 !important;
+        }
+
         .price-table thead th {
             background: rgba(212, 175, 55, 0.12);
-            color: #FDF5A6;
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -1884,7 +1889,6 @@
 
         body.light-theme .price-table thead th {
             background: rgba(212, 175, 55, 0.08);
-            color: #b38728;
             border-color: rgba(212, 175, 55, 0.12);
         }
 
@@ -1892,14 +1896,12 @@
             padding: 8px 6px;
             border: 1px solid rgba(255, 255, 255, 0.06);
             text-align: center;
-            color: rgba(255, 255, 255, 0.75);
             font-weight: 300;
             transition: background 0.2s ease;
         }
 
         body.light-theme .price-table tbody td {
             border-color: rgba(0, 0, 0, 0.04);
-            color: rgba(60, 50, 45, 0.75);
         }
 
         .price-table tbody tr:hover td {
@@ -1912,32 +1914,17 @@
 
         .price-table tbody td.model {
             font-weight: 600;
-            color: #FDF5A6;
             font-size: clamp(0.5rem, 0.6vw, 0.65rem);
             letter-spacing: 0.02em;
         }
 
-        body.light-theme .price-table tbody td.model {
-            color: #b38728;
-        }
-
         .price-table tbody td.price {
             font-weight: 600;
-            color: #fff;
             font-family: 'Inter', sans-serif;
         }
 
-        body.light-theme .price-table tbody td.price {
-            color: #1a1412;
-        }
-
         .price-table tbody td.press-price {
-            color: #FDF5A6;
             font-weight: 600;
-        }
-
-        body.light-theme .price-table tbody td.press-price {
-            color: #b38728;
         }
 
         .price-table .brand-header {
@@ -1946,7 +1933,6 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #FDF5A6;
             padding: 10px 8px;
             text-align: center;
             border: 1px solid rgba(212, 175, 55, 0.1);
@@ -1955,7 +1941,6 @@
 
         body.light-theme .price-table .brand-header {
             background: rgba(212, 175, 55, 0.04);
-            color: #b38728;
             border-color: rgba(212, 175, 55, 0.08);
         }
 
@@ -1964,7 +1949,6 @@
             font-weight: 600;
             letter-spacing: 0.1em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.5);
             padding: 8px 8px;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.04);
@@ -1973,7 +1957,6 @@
 
         body.light-theme .price-table .category-header {
             background: rgba(0, 0, 0, 0.02);
-            color: rgba(60, 50, 45, 0.4);
             border-color: rgba(0, 0, 0, 0.03);
         }
 
@@ -3298,28 +3281,27 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
         </button>
         <div class="gold-line"></div>
         <h2 class="detail-title gold-text-3d">HVAC &amp; REFRIGERATION PARTS</h2>
-        <p class="detail-subtitle gold-subtitle">Carrier &amp; Midea — Price Lists</p>
+        <p class="detail-subtitle gold-subtitle">قوائم الأسعار — Price Lists</p>
         <div class="detail-body">
             <div class="sales-tabs" role="tablist">
                 <button class="sales-tab active" data-tab="ac-5" role="tab">
-                    التكييفات
-                    <span class="tab-sub">Air Conditioners</span>
+                    Air Conditioners
+                    <span class="tab-sub"></span>
                 </button>
             </div>
             <div class="sales-tab-content active" id="tab-ac-5">
 
-                <!-- ===== CARRIER ===== -->
-                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest flex items-center gap-4">
-                    <img src="https://i.postimg.cc/SKbMCyyL/image.png" alt="Carrier" class="h-10 w-auto" />
-                    Carrier
+                <!-- ===== كريير (تم إزالة الاسم من العناوين) ===== -->
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mb-4 tracking-widest">
+                    
                 </h3>
 
-                <!-- Carrier: High Wall Inverter Split Systems (XCOOL Inverter) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 1: High Wall Inverter Split Systems -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3342,12 +3324,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: High Wall Inverter Split Systems (Optimax Inverter) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 2: High Wall Inverter Split Systems (Optimax Inverter) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3366,12 +3348,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: High Wall Fixed Split Systems (Optimax Pro) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 3: High Wall Fixed Split Systems (Optimax Pro) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3396,12 +3378,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: High Wall Fixed Split Systems (XCOOL NEW) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 4: High Wall Fixed Split Systems (XCOOL NEW) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3424,12 +3406,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: Ducted Inverter Split Systems (ClassiCool Inverter) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 5: Ducted Inverter Split Systems (ClassiCool Inverter) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — Ducted Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">Ducted Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3451,12 +3433,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: Ducted Split Fixed Systems (ClassiCool Pro) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 6: Ducted Split Fixed Systems (ClassiCool Pro) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — Ducted Split Fixed Systems</th>
+                                <th colspan="7" class="brand-header">Ducted Split Fixed Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3480,12 +3462,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: Cassette Split Inverter Systems (DÉCOR Inverter) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 7: Cassette Split Inverter Systems (DÉCOR Inverter) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — Cassette Split Inverter Systems</th>
+                                <th colspan="7" class="brand-header">Cassette Split Inverter Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3504,12 +3486,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: Floor Standing Inverter Split System (Elegant Inverter) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 8: Floor Standing Inverter Split System (Elegant Inverter) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — Floor Standing Inverter Split System</th>
+                                <th colspan="7" class="brand-header">Floor Standing Inverter Split System</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3527,12 +3509,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Carrier: Floor Standing Fixed Split Systems (Elegant Pro) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 9: Floor Standing Fixed Split Systems (Elegant Pro) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Carrier — Floor Standing Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">Floor Standing Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3551,18 +3533,17 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- ===== MIDEA ===== -->
-                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mt-12 mb-4 tracking-widest flex items-center gap-4">
-                    <img src="https://i.postimg.cc/0QbKqrZR/image.png" alt="Midea" class="h-10 w-auto" />
-                    Midea
+                <!-- ===== ميديا (تم إزالة الاسم من العناوين) ===== -->
+                <h3 class="font-cinzel text-xl md:text-2xl font-bold gold-text-3d mt-12 mb-4 tracking-widest">
+                    ميديا
                 </h3>
 
-                <!-- Midea: High Wall Inverter Split Systems (AI ECO MASTER) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 10: High Wall Inverter Split Systems (AI ECO MASTER) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Midea — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3585,12 +3566,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Midea: High Wall Inverter Split Systems (Mission Inverter) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 11: High Wall Inverter Split Systems (Mission Inverter) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Midea — High Wall Inverter Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Inverter Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3609,12 +3590,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Midea: High Wall Fixed Split Systems (XstreamPro NEW) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 12: High Wall Fixed Split Systems (XstreamPro NEW) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Midea — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
@@ -3637,12 +3618,12 @@ style="background-image: url('https://i.postimg.cc/pdBzJv8s/image.png');">
                     </table>
                 </div>
 
-                <!-- Midea: High Wall Fixed Split Systems (Mission Pro) -->
-                <div class="price-table-wrap" style="background-image: url('https://i.postimg.cc/sXdC3N45/image.png'); background-repeat: no-repeat; background-position: top right; background-size: 60px;">
+                <!-- جدول 13: High Wall Fixed Split Systems (Mission Pro) -->
+                <div class="price-table-wrap">
                     <table class="price-table">
                         <thead>
                             <tr>
-                                <th colspan="7" class="brand-header">Midea — High Wall Fixed Split Systems</th>
+                                <th colspan="7" class="brand-header">High Wall Fixed Split Systems</th>
                             </tr>
                             <tr>
                                 <th class="category-header">Model</th>
