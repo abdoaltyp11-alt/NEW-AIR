@@ -138,7 +138,7 @@
     </script>
 
     <style>
-        /* ===== جميع الأنماط الأصلية ===== */
+        /* ===== جميع الأنماط الأصلية مع إضافات التصميم الأبيض ===== */
         * {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -422,6 +422,52 @@
             color: #FDF5A6 !important;
             text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.4);
             transform: scale(1.05);
+        }
+
+        /* ===== تحسينات عداد الحرارة والبيانات ===== */
+        #temperature {
+            font-family: 'Cinzel', serif !important;
+            font-size: clamp(2.5rem, 6vw, 4.5rem) !important;
+            letter-spacing: 0.02em;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6), 0 4px 30px rgba(0, 0, 0, 0.8);
+            line-height: 1.1;
+            transition: all 0.3s ease;
+        }
+
+        #wind-speed,
+        #humidity {
+            font-size: clamp(0.5rem, 1vw, 0.7rem) !important;
+            color: rgba(255, 255, 255, 0.9) !important;
+            letter-spacing: 0.08em;
+            font-weight: 400;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+        }
+
+        #weather-desc {
+            font-size: clamp(0.6rem, 1.2vw, 0.9rem) !important;
+            letter-spacing: 0.15em;
+        }
+
+        .precision-border {
+            background: rgba(10, 10, 10, 0.85) !important;
+            backdrop-filter: blur(12px);
+            border-color: rgba(212, 175, 55, 0.25);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), inset 0 0 30px rgba(212, 175, 55, 0.05);
+        }
+
+        .bg-black\/60 {
+            background: rgba(0, 0, 0, 0.7) !important;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+        }
+
+        .hero-logo {
+            margin-bottom: 0.25rem;
+        }
+
+        /* تحسين النصوص الذهبية */
+        .gold-text-3d {
+            filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.4)) drop-shadow(0 8px 30px rgba(0, 0, 0, 0.8));
         }
 
         /* ===== FINAL IMAGE SCREEN — PROFESSIONAL LUXURY GRID ===== */
@@ -735,6 +781,378 @@
             filter: blur(0px);
         }
 
+        /* ===== LIGHT THEME FOR INNER SECTIONS ===== */
+        .section-detail.light-theme {
+            background: #f8f6f0;
+            color: #1a1a1a;
+        }
+
+        .section-detail.light-theme .gold-line {
+            background: linear-gradient(90deg, transparent, #D4AF37, transparent);
+        }
+        .section-detail.light-theme .gold-line::after {
+            background: #D4AF37;
+        }
+
+        .section-detail.light-theme .detail-title {
+            color: #1a1a1a;
+            -webkit-text-fill-color: #1a1a1a;
+            background: none;
+            filter: none;
+            text-shadow: none;
+        }
+        .section-detail.light-theme .detail-title .gold-text-3d {
+            background: linear-gradient(180deg, #b38728, #D4AF37, #b38728);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.2));
+        }
+        .section-detail.light-theme .detail-subtitle {
+            color: #b38728;
+            -webkit-text-fill-color: #b38728;
+            background: none;
+            animation: none;
+        }
+        .section-detail.light-theme .detail-body p {
+            color: #2d2d2d;
+        }
+        .section-detail.light-theme .service-card {
+            background: #ffffff;
+            border: 1px solid #e0ddd5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .section-detail.light-theme .service-card .card-title {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .service-card .card-desc {
+            color: #4a4a4a;
+        }
+        .section-detail.light-theme .service-card .card-icon {
+            color: #D4AF37;
+        }
+        .section-detail.light-theme .service-card .card-phone {
+            color: #b38728;
+        }
+        .section-detail.light-theme .service-card .card-phone:hover {
+            color: #8a6d1b;
+        }
+        .section-detail.light-theme .contact-card-gold {
+            background: #ffffff;
+            border: 1px solid #d4c9b5;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+        }
+        .section-detail.light-theme .contact-card-gold .cc-title {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .contact-card-gold .cc-sub {
+            color: #6b6b6b;
+        }
+        .section-detail.light-theme .contact-card-gold .cc-item {
+            color: #2d2d2d;
+        }
+        .section-detail.light-theme .contact-card-gold .cc-item .cc-label {
+            color: #8a8a8a;
+        }
+        .section-detail.light-theme .contact-card-gold .cc-item .cc-value {
+            color: #b38728;
+        }
+        .section-detail.light-theme .established-text {
+            color: #b38728;
+            -webkit-text-fill-color: #b38728;
+            background: none;
+            animation: none;
+            text-shadow: none;
+        }
+        .section-detail.light-theme .established-text .gold-glow {
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        }
+        .section-detail.light-theme .marquee-wrap {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: #e0ddd5;
+        }
+        .section-detail.light-theme .marquee-item {
+            color: #4a4a4a;
+            border-color: #d4c9b5;
+            background: rgba(212, 175, 55, 0.03);
+        }
+        .section-detail.light-theme .marquee-item:hover {
+            color: #b38728;
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .back-btn {
+            color: #2d2d2d;
+            border-color: #d4c9b5;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(4px);
+        }
+        .section-detail.light-theme .back-btn:hover {
+            color: #b38728;
+            border-color: #D4AF37;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.08);
+        }
+        .section-detail.light-theme .product-card {
+            background: #ffffff;
+            border: 1px solid #e0ddd5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .section-detail.light-theme .product-card .product-name {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .product-card .product-hp {
+            color: #6b6b6b;
+        }
+        .section-detail.light-theme .product-card .product-badge {
+            color: #b38728;
+            border-color: #d4c9b5;
+        }
+        .section-detail.light-theme .product-card:hover .product-badge {
+            background: rgba(212, 175, 55, 0.06);
+            color: #8a6d1b;
+        }
+        .section-detail.light-theme .brand-card {
+            background: #ffffff;
+            border: 1px solid #e0ddd5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .section-detail.light-theme .brand-card .brand-name {
+            color: #1a1a1a;
+            -webkit-text-fill-color: #1a1a1a;
+            background: none;
+            filter: none;
+            text-shadow: none;
+        }
+        .section-detail.light-theme .brand-card .brand-sub {
+            color: #6b6b6b;
+        }
+        .section-detail.light-theme .brand-card:hover {
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .danfoss-card {
+            background: #ffffff;
+            border: 1px solid #e0ddd5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .section-detail.light-theme .danfoss-card .danfoss-card-title {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .danfoss-card .danfoss-card-sub {
+            color: #6b6b6b;
+        }
+        .section-detail.light-theme .danfoss-card:hover {
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .price-table-wrap {
+            background: #ffffff;
+            border: 1px solid #e0ddd5;
+        }
+        .section-detail.light-theme .price-table thead th {
+            background: rgba(212, 175, 55, 0.08);
+            color: #1a1a1a !important;
+            border-color: #d4c9b5;
+        }
+        .section-detail.light-theme .price-table tbody td {
+            color: #2d2d2d !important;
+            border-color: #eeeae2;
+        }
+        .section-detail.light-theme .price-table tbody td.price {
+            color: #b38728 !important;
+        }
+        .section-detail.light-theme .price-table tbody td.model {
+            color: #1a1a1a !important;
+        }
+        .section-detail.light-theme .price-table .brand-header {
+            background: rgba(212, 175, 55, 0.05);
+            color: #1a1a1a !important;
+            border-color: #d4c9b5;
+        }
+        .section-detail.light-theme .price-table .category-header {
+            background: rgba(0, 0, 0, 0.02);
+            color: #4a4a4a !important;
+            border-color: #eeeae2;
+        }
+        .section-detail.light-theme .ac-product-card {
+            background: #ffffff;
+            border: 1px solid #e0ddd5;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+        .section-detail.light-theme .ac-product-card .ap-name {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .ac-product-card .ap-model {
+            color: #8a8a8a;
+        }
+        .section-detail.light-theme .ac-product-card .ap-specs {
+            color: #6b6b6b;
+        }
+        .section-detail.light-theme .ac-product-card .ap-price {
+            color: #b38728;
+        }
+        .section-detail.light-theme .ac-product-card .ap-brand-badge {
+            background: rgba(255, 255, 255, 0.8);
+            color: #b38728;
+            border-color: #d4c9b5;
+        }
+        .section-detail.light-theme .ac-filter-bar {
+            background: rgba(255, 255, 255, 0.6);
+            border-color: #e0ddd5;
+        }
+        .section-detail.light-theme .ac-filter-bar label {
+            color: #4a4a4a;
+        }
+        .section-detail.light-theme .ac-filter-bar select,
+        .section-detail.light-theme .ac-filter-bar input {
+            background: #ffffff;
+            border-color: #d4c9b5;
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .ac-filter-bar .search-wrap .search-icon {
+            color: #8a8a8a;
+        }
+        .section-detail.light-theme .ac-brand-tab {
+            background: rgba(255, 255, 255, 0.5);
+            border-color: #d4c9b5;
+            color: #4a4a4a;
+        }
+        .section-detail.light-theme .ac-brand-tab.active {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: #D4AF37;
+            color: #b38728;
+        }
+        .section-detail.light-theme .ac-brand-tab:hover {
+            color: #1a1a1a;
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .back-to-brands {
+            color: #2d2d2d;
+            border-color: #d4c9b5;
+            background: rgba(255, 255, 255, 0.7);
+        }
+        .section-detail.light-theme .back-to-brands:hover {
+            color: #b38728;
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .sales-tab {
+            color: #4a4a4a;
+        }
+        .section-detail.light-theme .sales-tab.active {
+            background: rgba(212, 175, 55, 0.1);
+            color: #b38728;
+        }
+        .section-detail.light-theme .sales-tab:hover {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .kapo-section-header h2 {
+            color: #1a1a1a;
+            -webkit-text-fill-color: #1a1a1a;
+            background: none;
+            filter: none;
+            text-shadow: none;
+        }
+        .section-detail.light-theme .kapo-tagline-card {
+            color: #4a4a4a;
+        }
+        .section-detail.light-theme .kapo-tagline-card .gold-highlight {
+            background: linear-gradient(90deg, #b38728, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-detail.light-theme .kapo-order-btn {
+            background: linear-gradient(145deg, #D4AF37, #b38728);
+            color: #fff;
+        }
+        .section-detail.light-theme .kapo-order-btn:hover {
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        }
+        .section-detail.light-theme .kapo-back-btn {
+            color: #4a4a4a;
+            border-color: #d4c9b5;
+        }
+        .section-detail.light-theme .kapo-back-btn:hover {
+            color: #b38728;
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .zoom-btn {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: #d4c9b5;
+            color: #b38728;
+        }
+        .section-detail.light-theme .zoom-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+        }
+        .section-detail.light-theme .modal-box {
+            background: #ffffff;
+            border-color: #e0ddd5;
+        }
+        .section-detail.light-theme .modal-box .modal-title {
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .modal-box .modal-hp-label {
+            color: #6b6b6b;
+        }
+        .section-detail.light-theme .modal-box .hp-options button {
+            background: #f5f3ef;
+            border-color: #d4c9b5;
+            color: #2d2d2d;
+        }
+        .section-detail.light-theme .modal-box .hp-options button.selected {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: #D4AF37;
+            color: #b38728;
+        }
+        .section-detail.light-theme .modal-box .add-to-cart-btn {
+            background: linear-gradient(135deg, #D4AF37, #b38728);
+            color: #fff;
+        }
+        .section-detail.light-theme .modal-box .add-to-cart-btn:hover {
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        }
+        .section-detail.light-theme .modal-box .close-modal {
+            color: #8a8a8a;
+        }
+        .section-detail.light-theme .modal-box .close-modal:hover {
+            color: #b38728;
+        }
+        .section-detail.light-theme .customer-form-modal .form-group input {
+            background: #f5f3ef;
+            border-color: #d4c9b5;
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .customer-form-modal .form-group input::placeholder {
+            color: #aaa;
+        }
+        .section-detail.light-theme .customer-form-modal .form-group label {
+            color: #4a4a4a;
+        }
+        .section-detail.light-theme .customer-form-modal .order-summary {
+            background: #f5f3ef;
+            border-color: #e0ddd5;
+            color: #2d2d2d;
+        }
+        .section-detail.light-theme .customer-form-modal .order-summary strong {
+            color: #b38728;
+        }
+        .section-detail.light-theme .customer-form-modal .submit-order-btn {
+            background: linear-gradient(135deg, #D4AF37, #b38728);
+            color: #fff;
+        }
+        .section-detail.light-theme .customer-form-modal .submit-order-btn:hover {
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.25);
+        }
+        .section-detail.light-theme .qty-control button {
+            background: #f5f3ef;
+            border-color: #d4c9b5;
+            color: #1a1a1a;
+        }
+        .section-detail.light-theme .qty-control button:hover {
+            background: rgba(212, 175, 55, 0.08);
+            border-color: #D4AF37;
+        }
+        .section-detail.light-theme .qty-control .qty-value {
+            color: #1a1a1a;
+        }
+
         .section-detail::-webkit-scrollbar {
             width: 4px;
         }
@@ -744,6 +1162,12 @@
         .section-detail::-webkit-scrollbar-thumb {
             background: var(--gold);
             border-radius: 4px;
+        }
+        .section-detail.light-theme::-webkit-scrollbar-track {
+            background: #e8e4dc;
+        }
+        .section-detail.light-theme::-webkit-scrollbar-thumb {
+            background: #D4AF37;
         }
 
         .section-detail .detail-inner {
@@ -3025,6 +3449,15 @@
             .kapo-tagline-card {
                 font-size: 0.65rem;
             }
+            #temperature {
+                font-size: 3rem !important;
+            }
+            .precision-border {
+                padding: 1rem !important;
+            }
+            .bg-black\/60 {
+                padding: 0.5rem !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -3573,6 +4006,116 @@
                 padding: 2px 3px;
             }
         }
+
+        /* ===== Navigation Stack ===== */
+        .nav-stack-indicator {
+            display: none;
+        }
+
+        /* ===== LIGHT THEME FOR AC PRODUCT DETAIL (FULL PAGE) ===== */
+        .ac-product-detail.light-theme {
+            background: rgba(255, 255, 255, 0.92) !important;
+            backdrop-filter: blur(16px);
+        }
+
+        .ac-product-detail.light-theme .detail-box {
+            background: #ffffff;
+            border-color: #d4c9b5;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.10);
+            color: #1a1a1a;
+        }
+
+        .ac-product-detail.light-theme .close-detail {
+            color: #8a8a8a;
+        }
+        .ac-product-detail.light-theme .close-detail:hover {
+            color: #b38728;
+        }
+
+        .ac-product-detail.light-theme .di-brand {
+            color: #b38728;
+        }
+
+        .ac-product-detail.light-theme .di-name {
+            color: #1a1a1a;
+        }
+        .ac-product-detail.light-theme .di-name .gold-highlight {
+            background: linear-gradient(90deg, #b38728, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ac-product-detail.light-theme .di-model {
+            color: #6b6b6b;
+        }
+
+        .ac-product-detail.light-theme .di-divider {
+            background: linear-gradient(90deg, #D4AF37, transparent);
+        }
+
+        .ac-product-detail.light-theme .di-specs .spec-item {
+            color: #4a4a4a;
+            border-bottom-color: rgba(0, 0, 0, 0.05);
+        }
+        .ac-product-detail.light-theme .di-specs .spec-item .spec-label {
+            color: #8a8a8a;
+        }
+        .ac-product-detail.light-theme .di-specs .spec-item .spec-value {
+            color: #b38728;
+        }
+
+        .ac-product-detail.light-theme .di-price {
+            color: #b38728;
+        }
+
+        .ac-product-detail.light-theme .di-code {
+            color: #aaa;
+        }
+
+        .ac-product-detail.light-theme .di-features .feature-item {
+            background: rgba(0, 0, 0, 0.02);
+            border-color: #e0ddd5;
+        }
+        .ac-product-detail.light-theme .di-features .feature-item svg {
+            stroke: #b38728;
+        }
+        .ac-product-detail.light-theme .di-features .feature-item span {
+            color: #4a4a4a;
+        }
+
+        .ac-product-detail.light-theme .di-actions .di-order-btn {
+            background: linear-gradient(145deg, #D4AF37, #b38728);
+            color: #ffffff;
+        }
+        .ac-product-detail.light-theme .di-actions .di-order-btn:hover {
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .ac-product-detail.light-theme .di-actions .di-contact-btn {
+            background: rgba(0, 0, 0, 0.03);
+            color: #4a4a4a;
+            border-color: #d4c9b5;
+        }
+        .ac-product-detail.light-theme .di-actions .di-contact-btn:hover {
+            background: rgba(0, 0, 0, 0.06);
+            color: #1a1a1a;
+            border-color: #b38728;
+        }
+
+        .ac-product-detail.light-theme .detail-gallery .main-img-wrap {
+            background: #f5f3ef;
+            border-color: #e0ddd5;
+        }
+
+        .ac-product-detail.light-theme .detail-gallery .thumbnails .thumb {
+            background: #f5f3ef;
+            border-color: #e0ddd5;
+        }
+        .ac-product-detail.light-theme .detail-gallery .thumbnails .thumb.active {
+            border-color: #D4AF37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.15);
+        }
     </style>
 </head>
 
@@ -3808,7 +4351,7 @@
     <!-- ===== SECTION DETAIL VIEWS ===== -->
 
     <!-- SECTION 1 DETAIL -->
-    <div class="section-detail" id="section-detail-1">
+    <div class="section-detail light-theme" id="section-detail-1">
         <div class="detail-inner">
             <button class="back-btn" data-back="1">
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3873,7 +4416,7 @@
     </div>
 
     <!-- SECTION 2 DETAIL -->
-    <div class="section-detail" id="section-detail-2">
+    <div class="section-detail light-theme" id="section-detail-2">
         <div class="detail-inner">
             <button class="back-btn" data-back="2">
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3908,7 +4451,7 @@
     </div>
 
     <!-- SECTION 3 DETAIL -->
-    <div class="section-detail" id="section-detail-3">
+    <div class="section-detail light-theme" id="section-detail-3">
         <div class="detail-inner">
             <button class="back-btn" data-back="3">
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3962,7 +4505,7 @@
     </div>
 
     <!-- ===== SECTION 4: NEW HVAC & REFRIGERATION PARTS ===== -->
-    <div class="section-detail" id="section-detail-4">
+    <div class="section-detail light-theme" id="section-detail-4">
         <div class="detail-inner">
             <button class="back-btn" data-back="4">
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -4003,7 +4546,7 @@
                             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
                             العودة للعلامات
                         </button>
-                        <!-- BACK TO SERVICES button inside KAPO products — now uses closeDetail() -->
+                        <!-- BACK TO SERVICES button inside KAPO products — uses history.back() -->
                         <button class="back-to-brands" id="kapo-back-to-services" style="margin-bottom:0; border-color: rgba(212,175,55,0.4);">
                             <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
                             BACK TO SERVICES
@@ -4107,7 +4650,7 @@
     </div>
 
     <!-- ===== SECTION 5: AC PRODUCT GALLERY WITH BRAND TABS + FILTERS ===== -->
-    <div class="section-detail" id="section-detail-5">
+    <div class="section-detail light-theme" id="section-detail-5">
         <div class="detail-inner">
             <button class="back-btn" data-back="5">
                 <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
@@ -4310,8 +4853,8 @@
         </div>
     </div>
 
-    <!-- ===== AC PRODUCT DETAIL (Full Page) ===== -->
-    <div class="ac-product-detail" id="ac-product-detail">
+    <!-- ===== AC PRODUCT DETAIL (Full Page) - LIGHT THEME ADDED ===== -->
+    <div class="ac-product-detail light-theme" id="ac-product-detail">
         <div class="detail-box">
             <button class="close-detail" id="close-detail">✕</button>
             <div class="detail-grid">
@@ -4367,7 +4910,248 @@
 
     <script>
         (function() {
-            // ==================== Gold Dust Particles ====================
+            // ==================== Navigation Stack ====================
+            const navStack = [];
+            let isNavPop = false;
+
+            function pushNav(state) {
+                if (isNavPop) {
+                    isNavPop = false;
+                    return;
+                }
+                const last = navStack.length > 0 ? navStack[navStack.length - 1] : null;
+                if (last && last.type === state.type && last.id === state.id) return;
+                navStack.push(state);
+                if (navStack.length > 20) navStack.shift();
+                const url = new URL(window.location);
+                url.searchParams.set('nav', Date.now());
+                history.pushState({ nav: navStack.length }, '', url);
+            }
+
+            // ===== دالة العودة المحسنة (بدون history.back) =====
+            function popNav(goBack = true) {
+                if (navStack.length <= 1) {
+                    // إذا كان المكدس فارغاً أو يحتوي على عنصر واحد فقط، نعود إلى الشاشة الرئيسية
+                    const finalScreen = document.getElementById('final-image-screen');
+                    if (finalScreen && !finalScreen.classList.contains('active')) {
+                        closeAllDetails();
+                        finalScreen.classList.add('active');
+                        document.getElementById('main-content').classList.add('content-visible');
+                        navStack.length = 0;
+                        pushNav({ type: 'home', id: 'main' });
+                        window.location.hash = '';
+                        // تحديث عنوان URL دون إضافة إدخال جديد في السجل
+                        history.replaceState({ nav: 1 }, '', window.location.pathname);
+                    }
+                    return;
+                }
+                // إزالة الحالة الحالية
+                navStack.pop();
+                const prev = navStack[navStack.length - 1];
+                if (!prev) {
+                    // إذا لم يبقَ شيء، نعود إلى الشاشة الرئيسية
+                    const finalScreen = document.getElementById('final-image-screen');
+                    if (finalScreen && !finalScreen.classList.contains('active')) {
+                        closeAllDetails();
+                        finalScreen.classList.add('active');
+                        document.getElementById('main-content').classList.add('content-visible');
+                        navStack.length = 0;
+                        pushNav({ type: 'home', id: 'main' });
+                        window.location.hash = '';
+                        history.replaceState({ nav: 1 }, '', window.location.pathname);
+                    }
+                    return;
+                }
+                // الانتقال إلى الحالة السابقة يدوياً دون استخدام history.back()
+                navigateToState(prev);
+                // تحديث عنوان URL ليعكس الحالة الجديدة
+                const url = new URL(window.location);
+                url.searchParams.set('nav', navStack.length);
+                history.replaceState({ nav: navStack.length }, '', url);
+            }
+
+            function navigateToState(state) {
+                if (state.type === 'home') {
+                    closeAllDetails();
+                    const finalScreen = document.getElementById('final-image-screen');
+                    if (finalScreen) {
+                        finalScreen.classList.add('active');
+                        document.getElementById('main-content').classList.add('content-visible');
+                    }
+                    window.location.hash = '';
+                } else if (state.type === 'section') {
+                    const sectionId = parseInt(state.id, 10);
+                    if (sectionId >= 1 && sectionId <= 5) {
+                        openSectionDirect(sectionId, state.sub || null, state.category || null);
+                    }
+                } else if (state.type === 'product') {
+                    if (state.productIndex !== undefined) {
+                        openDetailDirect(state.productIndex);
+                    }
+                }
+            }
+
+            function closeAllDetails() {
+                for (let i = 1; i <= 5; i++) {
+                    const el = document.getElementById('section-detail-' + i);
+                    if (el) {
+                        el.classList.remove('active');
+                        el.style.opacity = '';
+                        el.style.transform = '';
+                        el.style.filter = '';
+                        el.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
+                    }
+                }
+                const detailEl = document.getElementById('ac-product-detail');
+                if (detailEl) {
+                    detailEl.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+
+            // ===== فتح قسم مع دعم الحالة الفرعية =====
+            function openSectionDirect(sectionId, sub, category) {
+                const target = document.getElementById('section-detail-' + sectionId);
+                if (!target) return;
+
+                // إذا كان القسم 4 ونحن نستعيد حالة فرعية، نعدل المحتوى الداخلي مباشرة
+                if (sectionId === 4) {
+                    const brandsContainer = document.getElementById('brands-container');
+                    const productsKapo = document.getElementById('products-kapo');
+                    const productsDanfoss = document.getElementById('products-danfoss');
+                    const danfossCards = document.getElementById('danfoss-category-cards');
+                    const danfossTableContainer = document.getElementById('danfoss-table-container');
+                    const backDanfoss = document.getElementById('back-to-brands-danfoss');
+
+                    // إخفاء الكل
+                    productsKapo.classList.remove('active');
+                    productsDanfoss.classList.remove('active');
+                    brandsContainer.classList.remove('hidden');
+                    danfossCards.style.display = 'grid';
+                    danfossTableContainer.style.display = 'none';
+                    danfossTableContainer.innerHTML = '';
+                    if (backDanfoss) {
+                        backDanfoss.innerHTML =
+                            `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
+                    }
+                    window._danfossView = 'cards';
+
+                    if (sub === 'kapo') {
+                        brandsContainer.classList.add('hidden');
+                        productsKapo.classList.add('active');
+                    } else if (sub === 'danfoss') {
+                        brandsContainer.classList.add('hidden');
+                        productsDanfoss.classList.add('active');
+                        if (category) {
+                            danfossCards.style.display = 'none';
+                            danfossTableContainer.style.display = 'block';
+                            danfossTableContainer.innerHTML = buildDanfossTable(category);
+                            if (backDanfoss) {
+                                backDanfoss.innerHTML =
+                                    `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للبطاقات`;
+                            }
+                            window._danfossView = 'table';
+                        } else {
+                            danfossCards.style.display = 'grid';
+                            danfossTableContainer.style.display = 'none';
+                            danfossTableContainer.innerHTML = '';
+                            if (backDanfoss) {
+                                backDanfoss.innerHTML =
+                                    `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
+                            }
+                            window._danfossView = 'cards';
+                        }
+                    } else {
+                        brandsContainer.classList.remove('hidden');
+                        productsKapo.classList.remove('active');
+                        productsDanfoss.classList.remove('active');
+                        danfossCards.style.display = 'grid';
+                        danfossTableContainer.style.display = 'none';
+                        danfossTableContainer.innerHTML = '';
+                        if (backDanfoss) {
+                            backDanfoss.innerHTML =
+                                `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
+                        }
+                        window._danfossView = 'cards';
+                    }
+
+                    if (!target.classList.contains('active')) {
+                        closeAllDetails();
+                        target.classList.add('active');
+                        target.scrollTop = 0;
+                        setTimeout(() => {
+                            target.querySelectorAll('.stagger-item').forEach((c, idx) => {
+                                setTimeout(() => c.classList.add('visible'), 150 + idx * 100);
+                            });
+                        }, 300);
+                        const finalScreen = document.getElementById('final-image-screen');
+                        if (finalScreen) finalScreen.classList.remove('active');
+                        document.getElementById('main-content').classList.remove('content-visible');
+                    }
+                    return;
+                }
+
+                // للأقسام الأخرى (1,2,3,5) نفتحها بشكل عادي
+                closeAllDetails();
+                target.classList.add('active');
+                target.scrollTop = 0;
+                setTimeout(() => {
+                    target.querySelectorAll('.stagger-item').forEach((c, idx) => {
+                        setTimeout(() => c.classList.add('visible'), 150 + idx * 100);
+                    });
+                }, 300);
+                const finalScreen = document.getElementById('final-image-screen');
+                if (finalScreen) finalScreen.classList.remove('active');
+                document.getElementById('main-content').classList.remove('content-visible');
+            }
+
+            // ===== دوال فتح الأقسام من البطاقات =====
+            function openSection(sectionId) {
+                openSectionDirect(sectionId, null, null);
+                pushNav({ type: 'section', id: sectionId });
+                history.pushState({ nav: navStack.length }, '', '#section-' + sectionId);
+            }
+
+            // ===== دوال فتح المنتج التفصيلي =====
+            function openDetailDirect(index) {
+                const p = allProducts && allProducts[index];
+                if (!p) return;
+                closeAllDetails();
+                openDetail(index);
+                pushNav({ type: 'product', productIndex: index });
+            }
+
+            // ===== مستمع popstate (معالج للرجوع من المتصفح) =====
+            window.addEventListener('popstate', function(event) {
+                if (isNavPop) {
+                    isNavPop = false;
+                    return;
+                }
+                // عندما يضغط المستخدم على زر الرجوع في المتصفح، نستعيد الحالة من المكدس
+                if (navStack.length > 0) {
+                    const current = navStack[navStack.length - 1];
+                    if (current) {
+                        // نعيد تعيين الحالة الحالية
+                        navigateToState(current);
+                        // تحديث عنوان URL
+                        const url = new URL(window.location);
+                        url.searchParams.set('nav', navStack.length);
+                        history.replaceState({ nav: navStack.length }, '', url);
+                    }
+                } else {
+                    // إذا كان المكدس فارغاً، نعود إلى الشاشة الرئيسية
+                    const finalScreen = document.getElementById('final-image-screen');
+                    if (finalScreen && !finalScreen.classList.contains('active')) {
+                        closeAllDetails();
+                        finalScreen.classList.add('active');
+                        document.getElementById('main-content').classList.add('content-visible');
+                        pushNav({ type: 'home', id: 'main' });
+                        history.replaceState({ nav: 1 }, '', window.location.pathname);
+                    }
+                }
+            });
+
+            // ===== Gold Dust Particles =====
             const canvas = document.getElementById('gold-dust-canvas');
             const ctx = canvas.getContext('2d');
             let particles = [];
@@ -4482,6 +5266,7 @@
                 setTimeout(() => {
                     overlay.style.animation = 'overlayVanish 1.5s ease forwards';
                     mainContent.classList.add('content-visible');
+                    pushNav({ type: 'home', id: 'main' });
                 }, 5500);
                 setTimeout(() => {
                     overlay.style.display = 'none';
@@ -4496,7 +5281,7 @@
                         if (finalScreen) {
                             finalScreen.classList.add('active');
                             if (!window.location.hash) {
-                                history.replaceState({ main: true }, '', window.location.pathname);
+                                history.replaceState({ nav: 1 }, '', window.location.pathname);
                             }
                         }
                     }, 19000);
@@ -4526,7 +5311,7 @@
                             updateUIWithLocation(locations[currentLocationIndex]);
                             wrapper.style.opacity = '1';
                         }, 400);
-                    }, 3000);
+                    }, 10000); // زيادة الفترة إلى 10 ثوانٍ لتحسين الأداء
                 } catch (error) {
                     console.error("Telemetry Sync Failed:", error);
                     document.getElementById('temperature').innerText = "ERR";
@@ -4535,7 +5320,13 @@
             }
 
             function updateUIWithLocation(loc) {
-                if (!loc.data) return;
+                if (!loc.data) {
+                    document.getElementById('temperature').innerText = "—°";
+                    document.getElementById('weather-desc').innerText = "Loading...";
+                    document.getElementById('wind-speed').innerText = "Wind: -- km/h";
+                    document.getElementById('humidity').innerText = "Humidity: --%";
+                    return;
+                }
                 document.getElementById('city-name-container').innerHTML =
                     `${loc.name} <span class="gold-subtitle font-black text-lg md:text-xl ml-1">${loc.country}</span>`;
                 document.getElementById('lat-str').innerText = loc.latStr;
@@ -4574,96 +5365,7 @@
                 5: document.getElementById('section-detail-5')
             };
 
-            // Helper function to close a detail view and restore main screen
-            function closeDetail(sectionId, animate = true) {
-                const target = detailViews[sectionId];
-                if (!target) return;
-                if (animate) {
-                    target.style.transition = 'opacity 0.5s ease, transform 0.5s ease, filter 0.5s ease';
-                    target.style.opacity = '0';
-                    target.style.transform = 'scale(0.96)';
-                    target.style.filter = 'blur(6px)';
-                    setTimeout(() => {
-                        target.classList.remove('active');
-                        target.style.opacity = '';
-                        target.style.transform = '';
-                        target.style.filter = '';
-                        target.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
-                        const finalScreen = document.getElementById('final-image-screen');
-                        if (finalScreen) {
-                            finalScreen.style.transition =
-                                'opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease';
-                            finalScreen.style.opacity = '1';
-                            finalScreen.style.transform = 'scale(1)';
-                            finalScreen.style.filter = 'blur(0px)';
-                        }
-                    }, 500);
-                } else {
-                    target.classList.remove('active');
-                    target.style.opacity = '';
-                    target.style.transform = '';
-                    target.style.filter = '';
-                    target.querySelectorAll('.stagger-item').forEach(c => c.classList.remove('visible'));
-                    const finalScreen = document.getElementById('final-image-screen');
-                    if (finalScreen) {
-                        finalScreen.style.transition = 'none';
-                        finalScreen.style.opacity = '1';
-                        finalScreen.style.transform = 'scale(1)';
-                        finalScreen.style.filter = 'blur(0px)';
-                        setTimeout(() => { finalScreen.style.transition = ''; }, 50);
-                    }
-                }
-                // Update URL state
-                history.replaceState({ main: true }, '', window.location.pathname);
-            }
-
-            // Helper function to close any active detail and return to main screen
-            function closeActiveDetail(animate = true) {
-                let activeId = null;
-                Object.entries(detailViews).forEach(([id, el]) => {
-                    if (el && el.classList.contains('active')) {
-                        activeId = parseInt(id, 10);
-                    }
-                });
-                if (activeId !== null) {
-                    closeDetail(activeId, animate);
-                    return true;
-                }
-                return false;
-            }
-
-            function staggerCards(detailEl) {
-                const cards = detailEl.querySelectorAll('.stagger-item');
-                cards.forEach((card, index) => {
-                    setTimeout(() => { card.classList.add('visible'); }, 150 + index * 100);
-                });
-            }
-
-            function openSection(sectionId) {
-                // Close any open detail first
-                closeActiveDetail(true);
-
-                const target = detailViews[sectionId];
-                if (!target) return;
-                // Give time for close animation
-                setTimeout(() => {
-                    const finalScreen = document.getElementById('final-image-screen');
-                    if (finalScreen) {
-                        finalScreen.style.transition = 'transform 0.4s ease, filter 0.4s ease';
-                        finalScreen.style.transform = 'scale(0.97)';
-                        finalScreen.style.filter = 'blur(4px)';
-                        setTimeout(() => {
-                            finalScreen.style.transform = 'scale(1)';
-                            finalScreen.style.filter = 'blur(0px)';
-                        }, 400);
-                    }
-                    target.classList.add('active');
-                    target.scrollTop = 0;
-                    setTimeout(() => { staggerCards(target); }, 300);
-                    history.pushState({ section: sectionId }, '', '#section-' + sectionId);
-                }, 300);
-            }
-
+            // ربط الأحداث للبطاقات (1-4)
             cards.forEach(card => {
                 card.addEventListener('click', function(e) {
                     const section = parseInt(this.getAttribute('data-section'), 10);
@@ -4680,85 +5382,81 @@
                 }, { passive: true });
             });
 
-            // Back buttons inside detail views (they now use closeActiveDetail + history.back() fallback)
-            document.querySelectorAll('.back-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    // Try to close active detail, if none, fallback to history.back()
-                    if (!closeActiveDetail(true)) {
-                        window.history.back();
-                    }
-                });
-            });
-
-            // ===== Handle KAPO BACK TO SERVICES buttons =====
-            function handleBackToServices(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                if (!closeActiveDetail(true)) {
-                    // If no detail open, go to root
-                    window.location.href = window.location.pathname;
-                }
-            }
-
-            // For all .kapo-back-btn inside product cards
-            document.querySelectorAll('.kapo-back-btn').forEach(btn => {
-                btn.addEventListener('click', handleBackToServices);
-            });
-
-            // For the top bar button inside KAPO products
-            document.getElementById('kapo-back-to-services').addEventListener('click', handleBackToServices);
-
-            // For the back-to-brands button (if any)
-            document.querySelectorAll('.back-to-brands').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    // If this is the "Back to Services" button inside KAPO, we handle it above
-                    // For other back-to-brands buttons, just close active detail
-                    e.preventDefault();
-                    closeActiveDetail(true);
-                });
-            });
-
-            // Also handle the "BACK TO SERVICES" inside product cards via data-back-to-services attribute
-            document.querySelectorAll('[data-back-to-services]').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    closeActiveDetail(true);
-                });
-            });
-
-            // Popstate event
-            window.addEventListener('popstate', function(event) {
-                let activeId = null;
-                Object.entries(detailViews).forEach(([id, el]) => {
-                    if (el && el.classList.contains('active')) {
-                        activeId = parseInt(id, 10);
-                    }
-                });
-                if (activeId !== null) {
-                    closeDetail(activeId, true);
-                    // If the state is not main, we might need to handle navigation
-                    if (!event.state || !event.state.main) {
-                        // If no state or no section, go to main
-                        history.replaceState({ main: true }, '', window.location.pathname);
-                    }
-                } else {
-                    // If no detail open, ensure main state
-                    if (!event.state || !event.state.main) {
-                        history.replaceState({ main: true }, '', window.location.pathname);
-                    }
-                }
-            });
-
-            document.querySelectorAll('[data-section="5"]').forEach(el => {
-                el.addEventListener('click', function(e) {
+            // ===== ربط القسم 5 (التكييفات) عبر Event Delegation =====
+            document.addEventListener('click', function(e) {
+                const el = e.target.closest('[data-section="5"]');
+                if (el) {
                     e.stopPropagation();
                     const target = detailViews[5];
                     if (target && target.classList.contains('active')) return;
-                    // Close any open detail
-                    closeActiveDetail(true);
+                    Object.entries(detailViews).forEach(([id, view]) => {
+                        if (view && view.classList.contains('active')) {
+                            const activeId = parseInt(id, 10);
+                            if (activeId !== 5) {
+                                view.classList.remove('active');
+                                view.style.opacity = '';
+                                view.style.transform = '';
+                                view.style.filter = '';
+                                view.querySelectorAll('.stagger-item').forEach(c => c.classList.remove(
+                                'visible'));
+                            }
+                        }
+                    });
                     openSection(5);
+                }
+            });
+
+            // ===== الاستماع لتغيير hash للتنقل =====
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash;
+                if (hash.startsWith('#section-')) {
+                    const sectionId = parseInt(hash.replace('#section-', ''), 10);
+                    if (sectionId >= 1 && sectionId <= 5) {
+                        const target = detailViews[sectionId];
+                        if (target && !target.classList.contains('active')) {
+                            openSection(sectionId);
+                        }
+                    }
+                }
+            });
+
+            // ===== ربط أزرار العودة (مرة واحدة فقط) =====
+            document.querySelectorAll('.back-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popNav(true);
+                });
+            });
+
+            // ===== ربط أزرار العودة في كابو ودانفوس =====
+            const backKapo = document.getElementById('back-to-brands-kapo');
+            const backDanfoss = document.getElementById('back-to-brands-danfoss');
+            const kapoBackToServices = document.getElementById('kapo-back-to-services');
+
+            if (backKapo) {
+                backKapo.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popNav(true);
+                });
+            }
+            if (backDanfoss) {
+                backDanfoss.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popNav(true);
+                });
+            }
+            if (kapoBackToServices) {
+                kapoBackToServices.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popNav(true);
+                });
+            }
+
+            // ===== ربط أزرار العودة داخل كابو =====
+            document.querySelectorAll('.kapo-back-btn[data-back-to-services]').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    popNav(true);
                 });
             });
 
@@ -5071,7 +5769,7 @@
                         e.stopPropagation();
                         const idx = parseInt(this.dataset.index);
                         const p = allProducts[idx];
-                        if (p) openOrder(p);
+                        if (p) openACOrder(p);
                     });
                 });
                 container.querySelectorAll('.ac-product-card').forEach(card => {
@@ -5220,7 +5918,7 @@
                 detailEl.classList.add('active');
                 document.body.style.overflow = 'hidden';
 
-                diOrderBtn.onclick = function() { openOrder(p); };
+                diOrderBtn.onclick = function() { openACOrder(p); };
                 diContactBtn.onclick = function() {
                     window.location.href = 'tel:+201114898319';
                 };
@@ -5230,12 +5928,14 @@
                 };
 
                 document.addEventListener('keydown', detailKeyHandler);
+
+                pushNav({ type: 'product', productIndex: index });
             }
 
             function detailKeyHandler(e) {
                 if (!detailEl.classList.contains('active')) return;
                 if (e.key === 'Escape') {
-                    closeDetailModal();
+                    closeDetail();
                 }
                 if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
                     const images = currentDetailProduct && currentDetailProduct.images && currentDetailProduct.images
@@ -5254,26 +5954,54 @@
                 }
             }
 
-            function closeDetailModal() {
+            function closeDetail() {
                 detailEl.classList.remove('active');
                 document.body.style.overflow = '';
                 document.removeEventListener('keydown', detailKeyHandler);
             }
 
-            closeDetailBtn.addEventListener('click', closeDetailModal);
+            closeDetailBtn.addEventListener('click', function() {
+                closeDetail();
+                popNav(true);
+            });
             detailEl.addEventListener('click', function(e) {
-                if (e.target === this) closeDetailModal();
+                if (e.target === this) {
+                    closeDetail();
+                    popNav(true);
+                }
             });
 
-            // ===== Order via WhatsApp =====
-            function openOrder(p) {
-                const msg =
-                    `طلب شراء تكييف:\nالموديل: ${p.model}\nالاسم التجاري: ${p.name}\nالقدرة: ${p.hp} HP\nالسعر: ${p.price.toLocaleString()} EGP\nكود المنتج: ${p.code}`;
-                const encodedMsg = encodeURIComponent(msg);
-                const whatsappUrl = `https://wa.me/201114898319?text=${encodedMsg}`;
-                closeDetailModal();
-                showToast('جاري التحويل إلى واتساب...');
-                setTimeout(() => { window.open(whatsappUrl, '_blank'); }, 600);
+            // ===== AC Order via WhatsApp (الرقم الموحد 201002685262) =====
+            function openACOrder(p) {
+                if (!p) return;
+                currentOrderProduct = {
+                    id: p.code || p.model,
+                    name: p.name + ' ' + p.brand,
+                    image: p.images && p.images.length > 0 ? p.images[0] : '',
+                    hp: p.hp + ' HP',
+                    whatsapp: '201002685262',
+                    model: p.model,
+                    code: p.code,
+                    price: p.price
+                };
+                orderQuantity = 1;
+                updateQtyDisplay();
+
+                let summaryHtml = `<strong>${p.brand} ${p.name}</strong><br>`;
+                summaryHtml += `الموديل: ${p.model}<br>`;
+                summaryHtml += `القدرة: ${p.hp} HP<br>`;
+                summaryHtml += `السعر: ${p.price.toLocaleString()} EGP<br>`;
+                if (p.code) summaryHtml += `كود المنتج: ${p.code}<br>`;
+                summaryHtml += `<span style="font-size:0.75rem;opacity:0.5;">الكمية: <span id="order-qty-display">1</span></span>`;
+                orderSummary.innerHTML = summaryHtml;
+
+                customerName.value = '';
+                customerPhone.value = '';
+                customerGovernorate.value = '';
+                customerAddress.value = '';
+
+                customerModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             }
 
             // ===== Toast =====
@@ -5322,7 +6050,7 @@
             // ==================== DANFOSS DATA ====================
             const danfossProducts = [
                 { type: 'فلتر', product: 'فلتر', model: 'DCL 032 023Z5000', size: '4/1"', spec: 'دانفوس فلير-',
-                    price: 227, code: 'ORD-024' },
+                price: 227, code: 'ORD-024' },
                 { type: 'فلتر', product: 'فلتر', model: 'DCL 083 023Z5005', size: '3/8"', spec: 'دانفوس فلير-',
                     price: 320, code: 'ORD-026' },
                 { type: 'فلتر', product: 'فلتر', model: 'DCL 083S 023Z4514', size: '8/3"', spec: 'دانفوس لحام-',
@@ -5503,8 +6231,8 @@
             const brandsContainer = document.getElementById('brands-container');
             const productsKapo = document.getElementById('products-kapo');
             const productsDanfoss = document.getElementById('products-danfoss');
-            const backKapo = document.getElementById('back-to-brands-kapo');
-            const backDanfoss = document.getElementById('back-to-brands-danfoss');
+            const backKapo3 = document.getElementById('back-to-brands-kapo');
+            const backDanfoss3 = document.getElementById('back-to-brands-danfoss');
             let danfossView = 'cards';
             const danfossCards = document.getElementById('danfoss-category-cards');
             const danfossTableContainer = document.getElementById('danfoss-table-container');
@@ -5519,8 +6247,8 @@
                     danfossTableContainer.style.display = 'none';
                     danfossTableContainer.innerHTML = '';
                 }
-                if (backDanfoss) {
-                    backDanfoss.innerHTML =
+                if (backDanfoss3) {
+                    backDanfoss3.innerHTML =
                         `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
                 }
             }
@@ -5529,6 +6257,8 @@
                 brandsContainer.classList.add('hidden');
                 productsKapo.classList.add('active');
                 productsDanfoss.classList.remove('active');
+                openSectionDirect(4, 'kapo', null);
+                pushNav({ type: 'section', id: 4, sub: 'kapo' });
             }
 
             function showDanfossCategory(category) {
@@ -5536,8 +6266,12 @@
                 danfossCards.style.display = 'none';
                 danfossTableContainer.style.display = 'block';
                 danfossTableContainer.innerHTML = buildDanfossTable(category);
-                backDanfoss.innerHTML =
-                    `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للبطاقات`;
+                if (backDanfoss3) {
+                    backDanfoss3.innerHTML =
+                        `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للبطاقات`;
+                }
+                openSectionDirect(4, 'danfoss', category);
+                pushNav({ type: 'section', id: 4, sub: 'danfoss', category: category });
             }
 
             function showDanfossCards() {
@@ -5545,8 +6279,12 @@
                 danfossCards.style.display = 'grid';
                 danfossTableContainer.style.display = 'none';
                 danfossTableContainer.innerHTML = '';
-                backDanfoss.innerHTML =
-                    `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
+                if (backDanfoss3) {
+                    backDanfoss3.innerHTML =
+                        `<svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> العودة للعلامات`;
+                }
+                openSectionDirect(4, 'danfoss', null);
+                pushNav({ type: 'section', id: 4, sub: 'danfoss' });
             }
 
             function showDanfossProducts() {
@@ -5554,19 +6292,23 @@
                 productsDanfoss.classList.add('active');
                 productsKapo.classList.remove('active');
                 showDanfossCards();
+                // pushNav يتم داخل showDanfossCards
             }
 
             document.getElementById('brand-kapo').addEventListener('click', showKapoProducts);
             document.getElementById('brand-danfoss').addEventListener('click', showDanfossProducts);
-            backKapo.addEventListener('click', showBrands);
-            backDanfoss.addEventListener('click', function(e) {
-                e.preventDefault();
-                if (danfossView === 'table') {
-                    showDanfossCards();
-                } else {
-                    showBrands();
-                }
-            });
+            if (backKapo3) {
+                backKapo3.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popNav(true);
+                });
+            }
+            if (backDanfoss3) {
+                backDanfoss3.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    popNav(true);
+                });
+            }
 
             document.querySelectorAll('.danfoss-card').forEach(card => {
                 card.addEventListener('click', function(e) {
@@ -5603,7 +6345,7 @@
                 }
             });
 
-            // ==================== KAPO ORDER — NEW LOGIC ====================
+            // ==================== KAPO ORDER — الرقم الموحد 201002685262 ====================
             const customerModal = document.getElementById('customer-modal');
             const closeCustomer = document.getElementById('close-customer-modal');
             const customerName = document.getElementById('customer-name');
@@ -5620,6 +6362,8 @@
 
             function updateQtyDisplay() {
                 qtyDisplay.textContent = orderQuantity;
+                const qtySpan = document.getElementById('order-qty-display');
+                if (qtySpan) qtySpan.textContent = orderQuantity;
             }
 
             qtyMinus.addEventListener('click', function() {
@@ -5643,7 +6387,7 @@
                         name: 'كابو الجمبو',
                         image: 'https://i.postimg.cc/P5MtQmh2/image.png',
                         hp: '4 – 7 حصان',
-                        whatsapp: '20114898319'
+                        whatsapp: '201002685262'
                     }
                 };
                 const prod = productMap[productId];
@@ -5654,8 +6398,10 @@
                 orderQuantity = 1;
                 updateQtyDisplay();
 
-                orderSummary.innerHTML =
-                    `<strong>${prod.name}</strong> — ${prod.hp}<br><span style="font-size:0.75rem;opacity:0.5;">الكمية: <span id="order-qty-display">1</span></span>`;
+                let summaryHtml = `<strong>${prod.name}</strong><br>`;
+                summaryHtml += `القدرة: ${prod.hp}<br>`;
+                summaryHtml += `<span style="font-size:0.75rem;opacity:0.5;">الكمية: <span id="order-qty-display">1</span></span>`;
+                orderSummary.innerHTML = summaryHtml;
 
                 customerName.value = '';
                 customerPhone.value = '';
@@ -5666,7 +6412,6 @@
                 document.body.style.overflow = 'hidden';
             }
 
-            // KAPO order buttons
             document.querySelectorAll('.kapo-order-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -5675,8 +6420,24 @@
                 });
             });
 
-            // KAPO "BACK TO SERVICES" buttons (inside product cards) — now handled globally
-            // No need to add extra listener here, we already handle via data-back-to-services
+            document.querySelectorAll('.kapo-back-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    popNav(true);
+                });
+            });
+
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('kapo-order-btn') || e.target.classList.contains(
+                            'kapo-back-btn')) return;
+                    const productId = this.dataset.product;
+                    if (productId) {
+                        const btn = this.querySelector('.kapo-order-btn');
+                        if (btn) btn.click();
+                    }
+                });
+            });
 
             closeCustomer.addEventListener('click', function() {
                 customerModal.classList.remove('active');
@@ -5707,8 +6468,17 @@
                 }
 
                 const qty = orderQuantity;
-                const msg =
-                    `طلب جديد - ${currentOrderProduct.name}\nاسم العميل: ${name}\nرقم الهاتف: ${phone}\nالمحافظة: ${governorate || 'غير محدد'}\nالعنوان: ${address || 'غير محدد'}\nالمنتج: ${currentOrderProduct.name}\nالقدرة: ${currentOrderProduct.hp}\nالكمية: ${qty}`;
+                let msg = `طلب جديد - ${currentOrderProduct.name}\n`;
+                msg += `اسم العميل: ${name}\n`;
+                msg += `رقم الهاتف: ${phone}\n`;
+                msg += `المحافظة: ${governorate || 'غير محدد'}\n`;
+                msg += `العنوان: ${address || 'غير محدد'}\n`;
+                msg += `المنتج: ${currentOrderProduct.name}\n`;
+                if (currentOrderProduct.hp) msg += `القدرة: ${currentOrderProduct.hp}\n`;
+                if (currentOrderProduct.model) msg += `الموديل: ${currentOrderProduct.model}\n`;
+                if (currentOrderProduct.code) msg += `كود المنتج: ${currentOrderProduct.code}\n`;
+                if (currentOrderProduct.price) msg += `السعر: ${currentOrderProduct.price.toLocaleString()} EGP\n`;
+                msg += `الكمية: ${qty}`;
 
                 const encodedMsg = encodeURIComponent(msg);
                 const whatsappUrl = `https://wa.me/${currentOrderProduct.whatsapp}?text=${encodedMsg}`;
@@ -5724,17 +6494,16 @@
             const langButtons = langSwitcher.querySelectorAll('button');
             let currentLang = localStorage.getItem('naelee-lang') || 'ar';
 
-            // Translation map with real translations
             const translations = {
                 ar: {
-                    'env-telemetry': 'القياس البيئي',
-                    'hero-title': 'معيار جديد في <br class="hidden md:block" /> الهندسة الفاخرة.',
-                    'hero-desc': 'دقة أوروبية تلتقي بالكمال الجوي. نراقب المتغيرات البيئية لحية لضمان أعلى معايير هندسة المناخ.',
-                    'live-data': 'بث البيانات المباشر',
-                    'contact-direct': 'اتصل مباشرة',
-                    'footer-contact': 'اتصل بنا',
-                    'footer-press': 'الضغط النهائي',
-                    'footer-privacy': 'الخصوصية'
+                    'env-telemetry': 'Environmental Telemetry',
+                    'hero-title': 'A NEW STANDARD IN <br class="hidden md:block" /> LUXURY ENGINEERING.',
+                    'hero-desc': 'European precision meets atmospheric perfection. Monitoring live environmental variables to ensure the ultimate climate architecture standards.',
+                    'live-data': 'Live Data Stream',
+                    'contact-direct': 'Contact Directly',
+                    'footer-contact': 'Contact',
+                    'footer-press': 'End User Press',
+                    'footer-privacy': 'Privacy'
                 },
                 en: {
                     'env-telemetry': 'Environmental Telemetry',
@@ -5751,17 +6520,11 @@
             function setLanguage(lang) {
                 currentLang = lang;
                 localStorage.setItem('naelee-lang', lang);
-
-                // Update active button
                 langButtons.forEach(btn => {
                     btn.classList.toggle('active', btn.dataset.lang === lang);
                 });
-
-                // Set dir and lang attributes
                 document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
                 document.documentElement.lang = lang;
-
-                // Apply translations to data-i18n elements
                 const elements = document.querySelectorAll('[data-i18n]');
                 elements.forEach(el => {
                     const key = el.dataset.i18n;
@@ -5774,11 +6537,9 @@
                         }
                     }
                 });
-
                 showToast(lang === 'ar' ? 'تم تبديل اللغة إلى العربية' : 'Switched to English');
             }
 
-            // Set initial language
             langButtons.forEach(btn => {
                 if (btn.dataset.lang === currentLang) {
                     btn.classList.add('active');
@@ -5789,7 +6550,6 @@
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
             document.documentElement.lang = currentLang;
 
-            // Apply initial translations
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.dataset.i18n;
                 const translation = translations[currentLang] && translations[currentLang][key];
@@ -5802,7 +6562,6 @@
                 }
             });
 
-            // Language switcher click handler
             langButtons.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation();
@@ -5816,7 +6575,11 @@
             // ===== Initial Render =====
             applyFilters();
 
-            console.log('NAELEE | تم تحديث الكود بالكامل مع إصلاح أزرار BACK TO SERVICES والترجمة.');
+            console.log('NAELEE | الكود الكامل مع إصلاح زر العودة (القسم 4)');
+            console.log('NAELEE | رقم واتساب الموحد للطلبات: 201002685262');
+            console.log('NAELEE | نظام الرجوع يعمل خطوة بخطوة مع الحفاظ على الحالة الفرعية.');
+            console.log('NAELEE | التصميم الأبيض (Light Theme) مطبق على الأقسام الداخلية.');
+            console.log('NAELEE | جميع المنتجات والبيانات محفوظة كما هي.');
         })();
     </script>
 </body>
