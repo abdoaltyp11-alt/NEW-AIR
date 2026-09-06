@@ -2693,19 +2693,9 @@
             opacity: 0.4;
         }
 
+        /* تم إزالة السعر من بطاقات المنتجات */
         .ac-product-card .ap-price {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #FDF5A6;
-            margin-top: 2px;
-            letter-spacing: 0.04em;
-        }
-
-        .ac-product-card .ap-price .currency {
-            font-size: 0.6rem;
-            opacity: 0.5;
-            font-weight: 400;
+            display: none;
         }
 
         .ac-product-card .ap-actions {
@@ -3069,18 +3059,9 @@
             color: #FDF5A6;
         }
 
+        /* تم إزالة السعر من صفحة التفاصيل */
         .detail-info .di-price {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #FDF5A6;
-            font-family: 'Inter', sans-serif;
-            padding: 6px 0 2px;
-        }
-
-        .detail-info .di-price .currency {
-            font-size: 0.8rem;
-            opacity: 0.4;
-            font-weight: 400;
+            display: none;
         }
 
         .detail-info .di-code {
@@ -3272,6 +3253,129 @@
             margin-top: 12px;
         }
 
+        /* ===== KAPO price styling - كبير وواضح + أسود + سعر المستخدم النهائي ===== */
+        .kapo-price-wrap {
+            margin-top: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .kapo-price-label {
+            font-size: clamp(0.55rem, 0.7vw, 0.7rem);
+            font-weight: 600;
+            color: #1a1a1a;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: rgba(212, 175, 55, 0.08);
+            padding: 2px 12px;
+            border-radius: 12px;
+            display: inline-block;
+        }
+
+        .kapo-price {
+            font-size: clamp(1.8rem, 3.5vw, 3rem);
+            font-weight: 800;
+            color: #1a1a1a;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.04em;
+            line-height: 1.2;
+        }
+
+        .kapo-price .currency {
+            font-size: 1.2rem;
+            font-weight: 600;
+            opacity: 0.7;
+            color: #2d2d2d;
+        }
+
+        /* ===== KAPO Black Text Override - كل المكتوب في كابو أسود ===== */
+        #section-detail-4 .product-card .product-name,
+        #section-detail-4 .product-card .product-hp,
+        #section-detail-4 .product-card .kapo-tagline-card,
+        #section-detail-4 .product-card .kapo-tagline-card .gold-highlight,
+        #section-detail-4 .product-card .product-name .gold-highlight,
+        #section-detail-4 .kapo-section-header h2,
+        #section-detail-4 .product-card .product-badge,
+        #section-detail-4 .product-card .product-badge:hover {
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background: none !important;
+            -webkit-background-clip: unset !important;
+            background-clip: unset !important;
+            filter: none !important;
+            animation: none !important;
+            text-shadow: none !important;
+        }
+
+        #section-detail-4 .product-card .kapo-tagline-card .gold-highlight {
+            font-weight: 700;
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background: none !important;
+        }
+
+        #section-detail-4 .product-card .product-name .gold-highlight {
+            font-weight: 700;
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background: none !important;
+        }
+
+        #section-detail-4 .kapo-section-header h2 {
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background: none !important;
+            filter: none !important;
+            text-shadow: none !important;
+        }
+
+        #section-detail-4 .product-card .product-hp {
+            color: #4a4a4a !important;
+            -webkit-text-fill-color: #4a4a4a !important;
+            background: none !important;
+        }
+
+        #section-detail-4 .product-card .product-badge {
+            color: #4a4a4a !important;
+            -webkit-text-fill-color: #4a4a4a !important;
+            border-color: #d4c9b5 !important;
+            background: rgba(212, 175, 55, 0.04) !important;
+        }
+
+        #section-detail-4 .product-card .product-badge:hover {
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background: rgba(212, 175, 55, 0.08) !important;
+            border-color: #b38728 !important;
+        }
+
+        #section-detail-4 .product-card .kapo-price {
+            color: #1a1a1a !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+            background: none !important;
+            filter: none !important;
+            text-shadow: none !important;
+        }
+
+        #section-detail-4 .product-card .kapo-price .currency {
+            color: #2d2d2d !important;
+            -webkit-text-fill-color: #2d2d2d !important;
+        }
+
+        #section-detail-4 .product-card .kapo-price-label {
+            color: #1a1a1a !important;
+            background: rgba(212, 175, 55, 0.08) !important;
+            -webkit-text-fill-color: #1a1a1a !important;
+        }
+
+        /* ===== KAPO product images sizing ===== */
+        #section-detail-4 .product-card img {
+            max-height: 160px;
+            object-fit: contain;
+        }
+
         /* Responsive */
         @media (max-width: 640px) {
             .danfoss-cards-grid {
@@ -3315,6 +3419,12 @@
                 min-width: 100px;
                 padding: 10px 16px;
                 font-size: 0.7rem;
+            }
+            .kapo-price {
+                font-size: 1.6rem;
+            }
+            #section-detail-4 .product-card img {
+                max-height: 110px;
             }
         }
 
@@ -3458,6 +3568,9 @@
             .bg-black\/60 {
                 padding: 0.5rem !important;
             }
+            .kapo-price {
+                font-size: 1.4rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -3587,6 +3700,12 @@
             }
             .kapo-tagline-card {
                 font-size: 0.55rem;
+            }
+            .kapo-price {
+                font-size: 1.2rem;
+            }
+            #section-detail-4 .product-card img {
+                max-height: 90px;
             }
         }
 
@@ -4515,7 +4634,7 @@
 
             <!-- KAPO Section Header — NEW NAME & TAGLINE -->
             <div class="kapo-section-header">
-                <h2 class="gold-text-3d">الكابولي المعجزة</h2>
+                <h2>الكابو الكابولي</h2>
             </div>
 
             <div class="detail-body">
@@ -4526,7 +4645,7 @@
                         <span class="corner-accent br"></span>
                         <div class="brand-glow"></div>
                         <div class="brand-icon">❄️</div>
-                        <div class="brand-name gold-text-3d">كابو</div>
+                        <div class="brand-name">كابو</div>
                         <div class="brand-sub">أجهزة التبريد</div>
                     </div>
                     <div class="brand-card" id="brand-danfoss" data-brand="danfoss">
@@ -4534,7 +4653,7 @@
                         <span class="corner-accent br"></span>
                         <div class="brand-glow"></div>
                         <div class="brand-icon">⚙️</div>
-                        <div class="brand-name gold-text-3d">دانفوس</div>
+                        <div class="brand-name">دانفوس</div>
                         <div class="brand-sub">مكونات التبريد</div>
                     </div>
                 </div>
@@ -4556,27 +4675,37 @@
                         منتجات كابو — اختر المنتج المطلوب واضغط على طلب المنتج الآن.
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <!-- KAPO Al-Dababa -->
-                        <div class="product-card" data-product="dababa" data-name="كابو الدبابه" data-image="https://i.postimg.cc/Y0yrYkHM/image.png">
-                            <img src="https://i.postimg.cc/Y0yrYkHM/image.png" alt="كابو الدبابه" loading="lazy" />
+                        <!-- KAPO Al-Dababa — الصورة الجديدة -->
+                        <div class="product-card" data-product="dababa" data-name="كابو الدبابه" data-image="https://i.postimg.cc/ZqxHmrPZ/133e234d-d31c-4dc8-9185-3c5b0bf9b7ff.jpg">
+                            <img src="https://i.postimg.cc/ZqxHmrPZ/133e234d-d31c-4dc8-9185-3c5b0bf9b7ff.jpg" alt="كابو الدبابه" loading="lazy" />
                             <div class="kapo-tagline-card">
-                                <span class="gold-highlight">ما خف وزنه ثقل حجمه</span> — صنع إيطالي بيد مصرية
+                                <span>ما خف وزنه ثقل حملة</span> — صنع إيطالي بيد مصرية
                             </div>
-                            <div class="product-name"><span class="gold-highlight">كابو</span> الدبابه</div>
+                            <div class="product-name"><span>كابو</span> الدبابه</div>
                             <div class="product-hp">1.5 – 2 – 3 حصان</div>
+                            <!-- سعر كبير + سعر المستخدم النهائي -->
+                            <div class="kapo-price-wrap">
+                                <span class="kapo-price-label">سعر المستخدم النهائي</span>
+                                <div class="kapo-price">1,000 <span class="currency">جنيه</span></div>
+                            </div>
                             <div class="kapo-actions">
                                 <button class="kapo-back-btn" data-back-to-services>BACK TO SERVICES</button>
                                 <button class="kapo-order-btn" data-product="dababa">اطلب المنتج الآن</button>
                             </div>
                         </div>
-                        <!-- KAPO Al-Gumbo — 4-7 HP -->
-                        <div class="product-card" data-product="gumbo" data-name="كابو الجمبو" data-image="https://i.postimg.cc/P5MtQmh2/image.png">
-                            <img src="https://i.postimg.cc/P5MtQmh2/image.png" alt="كابو الجمبو" loading="lazy" />
+                        <!-- KAPO Al-Gumbo — الصورة الجديدة -->
+                        <div class="product-card" data-product="gumbo" data-name="كابو الجمبو" data-image="https://i.postimg.cc/yd7f3f6n/2018-nseries-ext-gal-g02.avif">
+                            <img src="https://i.postimg.cc/yd7f3f6n/2018-nseries-ext-gal-g02.avif" alt="كابو الجمبو" loading="lazy" />
                             <div class="kapo-tagline-card">
-                                <span class="gold-highlight">ما خف وزنه ثقل حجمه</span> — صنع إيطالي بيد مصرية
+                                <span>ما خف وزنه ثقل حملة</span> — صنع إيطالي بيد مصرية
                             </div>
-                            <div class="product-name"><span class="gold-highlight">كابو</span> الجمبو</div>
+                            <div class="product-name"><span>كابو</span> الجمبو</div>
                             <div class="product-hp">4 – 7 حصان</div>
+                            <!-- سعر كبير + سعر المستخدم النهائي -->
+                            <div class="kapo-price-wrap">
+                                <span class="kapo-price-label">سعر المستخدم النهائي</span>
+                                <div class="kapo-price">1,200 <span class="currency">جنيه</span></div>
+                            </div>
                             <div class="kapo-actions">
                                 <button class="kapo-back-btn" data-back-to-services>BACK TO SERVICES</button>
                                 <button class="kapo-order-btn" data-product="gumbo">اطلب المنتج الآن</button>
@@ -4760,7 +4889,7 @@
                     </button>
                 </div>
 
-                <!-- ===== TABLES (hidden by default) ===== -->
+                <!-- ===== TABLES (hidden by default) — تم إزالة الأسعار ===== -->
                 <div id="ac-tables-container" style="display:none; margin-top:20px;">
 
                     <!-- Zoom buttons -->
@@ -4782,15 +4911,15 @@
                     <div class="price-table-wrap">
                         <table class="price-table">
                             <thead><tr><th colspan="7" class="brand-header">High Wall Inverter Split Systems</th></tr>
-                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">enduser Press</th><th class="category-header">Rakwat Code</th></tr>
+                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">Rakwat Code</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td class="model">53KHEFT12DN8-708F</td><td rowspan="6">XCOOL Inverter</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td class="press-price">30,390</td><td>001</td></tr>
-                                <tr><td class="model">53KHEFT18DN8-708F</td><td>CO</td><td>2.25</td><td class="press-price">44,910</td><td>002</td></tr>
-                                <tr><td class="model">53KHEFT24DN8-708F</td><td>CO</td><td>3</td><td class="press-price">50,995</td><td>003</td></tr>
-                                <tr><td class="model">53QHEFT12DN8-708F</td><td>HP</td><td>1.5</td><td class="press-price">33,105</td><td>004</td></tr>
-                                <tr><td class="model">53QHEFT18DN8-708F</td><td>HP</td><td>2.25</td><td class="press-price">48,565</td><td>005</td></tr>
-                                <tr><td class="model">53QHEFT24DN8-708F</td><td>HP</td><td>3</td><td class="press-price">55,140</td><td>006</td></tr>
+                                <tr><td class="model">53KHEFT12DN8-708F</td><td rowspan="6">XCOOL Inverter</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>001</td></tr>
+                                <tr><td class="model">53KHEFT18DN8-708F</td><td>CO</td><td>2.25</td><td>002</td></tr>
+                                <tr><td class="model">53KHEFT24DN8-708F</td><td>CO</td><td>3</td><td>003</td></tr>
+                                <tr><td class="model">53QHEFT12DN8-708F</td><td>HP</td><td>1.5</td><td>004</td></tr>
+                                <tr><td class="model">53QHEFT18DN8-708F</td><td>HP</td><td>2.25</td><td>005</td></tr>
+                                <tr><td class="model">53QHEFT24DN8-708F</td><td>HP</td><td>3</td><td>006</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -4799,11 +4928,11 @@
                     <div class="price-table-wrap">
                         <table class="price-table">
                             <thead><tr><th colspan="7" class="brand-header">High Wall Inverter Split Systems</th></tr>
-                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">enduser Press</th><th class="category-header">Rakwat Code</th></tr>
+                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">Rakwat Code</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td class="model">53QHABT30DN-708F</td><td rowspan="2">Optimax Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td class="press-price">85,940</td><td>007</td></tr>
-                                <tr><td class="model">53QHABT36DN-708F</td><td>5</td><td class="press-price">98,750</td><td>008</td></tr>
+                                <tr><td class="model">53QHABT30DN-708F</td><td rowspan="2">Optimax Inverter</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>007</td></tr>
+                                <tr><td class="model">53QHABT36DN-708F</td><td>5</td><td>008</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -4812,17 +4941,17 @@
                     <div class="price-table-wrap">
                         <table class="price-table">
                             <thead><tr><th colspan="7" class="brand-header">High Wall Fixed Split Systems</th></tr>
-                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">enduser Press</th><th class="category-header">Rakwat Code</th></tr>
+                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">Rakwat Code</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td class="model">53KHCT12N-708</td><td rowspan="6">Optimax Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td class="press-price">26,415</td><td>009</td></tr>
-                                <tr><td class="model">53KHCT18N-708</td><td>CO</td><td>2.5</td><td class="press-price">37,325</td><td>010</td></tr>
-                                <tr><td class="model">53KHCT24N-708</td><td>CO</td><td>3</td><td class="press-price">44,705</td><td>011</td></tr>
-                                <tr><td class="model">53QHCT12N-708F</td><td>HP</td><td>1.5</td><td class="press-price">28,630</td><td>012</td></tr>
-                                <tr><td class="model">53QHCT18N-708F</td><td>HP</td><td>2.5</td><td class="press-price">40,730</td><td>013</td></tr>
-                                <tr><td class="model">53QHCT24N-708F</td><td>HP</td><td>3</td><td class="press-price">48,200</td><td>014</td></tr>
-                                <tr><td class="model">53QHABT30N-708F</td><td rowspan="2">Optimax Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td class="press-price">76,460</td><td>015</td></tr>
-                                <tr><td class="model">53QHABT36N-708F</td><td>5</td><td class="press-price">87,850</td><td>016</td></tr>
+                                <tr><td class="model">53KHCT12N-708</td><td rowspan="6">Optimax Pro</td><td rowspan="6">R410A</td><td>CO</td><td>1.5</td><td>009</td></tr>
+                                <tr><td class="model">53KHCT18N-708</td><td>CO</td><td>2.5</td><td>010</td></tr>
+                                <tr><td class="model">53KHCT24N-708</td><td>CO</td><td>3</td><td>011</td></tr>
+                                <tr><td class="model">53QHCT12N-708F</td><td>HP</td><td>1.5</td><td>012</td></tr>
+                                <tr><td class="model">53QHCT18N-708F</td><td>HP</td><td>2.5</td><td>013</td></tr>
+                                <tr><td class="model">53QHCT24N-708F</td><td>HP</td><td>3</td><td>014</td></tr>
+                                <tr><td class="model">53QHABT30N-708F</td><td rowspan="2">Optimax Pro</td><td rowspan="2">R410A</td><td rowspan="2">HP</td><td>4</td><td>015</td></tr>
+                                <tr><td class="model">53QHABT36N-708F</td><td>5</td><td>016</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -4831,21 +4960,21 @@
                     <div class="price-table-wrap">
                         <table class="price-table">
                             <thead><tr><th colspan="7" class="brand-header">High Wall Fixed Split Systems</th></tr>
-                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">enduser Press</th><th class="category-header">Rakwat Code</th></tr>
+                                <tr><th class="category-header">Model</th><th class="category-header">Commercial Name</th><th class="category-header">Refrigerant Type</th><th class="category-header">Application</th><th class="category-header">Horse power</th><th class="category-header">Rakwat Code</th></tr>
                             </thead>
                             <tbody>
-                                <tr><td class="model">53KHEFT12N8-708F</td><td rowspan="6">XCOOL NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td class="press-price">26,415</td><td>017</td></tr>
-                                <tr><td class="model">53KHEFT18N8-708F</td><td>CO</td><td>2.5</td><td class="press-price">37,935</td><td>018</td></tr>
-                                <tr><td class="model">53KHEFT24N8-708F</td><td>CO</td><td>3</td><td class="press-price">45,520</td><td>019</td></tr>
-                                <tr><td class="model">53QHEFT12N8-708F</td><td>HP</td><td>1.5</td><td class="press-price">28,630</td><td>020</td></tr>
-                                <tr><td class="model">53QHEFT18N8-708F</td><td>HP</td><td>2.5</td><td class="press-price">41,345</td><td>021</td></tr>
-                                <tr><td class="model">53QHEFT24N8-708F</td><td>HP</td><td>3</td><td class="press-price">49,015</td><td>022</td></tr>
+                                <tr><td class="model">53KHEFT12N8-708F</td><td rowspan="6">XCOOL NEW</td><td rowspan="6">R-32</td><td>CO</td><td>1.5</td><td>017</td></tr>
+                                <tr><td class="model">53KHEFT18N8-708F</td><td>CO</td><td>2.5</td><td>018</td></tr>
+                                <tr><td class="model">53KHEFT24N8-708F</td><td>CO</td><td>3</td><td>019</td></tr>
+                                <tr><td class="model">53QHEFT12N8-708F</td><td>HP</td><td>1.5</td><td>020</td></tr>
+                                <tr><td class="model">53QHEFT18N8-708F</td><td>HP</td><td>2.5</td><td>021</td></tr>
+                                <tr><td class="model">53QHEFT24N8-708F</td><td>HP</td><td>3</td><td>022</td></tr>
                             </tbody>
                         </table>
                     </div>
 
                     <div class="text-center mt-6 text-xs text-gray-500">
-                        <span class="gold-subtitle">✦</span> الأسعار تشمل دعم الوحدة الخارجية وخطوط الأنابيب &amp; تشمل ضريبة المبيعات والهندسة (للموديلات 48k و 60k بدون خطوط التبريد) <span class="gold-subtitle">✦</span>
+                        <span class="gold-subtitle">✦</span> الأسعار محذوفة من الجداول حسب الطلب <span class="gold-subtitle">✦</span>
                     </div>
                 </div>
 
@@ -4872,7 +5001,8 @@
                     <div class="di-model" id="di-model"></div>
                     <div class="di-divider"></div>
                     <div class="di-specs" id="di-specs"></div>
-                    <div class="di-price" id="di-price"></div>
+                    <!-- تم إزالة السعر من التفاصيل -->
+                    <div class="di-price" id="di-price" style="display:none;"></div>
                     <div class="di-code" id="di-code"></div>
                     <div class="di-features" id="di-features"></div>
                     <div class="di-actions">
@@ -5531,179 +5661,179 @@
                 return ['https://i.postimg.cc/7Lc4HxN4/ac-unit.jpg'];
             }
 
-            // ===== Carrier products =====
+            // ===== Carrier products (تم إزالة الأسعار) =====
             const carrierProducts = [
                 { model: '53KHEFT12DN8-708F', name: 'XCOOL Inverter', refrigerant: 'R-32', application: 'CO', hp: '1.5',
-                    price: 30390, code: '001', brand: 'Carrier', line: 'XCOOL Inverter',
+                    price: 0, code: '001', brand: 'Carrier', line: 'XCOOL Inverter',
                     images: getProductImages({ model: '53KHEFT12DN8-708F', brand: 'Carrier' }) },
                 { model: '53KHEFT18DN8-708F', name: 'XCOOL Inverter', refrigerant: 'R-32', application: 'CO', hp: '2.25',
-                    price: 44910, code: '002', brand: 'Carrier', line: 'XCOOL Inverter',
+                    price: 0, code: '002', brand: 'Carrier', line: 'XCOOL Inverter',
                     images: getProductImages({ model: '53KHEFT18DN8-708F', brand: 'Carrier' }) },
                 { model: '53KHEFT24DN8-708F', name: 'XCOOL Inverter', refrigerant: 'R-32', application: 'CO', hp: '3',
-                    price: 50995, code: '003', brand: 'Carrier', line: 'XCOOL Inverter',
+                    price: 0, code: '003', brand: 'Carrier', line: 'XCOOL Inverter',
                     images: getProductImages({ model: '53KHEFT24DN8-708F', brand: 'Carrier' }) },
                 { model: '53QHEFT12DN8-708F', name: 'XCOOL Inverter', refrigerant: 'R-32', application: 'HP', hp: '1.5',
-                    price: 33105, code: '004', brand: 'Carrier', line: 'XCOOL Inverter',
+                    price: 0, code: '004', brand: 'Carrier', line: 'XCOOL Inverter',
                     images: getProductImages({ model: '53QHEFT12DN8-708F', brand: 'Carrier' }) },
                 { model: '53QHEFT18DN8-708F', name: 'XCOOL Inverter', refrigerant: 'R-32', application: 'HP', hp: '2.25',
-                    price: 48565, code: '005', brand: 'Carrier', line: 'XCOOL Inverter',
+                    price: 0, code: '005', brand: 'Carrier', line: 'XCOOL Inverter',
                     images: getProductImages({ model: '53QHEFT18DN8-708F', brand: 'Carrier' }) },
                 { model: '53QHEFT24DN8-708F', name: 'XCOOL Inverter', refrigerant: 'R-32', application: 'HP', hp: '3',
-                    price: 55140, code: '006', brand: 'Carrier', line: 'XCOOL Inverter',
+                    price: 0, code: '006', brand: 'Carrier', line: 'XCOOL Inverter',
                     images: getProductImages({ model: '53QHEFT24DN8-708F', brand: 'Carrier' }) },
                 { model: '53QHABT30N-708F', name: 'Optimax Inverter', refrigerant: 'R410A', application: 'HP', hp: '4',
-                    price: 85940, code: '007', brand: 'Carrier', line: 'Optimax Inverter',
+                    price: 0, code: '007', brand: 'Carrier', line: 'Optimax Inverter',
                     images: getProductImages({ model: '53QHABT30N-708F', brand: 'Carrier' }) },
                 { model: '53QHABT36N-708F', name: 'Optimax Inverter', refrigerant: 'R410A', application: 'HP', hp: '5',
-                    price: 98750, code: '008', brand: 'Carrier', line: 'Optimax Inverter',
+                    price: 0, code: '008', brand: 'Carrier', line: 'Optimax Inverter',
                     images: getProductImages({ model: '53QHABT36N-708F', brand: 'Carrier' }) },
                 { model: '53KHCT12N-708', name: 'Optimax Pro', refrigerant: 'R410A', application: 'CO', hp: '1.5',
-                    price: 26415, code: '009', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '009', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53KHCT12N-708', brand: 'Carrier' }) },
                 { model: '53KHCT18N-708', name: 'Optimax Pro', refrigerant: 'R410A', application: 'CO', hp: '2.5',
-                    price: 37325, code: '010', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '010', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53KHCT18N-708', brand: 'Carrier' }) },
                 { model: '53KHCT24N-708', name: 'Optimax Pro', refrigerant: 'R410A', application: 'CO', hp: '3',
-                    price: 44705, code: '011', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '011', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53KHCT24N-708', brand: 'Carrier' }) },
                 { model: '53QHCT12N-708F', name: 'Optimax Pro', refrigerant: 'R410A', application: 'HP', hp: '1.5',
-                    price: 28630, code: '012', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '012', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53QHCT12N-708F', brand: 'Carrier' }) },
                 { model: '53QHCT18N-708F', name: 'Optimax Pro', refrigerant: 'R410A', application: 'HP', hp: '2.5',
-                    price: 40730, code: '013', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '013', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53QHCT18N-708F', brand: 'Carrier' }) },
                 { model: '53QHCT24N-708F', name: 'Optimax Pro', refrigerant: 'R410A', application: 'HP', hp: '3',
-                    price: 48200, code: '014', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '014', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53QHCT24N-708F', brand: 'Carrier' }) },
                 { model: '53QHABT30N-708F', name: 'Optimax Pro', refrigerant: 'R410A', application: 'HP', hp: '4',
-                    price: 76460, code: '015', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '015', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53QHABT30N-708F', brand: 'Carrier' }) },
                 { model: '53QHABT36N-708F', name: 'Optimax Pro', refrigerant: 'R410A', application: 'HP', hp: '5',
-                    price: 87850, code: '016', brand: 'Carrier', line: 'Optimax Pro',
+                    price: 0, code: '016', brand: 'Carrier', line: 'Optimax Pro',
                     images: getProductImages({ model: '53QHABT36N-708F', brand: 'Carrier' }) },
                 { model: '53KHEFT12N8-708F', name: 'XCOOL NEW', refrigerant: 'R-32', application: 'CO', hp: '1.5',
-                    price: 26415, code: '017', brand: 'Carrier', line: 'XCOOL NEW',
+                    price: 0, code: '017', brand: 'Carrier', line: 'XCOOL NEW',
                     images: getProductImages({ model: '53KHEFT12N8-708F', brand: 'Carrier' }) },
                 { model: '53KHEFT18N8-708F', name: 'XCOOL NEW', refrigerant: 'R-32', application: 'CO', hp: '2.5',
-                    price: 37935, code: '018', brand: 'Carrier', line: 'XCOOL NEW',
+                    price: 0, code: '018', brand: 'Carrier', line: 'XCOOL NEW',
                     images: getProductImages({ model: '53KHEFT18N8-708F', brand: 'Carrier' }) },
                 { model: '53KHEFT24N8-708F', name: 'XCOOL NEW', refrigerant: 'R-32', application: 'CO', hp: '3',
-                    price: 45520, code: '019', brand: 'Carrier', line: 'XCOOL NEW',
+                    price: 0, code: '019', brand: 'Carrier', line: 'XCOOL NEW',
                     images: getProductImages({ model: '53KHEFT24N8-708F', brand: 'Carrier' }) },
                 { model: '53QHEFT12N8-708F', name: 'XCOOL NEW', refrigerant: 'R-32', application: 'HP', hp: '1.5',
-                    price: 28630, code: '020', brand: 'Carrier', line: 'XCOOL NEW',
+                    price: 0, code: '020', brand: 'Carrier', line: 'XCOOL NEW',
                     images: getProductImages({ model: '53QHEFT12N8-708F', brand: 'Carrier' }) },
                 { model: '53QHEFT18N8-708F', name: 'XCOOL NEW', refrigerant: 'R-32', application: 'HP', hp: '2.5',
-                    price: 41345, code: '021', brand: 'Carrier', line: 'XCOOL NEW',
+                    price: 0, code: '021', brand: 'Carrier', line: 'XCOOL NEW',
                     images: getProductImages({ model: '53QHEFT18N8-708F', brand: 'Carrier' }) },
                 { model: '53QHEFT24N8-708F', name: 'XCOOL NEW', refrigerant: 'R-32', application: 'HP', hp: '3',
-                    price: 49015, code: '022', brand: 'Carrier', line: 'XCOOL NEW',
+                    price: 0, code: '022', brand: 'Carrier', line: 'XCOOL NEW',
                     images: getProductImages({ model: '53QHEFT24N8-708F', brand: 'Carrier' }) },
                 { model: '53QDMA6T18DN-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '2.25',
-                    price: 35000, code: 'Q001', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q001', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T18DN-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T24DN-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '3',
-                    price: 42000, code: 'Q002', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q002', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T24DN-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T36DN-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '4',
-                    price: 51000, code: 'Q003', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q003', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T36DN-728', brand: 'Carrier' }) },
                 { model: '53QDHTGT48DN-528', name: 'DHT Series', refrigerant: 'R-32', application: 'HP', hp: '6',
-                    price: 68000, code: 'Q004', brand: 'Carrier', line: 'DHT Series',
+                    price: 0, code: 'Q004', brand: 'Carrier', line: 'DHT Series',
                     images: getProductImages({ model: '53QDHTGT48DN-528', brand: 'Carrier' }) },
                 { model: '53QDHTGT60DN-528', name: 'DHT Series', refrigerant: 'R-32', application: 'HP', hp: '7.5',
-                    price: 82000, code: 'Q005', brand: 'Carrier', line: 'DHT Series',
+                    price: 0, code: 'Q005', brand: 'Carrier', line: 'DHT Series',
                     images: getProductImages({ model: '53QDHTGT60DN-528', brand: 'Carrier' }) },
                 { model: '53QDMA6T12N-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '1.5',
-                    price: 28000, code: 'Q006', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q006', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T12N-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T18N-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '2.25',
-                    price: 35000, code: 'Q007', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q007', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T18N-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T24N-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '3',
-                    price: 42000, code: 'Q008', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q008', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T24N-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T30N-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '4',
-                    price: 49000, code: 'Q009', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q009', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T30N-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T36N-728', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '5',
-                    price: 56000, code: 'Q010', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q010', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T36N-728', brand: 'Carrier' }) },
                 { model: '53QDMA6T48N-528', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '6',
-                    price: 65000, code: 'Q011', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q011', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T48N-528', brand: 'Carrier' }) },
                 { model: '53QDMA6T60N-528', name: 'DMA Series', refrigerant: 'R-32', application: 'HP', hp: '7.5',
-                    price: 78000, code: 'Q012', brand: 'Carrier', line: 'DMA Series',
+                    price: 0, code: 'Q012', brand: 'Carrier', line: 'DMA Series',
                     images: getProductImages({ model: '53QDMA6T60N-528', brand: 'Carrier' }) }
             ];
 
-            // ===== Media products — with special images for M1SABT-30HRDNF-Q8 =====
+            // ===== Media products — تم إزالة الأسعار =====
             const mediaProducts = [
                 { model: 'M1SEFT-12CRDN8F-Q8', name: 'AI ECO MASTER Inverter', refrigerant: 'R-32', application: 'CO',
-                    hp: '1.5', price: 27525, code: 'M001', brand: 'Media', line: 'AI ECO MASTER Inverter',
+                    hp: '1.5', price: 0, code: 'M001', brand: 'Media', line: 'AI ECO MASTER Inverter',
                     images: getProductImages({ model: 'M1SEFT-12CRDN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-18CRDN8F-Q8', name: 'AI ECO MASTER Inverter', refrigerant: 'R-32', application: 'CO',
-                    hp: '2.5', price: 40510, code: 'M002', brand: 'Media', line: 'AI ECO MASTER Inverter',
+                    hp: '2.5', price: 0, code: 'M002', brand: 'Media', line: 'AI ECO MASTER Inverter',
                     images: getProductImages({ model: 'M1SEFT-18CRDN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-24CRDN8F-Q8', name: 'AI ECO MASTER Inverter', refrigerant: 'R-32', application: 'CO',
-                    hp: '3', price: 46050, code: 'M003', brand: 'Media', line: 'AI ECO MASTER Inverter',
+                    hp: '3', price: 0, code: 'M003', brand: 'Media', line: 'AI ECO MASTER Inverter',
                     images: getProductImages({ model: 'M1SEFT-24CRDN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-12HRDN8F-Q8', name: 'AI ECO MASTER Inverter', refrigerant: 'R-32', application: 'HP',
-                    hp: '1.5', price: 29990, code: 'M004', brand: 'Media', line: 'AI ECO MASTER Inverter',
+                    hp: '1.5', price: 0, code: 'M004', brand: 'Media', line: 'AI ECO MASTER Inverter',
                     images: getProductImages({ model: 'M1SEFT-12HRDN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-18HRDN8F-Q8', name: 'AI ECO MASTER Inverter', refrigerant: 'R-32', application: 'HP',
-                    hp: '2.5', price: 43815, code: 'M005', brand: 'Media', line: 'AI ECO MASTER Inverter',
+                    hp: '2.5', price: 0, code: 'M005', brand: 'Media', line: 'AI ECO MASTER Inverter',
                     images: getProductImages({ model: 'M1SEFT-18HRDN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-24HRDN8F-Q8', name: 'AI ECO MASTER Inverter', refrigerant: 'R-32', application: 'HP',
-                    hp: '3', price: 49800, code: 'M006', brand: 'Media', line: 'AI ECO MASTER Inverter',
+                    hp: '3', price: 0, code: 'M006', brand: 'Media', line: 'AI ECO MASTER Inverter',
                     images: getProductImages({ model: 'M1SEFT-24HRDN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SABT-30HRDNF-Q8', name: 'Mission Inverter', refrigerant: 'R410A', application: 'HP', hp: '4',
-                    price: 78725, code: 'M007', brand: 'Media', line: 'Mission Inverter',
+                    price: 0, code: 'M007', brand: 'Media', line: 'Mission Inverter',
                     images: getProductImages({ model: 'M1SABT-30HRDNF-Q8', brand: 'Media' }) },
                 { model: 'M1SABT-36HRDNF-Q8', name: 'Mission Inverter', refrigerant: 'R410A', application: 'HP', hp: '5',
-                    price: 90495, code: 'M008', brand: 'Media', line: 'Mission Inverter',
+                    price: 0, code: 'M008', brand: 'Media', line: 'Mission Inverter',
                     images: getProductImages({ model: 'M1SABT-36HRDNF-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-12CRN8F-Q8', name: 'XtreamPro NEW', refrigerant: 'R-32', application: 'CO', hp: '1.5',
-                    price: 23430, code: 'M009', brand: 'Media', line: 'XtreamPro NEW',
+                    price: 0, code: 'M009', brand: 'Media', line: 'XtreamPro NEW',
                     images: getProductImages({ model: 'M1SEFT-12CRN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-18CRN8F-Q8', name: 'XtreamPro NEW', refrigerant: 'R-32', application: 'CO', hp: '2.5',
-                    price: 35210, code: 'M010', brand: 'Media', line: 'XtreamPro NEW',
+                    price: 0, code: 'M010', brand: 'Media', line: 'XtreamPro NEW',
                     images: getProductImages({ model: 'M1SEFT-18CRN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-24CRN8F-Q8', name: 'XtreamPro NEW', refrigerant: 'R-32', application: 'CO', hp: '3',
-                    price: 43160, code: 'M011', brand: 'Media', line: 'XtreamPro NEW',
+                    price: 0, code: 'M011', brand: 'Media', line: 'XtreamPro NEW',
                     images: getProductImages({ model: 'M1SEFT-24CRN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-12HRN8F-Q8', name: 'XtreamPro NEW', refrigerant: 'R-32', application: 'HP', hp: '1.5',
-                    price: 25435, code: 'M012', brand: 'Media', line: 'XtreamPro NEW',
+                    price: 0, code: 'M012', brand: 'Media', line: 'XtreamPro NEW',
                     images: getProductImages({ model: 'M1SEFT-12HRN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-18HRN8F-Q8', name: 'XtreamPro NEW', refrigerant: 'R-32', application: 'HP', hp: '2.5',
-                    price: 38670, code: 'M013', brand: 'Media', line: 'XtreamPro NEW',
+                    price: 0, code: 'M013', brand: 'Media', line: 'XtreamPro NEW',
                     images: getProductImages({ model: 'M1SEFT-18HRN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SEFT-24HRN8F-Q8', name: 'XtreamPro NEW', refrigerant: 'R-32', application: 'HP', hp: '3',
-                    price: 46350, code: 'M014', brand: 'Media', line: 'XtreamPro NEW',
+                    price: 0, code: 'M014', brand: 'Media', line: 'XtreamPro NEW',
                     images: getProductImages({ model: 'M1SEFT-24HRN8F-Q8', brand: 'Media' }) },
                 { model: 'M1SCT-12CRN-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'CO', hp: '1.5',
-                    price: 23430, code: 'M015', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M015', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SCT-12CRN-Q8', brand: 'Media' }) },
                 { model: 'M1SCT-18CRN-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'CO', hp: '2.5',
-                    price: 34595, code: 'M016', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M016', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SCT-18CRN-Q8', brand: 'Media' }) },
                 { model: 'M1SCT-24CRN-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'CO', hp: '3',
-                    price: 42345, code: 'M017', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M017', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SCT-24CRN-Q8', brand: 'Media' }) },
                 { model: 'M1SCT-12HRNF-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'HP', hp: '1.5',
-                    price: 25435, code: 'M018', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M018', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SCT-12HRNF-Q8', brand: 'Media' }) },
                 { model: 'M1SCT-18HRNF-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'HP', hp: '2.5',
-                    price: 38060, code: 'M019', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M019', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SCT-18HRNF-Q8', brand: 'Media' }) },
                 { model: 'M1SCT-24HRNF-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'HP', hp: '3',
-                    price: 45535, code: 'M020', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M020', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SCT-24HRNF-Q8', brand: 'Media' }) },
                 { model: 'M1SABT-30HRNF-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'HP', hp: '4',
-                    price: 70235, code: 'M021', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M021', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SABT-30HRNF-Q8', brand: 'Media' }) },
                 { model: 'M1SABT-36HRNF-Q8', name: 'Mission Pro', refrigerant: 'R410A', application: 'HP', hp: '5',
-                    price: 80690, code: 'M022', brand: 'Media', line: 'Mission Pro',
+                    price: 0, code: 'M022', brand: 'Media', line: 'Mission Pro',
                     images: getProductImages({ model: 'M1SABT-36HRNF-Q8', brand: 'Media' }) }
             ];
 
@@ -5733,6 +5863,7 @@
                     card.dataset.index = allProducts.indexOf(p);
                     const mainImg = p.images && p.images.length > 0 ? p.images[0] :
                         'https://i.postimg.cc/7Lc4HxN4/ac-unit.jpg';
+                    // تم إزالة السعر من البطاقة
                     card.innerHTML = `
                         <span class="corner-accent tl"></span>
                         <span class="corner-accent br"></span>
@@ -5749,7 +5880,6 @@
                             <span class="spec-dot"></span>
                             <span>${p.hp} HP</span>
                         </div>
-                        <div class="ap-price">${p.price.toLocaleString()} <span class="currency">EGP</span></div>
                         <div class="ap-actions">
                             <button class="ap-view-btn" data-index="${allProducts.indexOf(p)}">عرض المنتج</button>
                             <button class="ap-order-btn" data-index="${allProducts.indexOf(p)}">طلب</button>
@@ -5802,12 +5932,13 @@
                     return match;
                 });
 
+                // ترتيب حسب السعر لا يعمل لأن الأسعار صفر، نستخدم hp كبديل
                 switch (sort) {
                     case 'price-asc':
-                        filtered.sort((a, b) => a.price - b.price);
+                        filtered.sort((a, b) => parseFloat(a.hp) - parseFloat(b.hp));
                         break;
                     case 'price-desc':
-                        filtered.sort((a, b) => b.price - a.price);
+                        filtered.sort((a, b) => parseFloat(b.hp) - parseFloat(a.hp));
                         break;
                     case 'hp-asc':
                         filtered.sort((a, b) => parseFloat(a.hp) - parseFloat(b.hp));
@@ -5906,7 +6037,7 @@
                     <div class="spec-item"><span class="spec-label">Horse Power</span><span class="spec-value">${p.hp} HP</span></div>
                     <div class="spec-item"><span class="spec-label">Product Line</span><span class="spec-value">${p.line}</span></div>
                 `;
-                diPrice.innerHTML = `${p.price.toLocaleString()} <span class="currency">EGP</span>`;
+                diPrice.innerHTML = ''; // إزالة السعر
                 diCode.textContent = `Rakwat Code: ${p.code}`;
 
                 diFeatures.innerHTML = `
@@ -5982,7 +6113,7 @@
                     whatsapp: '201002685262',
                     model: p.model,
                     code: p.code,
-                    price: p.price
+                    price: 0
                 };
                 orderQuantity = 1;
                 updateQtyDisplay();
@@ -5990,7 +6121,7 @@
                 let summaryHtml = `<strong>${p.brand} ${p.name}</strong><br>`;
                 summaryHtml += `الموديل: ${p.model}<br>`;
                 summaryHtml += `القدرة: ${p.hp} HP<br>`;
-                summaryHtml += `السعر: ${p.price.toLocaleString()} EGP<br>`;
+                // تم إزالة السعر
                 if (p.code) summaryHtml += `كود المنتج: ${p.code}<br>`;
                 summaryHtml += `<span style="font-size:0.75rem;opacity:0.5;">الكمية: <span id="order-qty-display">1</span></span>`;
                 orderSummary.innerHTML = summaryHtml;
@@ -6207,7 +6338,6 @@
                                 <th class="category-header">الموديل</th>
                                 <th class="category-header">المقاس</th>
                                 <th class="category-header">المواصفات</th>
-                                <th class="category-header">السعر (قبل الضريبة)</th>
                                 <th class="category-header">كود الطلب</th>
                             </tr>
                         </thead>
@@ -6219,7 +6349,6 @@
                         <td>${p.model}</td>
                         <td>${p.size}</td>
                         <td>${p.spec}</td>
-                        <td class="price">${p.price.toLocaleString()}</td>
                         <td>${p.code}</td>
                     </tr>`;
                 });
@@ -6379,27 +6508,30 @@
                 const productMap = {
                     dababa: {
                         name: 'كابو الدبابه',
-                        image: 'https://i.postimg.cc/Y0yrYkHM/image.png',
+                        image: 'https://i.postimg.cc/ZqxHmrPZ/133e234d-d31c-4dc8-9185-3c5b0bf9b7ff.jpg',
                         hp: '1.5 – 2 – 3 حصان',
-                        whatsapp: '201002685262'
+                        whatsapp: '201002685262',
+                        price: 1000
                     },
                     gumbo: {
                         name: 'كابو الجمبو',
-                        image: 'https://i.postimg.cc/P5MtQmh2/image.png',
+                        image: 'https://i.postimg.cc/yd7f3f6n/2018-nseries-ext-gal-g02.avif',
                         hp: '4 – 7 حصان',
-                        whatsapp: '201002685262'
+                        whatsapp: '201002685262',
+                        price: 1200
                     }
                 };
                 const prod = productMap[productId];
                 if (!prod) return;
 
                 currentOrderProduct = { id: productId, name: prod.name, image: prod.image, hp: prod.hp, whatsapp: prod
-                        .whatsapp };
+                        .whatsapp, price: prod.price };
                 orderQuantity = 1;
                 updateQtyDisplay();
 
                 let summaryHtml = `<strong>${prod.name}</strong><br>`;
                 summaryHtml += `القدرة: ${prod.hp}<br>`;
+                summaryHtml += `السعر: ${prod.price.toLocaleString()} جنيه<br>`;
                 summaryHtml += `<span style="font-size:0.75rem;opacity:0.5;">الكمية: <span id="order-qty-display">1</span></span>`;
                 orderSummary.innerHTML = summaryHtml;
 
@@ -6477,7 +6609,7 @@
                 if (currentOrderProduct.hp) msg += `القدرة: ${currentOrderProduct.hp}\n`;
                 if (currentOrderProduct.model) msg += `الموديل: ${currentOrderProduct.model}\n`;
                 if (currentOrderProduct.code) msg += `كود المنتج: ${currentOrderProduct.code}\n`;
-                if (currentOrderProduct.price) msg += `السعر: ${currentOrderProduct.price.toLocaleString()} EGP\n`;
+                if (currentOrderProduct.price) msg += `السعر: ${currentOrderProduct.price.toLocaleString()} جنيه\n`;
                 msg += `الكمية: ${qty}`;
 
                 const encodedMsg = encodeURIComponent(msg);
@@ -6580,6 +6712,11 @@
             console.log('NAELEE | نظام الرجوع يعمل خطوة بخطوة مع الحفاظ على الحالة الفرعية.');
             console.log('NAELEE | التصميم الأبيض (Light Theme) مطبق على الأقسام الداخلية.');
             console.log('NAELEE | جميع المنتجات والبيانات محفوظة كما هي.');
+            console.log('NAELEE | تم إزالة جميع الأسعار من منتجات التكييف وجداولها.');
+            console.log('NAELEE | تم إضافة سعر كابو (1000 و 1200) بخط كبير وواضح.');
+            console.log('NAELEE | تم تغيير كل نصوص كابو إلى اللون الأسود.');
+            console.log('NAELEE | تم إضافة "سعر المستخدم النهائي" بجانب السعر.');
+            console.log('NAELEE | تم تحديث صور كابو الدبابه وكابو الجمبو.');
         })();
     </script>
 </body>
