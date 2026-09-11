@@ -5050,7 +5050,10 @@
                     return;
                 }
                 const last = navStack.length > 0 ? navStack[navStack.length - 1] : null;
-                if (last && last.type === state.type && last.id === state.id) return;
+                const sameState = last && last.type === state.type && last.id === state.id &&
+                    last.sub === state.sub && last.category === state.category &&
+                    last.productIndex === state.productIndex;
+                if (sameState) return;
                 navStack.push(state);
                 if (navStack.length > 20) navStack.shift();
                 const url = new URL(window.location);
@@ -6426,18 +6429,6 @@
 
             document.getElementById('brand-kapo').addEventListener('click', showKapoProducts);
             document.getElementById('brand-danfoss').addEventListener('click', showDanfossProducts);
-            if (backKapo3) {
-                backKapo3.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    popNav(true);
-                });
-            }
-            if (backDanfoss3) {
-                backDanfoss3.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    popNav(true);
-                });
-            }
 
             document.querySelectorAll('.danfoss-card').forEach(card => {
                 card.addEventListener('click', function(e) {
@@ -6549,13 +6540,6 @@
                     e.stopPropagation();
                     const productId = this.dataset.product;
                     if (productId) openKapoOrder(productId);
-                });
-            });
-
-            document.querySelectorAll('.kapo-back-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    popNav(true);
                 });
             });
 
